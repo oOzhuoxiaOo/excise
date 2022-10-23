@@ -1,0 +1,20 @@
+body {
+  background-color: #404040;
+}
+div {
+  border: 10px solid #fff;
+  background-color: purple;
+  font-size: 14px;
+  width: 250px;
+  height: 150px;
+}
+div a {
+  display: block;
+  width: 3.52rem;
+  height: 3.52rem;
+  color: red;
+  background-color: #191919;
+}
+div a:hover {
+  color: blue;
+}

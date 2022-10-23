@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../IconFont/IconFont-0/iconfont.css">
+    <link rel="stylesheet" href="../css/iconFontBase.css">
+    <title>Document</title>
+    <style>
+        div {
+            width: 600px;
+
+        }
+        .message {
+            display: inline-block;
+            font-size: 12px;
+            color:rgb(0, 0, 0);
+            background:url(../../../Image/Gif-0001.gif) no-repeat left center;
+            background-size: 20px;
+            padding-left: 20px;
+        }
+        .wrong {
+            color:red;
+            background-image: url(../../../Image/Gif-0002.gif);
+        }
+        .right {
+            color: green;
+            background-image: url(../../../Image/Pz-0005.png);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register">
+        <input type="password" name="" class="ipt">
+        <p class="message">请输入6-16位密码</p>
+    </div>
+    <script>
+        // 控制样式
+        // 1.获取元素
+        var ipt = document.querySelector('.ipt');
+        var message = document.querySelector('.message');
+        // 2.注册事件 处理程序 失去焦点
+        ipt.onblur = function() {
+            // 根据表单里面的长度 lpt.value.length
+            if(this.value.length <6 || this.value.length > 16) {
+                console.log('error');
+                message.className = 'message wrong';
+                message.innerHTML  = '您输入的位数不对 要求6-16位';
+            } else {
+                message.className = 'message right';
+                message.innerHTML = '您输入的正确';
+            }
+        }
+        // 3.
+    </script>
+</body>
+
+</html>

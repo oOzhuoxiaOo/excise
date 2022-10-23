@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .lunbotu {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            /* border: solid red; */
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .list_lunbotu {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 500%;
+            height: 400px;
+            background-color: rgb(183, 148, 148);
+        }
+
+        .list_lunbotu li {
+            float: left;
+            width: 20%;
+            height: 400px;
+        }
+
+        /* .lunbotu .list_lunbotu li:nth-child(1) {
+        } */
+        .lt_lbt_one {
+            background: url(/Image/Wp-0001.jpg) center / cover;
+        }
+
+        .lunbotu .list_lunbotu li:nth-child(2) {
+            background: url(/Image/Wp-0002.jpg) center / cover;
+        }
+
+        .lunbotu .list_lunbotu li:nth-child(3) {
+            background: url(/Image/Wp-0003.jpg) center / cover;
+        }
+
+        .lunbotu .list_lunbotu li:nth-child(4) {
+            background: url(/Image/Wp-0004.jpg) center / cover;
+        }
+
+        .btn_left,
+        .btn_right {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            top: 50%;
+            background-color: rgb(220, 86, 86);
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        .btn_left {
+            display: none;
+            left: 5px;
+            transform: translateY(-50%);
+            opacity: 0.7;
+        }
+
+        .btn_right {
+            display: none;
+            right: 5px;
+            transform: translateY(-50%);
+            opacity: 0.7;
+        }
+
+        .list_circle {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+            bottom: 10%;
+            height: 20px;
+            background-color: rgb(214, 163, 163);
+        }
+
+        .list_circle li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="../封装函数/animate.js"></script>
+</head>
+
+<body>
+    <div class="lunbotu">
+        <ul class="list_lunbotu">
+            <li class="lt_lbt_one"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="btn_left">左移</div>
+        <div class="btn_right">右移</div>
+        <div class="list_circle"></div>
+    </div>
+    <script>
+        let btn_left = document.querySelector('.btn_left');
+        let btn_right = document.querySelector('.btn_right');
+        let list_lunbotu = document.querySelector('.list_lunbotu');
+        let lunbotu = document.querySelector('.lunbotu');
+
+        // 定时器初始化
+        lunbotu.addEventListener('mouseover', function () {
+            btn_left.style.display = 'block';
+            btn_right.style.display = 'block';
+            clearInterval(timer);
+        })
+        lunbotu.addEventListener('mouseout', function () {
+            btn_left.style.display = 'none';
+            btn_right.style.display = 'none';
+            // ⭐⭐定时器
+            timer = setInterval(function () {
+                // 开启右按钮事件
+                btn_right.click();
+            }, 2000);
+        })
+        // 位移索引(此处-5~1)
+        let xleft = 0;
+        // 克隆第一个图 并且放到轮播图列表的最后
+        let clone_picture = list_lunbotu.children[0].cloneNode();
+        list_lunbotu.appendChild(clone_picture);
+
+        //  💧轮播点
+        // 设置轮播点数，根据轮播图数（不加克隆的那张）
+        let list_circle = document.querySelector('.list_circle');
+        for (let i = 0; i < list_lunbotu.children.length - 1; i++) {
+            let li_circle = document.createElement('li');
+            list_circle.appendChild(li_circle);
+        }
+
+        // 给每个轮播点添加自定义属性index索引 和事件
+        // 先初始化第一个小原点
+        list_circle.children[0].style.backgroundColor = 'purple';
+        for (let i = 0; i < list_circle.children.length; i++) {
+            list_circle.children[i].setAttribute('date-index', i);
+            list_circle.children[i].addEventListener('click', function () {
+                // 初始化所有圆点li背景色
+                for (let j = 0; j < list_circle.children.length; j++) {
+                    list_circle.children[j].style.backgroundColor = '#fff';
+                }
+                //设置指定li背景色
+                this.style.backgroundColor = 'purple';
+                // 获得点击小圆点的索引值
+                let c_index = this.getAttribute('date-index');
+                console.log(c_index);
+                // 修改位移索引 并且点击小圆点发生对应位移
+                xleft = - c_index;
+                animate(list_lunbotu, 600 * xleft);
+            })
+        }
+
+        // ⭐左右按钮
+        // 左按钮 
+        let flag = true;
+        // 节流阀 当连续点击右按钮时 上一个没有哦执行完毕 下一个不会执行
+        btn_left.addEventListener('click', function () {
+            if (flag) {
+                flag = false;
+                xleft++;
+                // 位于第一图位时点击左按钮 xleft由0变为1 
+                // 此时需要让克隆图一帧覆盖原图并且向左平移 达到骗术 
+                if (xleft == 1) {
+                    // 克隆图一帧覆盖原图
+                    xleft = - (list_lunbotu.children.length - 1);
+                    list_lunbotu.style.left = `${600 * xleft}px`;
+                    // 再xleft++平移达到骗术
+                    xleft++;
+                }
+                console.log(xleft);
+                animate(list_lunbotu, 600 * xleft, function () {
+                    flag = true;
+                });
+
+                // 📕
+                // 通过按钮 和小圆点交互
+                // 初始化所有圆点li背景色
+                for (let j = 0; j < list_circle.children.length; j++) {
+                    list_circle.children[j].style.backgroundColor = '#fff';
+                }
+                // 设置对应图和圆点索引
+                let xc_index = -xleft;
+                if (xc_index == 4) {
+                    xc_index = 0;
+                }
+                //设置指定li背景色
+                list_circle.children[xc_index].style.backgroundColor = 'purple';
+            }
+        })
+
+        // 右按钮
+        btn_right.addEventListener('click', function () {
+            if (flag) {
+                flag = false;
+                xleft--;
+                // 位于克隆图位时点击右按钮 xleft变为-5 
+                // 此时需要让第一张图一帧覆盖克隆图并且向右平移 达到骗术 
+                if (xleft == - list_lunbotu.children.length) {
+                    // 第一张图一帧覆盖克隆图
+                    xleft = 0;
+                    list_lunbotu.style.left = `${600 * xleft}px`;
+                    // 再xleft--平移达到骗术
+                    xleft--;
+                }
+                console.log(xleft);
+                animate(list_lunbotu, 600 * xleft, function () {
+                    flag = true;
+                });
+
+                // 📕
+                // 通过按钮 和小圆点交互
+                // 初始化所有圆点li背景色
+                for (let j = 0; j < list_circle.children.length; j++) {
+                    list_circle.children[j].style.backgroundColor = '#fff';
+                }
+                // 设置对应图和圆点索引
+                let xc_index = -xleft;
+                if (xc_index == 4) {
+                    xc_index = 0;
+                }
+                //设置指定li背景色
+                list_circle.children[xc_index].style.backgroundColor = 'purple';
+            }
+        })
+        // ⭐⭐定时器
+        let timer = setInterval(function () {
+            // 开启右按钮事件
+            btn_right.click();
+        }, 2000);
+    </script>
+</body>
+
+</html>

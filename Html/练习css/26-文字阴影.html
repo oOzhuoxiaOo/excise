@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            /*😀盒子阴影不影响盒子之间排列关系，是独立的 */
+            width: 200px;
+            height: 200px;
+            background-color:violet;
+            /* 👇分别是h：x轴位置，v：y轴位置---此二必写,其他默认，
+            blur：羽化程度，*/
+            box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, .3);
+
+        }
+  
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

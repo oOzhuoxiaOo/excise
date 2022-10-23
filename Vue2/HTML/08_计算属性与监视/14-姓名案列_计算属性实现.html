@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性实现姓名案列</title>
+    <!-- 引入Vue -->
+    <script src="../../JS/vue.js"></script>
+    <script type="text/javascript">Vue.config.productionTip = false;//阻止Vue 在启动时产生生产提示 </script>
+    <style>
+        body {
+            font-size: 20px;
+        }
+        span {
+            border:solid;
+        }
+        .require {
+            background-color: rgb(156, 152, 152);
+            /* color: aliceblue; */
+        }
+    </style>
+</head>
+
+<body>
+        <!-- 
+        📕计算属性
+            1.定义:要使用的属性不存在，要通过已有属性计算得来
+            2.原理:底层借助了Object.defineproperty方法提供的getter和setter
+            3.get函数什么时候执行?
+                (1).初次读取时会执行一次.
+                (2).当依赖的数据发生变化时会再次被调用.
+            4.优势:与methods实现相比，内部有缓存机制(复用),效率更高，调试方便(Vue调试工具中有)
+            5..备注:
+                1.计算属性最终会出现在vm身上,直接读取使用即可
+                2.如果计算属性要被修改，那必须写get函数去响应修改。且set中要引起计算时依赖的数据(属性)发生改变
+                3.vm._data中无计算属性
+                4.更多情况下，计算属性是不修改的，也就是不需要setter
+     -->
+
+     <!-- 准备好一个容器 -->
+    <div id="root">
+        <div class="require">
+            <h2>需求:</h2>
+            <h4>1.每次输入姓和名会同步到全名</h3>
+            <h4>2.全名中,姓最多显示三个字</h4>
+        </div>
+        <h2>3.使用计算属性实现姓名案列</h2>
+        <!-- 通过 v-model双向绑定value数据 -->
+        请输入姓 <input type="text" v-model="firstName"><br><br>
+        请输入名 <input type="text" v-model="lastName"><br><br>
+        全名:<span>{{fullName}}</span>
+        <!-- 缓存，计算属性只被调用了一次，被缓存了 -->
+        全名:<span>{{fullName}}</span>
+        全名:<span>{{fullName}}</span>
+    </div>
+
+    <script>
+        // 创建Vue实例
+        const vm = new Vue({
+            el:'#root',
+            data:{
+                firstName:'夏',
+                lastName:'娜',
+            },
+            // 计算属性
+            computed:{
+                // Vue做了一个事，把this指向了vm
+                // Vue自动读取了geter 把返回值给了vm身上的fullName
+                fullName:{
+                    // get有什么用？有人读取fullname时，get就会被调用，且返回值就作为fullName的值
+                    // get什么时候调用?1.初次读取fullName时。2.所依赖的数据发生改变时(Vue做了一个事，监听自己所监管的属性变化，使之读取计算属性)
+                    get(){
+                        console.log('fullName被读取了一次');
+                        console.log('this指向',this)
+                        return this.firstName + '-' + this.lastName;
+                    },
+                    // get什么时候调用，当fullName被修改时
+                    // value为修改的值
+                    set(value){
+                        const arr = value.split('-');
+                        this.firstName = arr[0];
+                        this.lastName = arr[1];
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

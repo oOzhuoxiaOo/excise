@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin:0;
+        }
+        .box {
+            /* position: relative; */
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+            margin:100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        // 鼠标在盒子内相对盒子的坐标
+        var box = document.querySelector('.box');
+        box.addEventListener('mousemove',function(e) {
+            // console.log(e.pageX);
+            // console.log(e.pageY);
+            // console.log(box.offsetLeft);
+            // console.log(box.offsetTop);
+            // 用鼠标的位置减去 盒子的位置
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+            this.innerHTML = 'X坐标是' + x + 'Y坐标是' + y ;
+        })
+    </script>
+</body>
+</html>

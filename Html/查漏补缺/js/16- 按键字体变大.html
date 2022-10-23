@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        input {
+            width: 100%;
+            height: 30px;
+            /* input具有边框 */
+            /* border: 0; */
+        }
+        .box {
+            position: relative;
+            background-color: aqua;
+            width: 300px;
+            height: 600px;
+            margin: 0 auto;
+        }
+        .big {
+            display: none;
+            height: 100px;
+            background-color: rgb(236, 123, 123);
+            font-size: 50px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="text" placeholder="搜索">
+        <div class="big"></div>
+    </div>
+    <script>
+        let body = document.querySelector('body');
+        let input = document.querySelector('input');
+        let big = document.querySelector('.big');
+        // ⭐
+        // document输入按键input获得焦点
+        document.addEventListener('keypress',function(){
+            input.focus();
+        })
+        // ⭐⭐
+        // input获得焦点时body变暗
+        input.addEventListener('focus',function(){
+            body.style.background = 'rgb(0,0,0,.7)';
+        })
+        // input失去焦点时body变亮
+        input.addEventListener('blur',function(){
+            body.style.background = '';
+        })
+        // ⭐⭐⭐
+        // 鼠标弹起同步input big值
+        document.addEventListener('keyup',function(){
+            big.innerHTML = input.value;
+            // 如果按键弹起时input的value有值 则为block 否则none
+            if(input.value != ''){
+                big.style.display = 'block';
+            } else {
+                big.style.display = 'none';
+            }
+        })
+    </script>
+</body>
+</html>

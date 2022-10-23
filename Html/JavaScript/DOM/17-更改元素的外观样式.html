@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../IconFont/IconFont-0/iconfont.css">
+    <link rel="stylesheet" href="../css/iconFontBase.css">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(158, 158, 158);
+        }
+        .change {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        // 控制样式
+        // 1.获取元素
+        var box = document.querySelector('.box');
+        // 2.注册事件 处理程序 
+        box.onclick =  function(){
+            // 样式较少 简单的用这个
+            // box.style.backgroundColor = 'purple';
+            // 让我们当前元素的类名box改为了change 也就是覆盖了box
+
+            // 2.我们可以通过元素的className更改元素的样式  
+            // 适用于样式或者功能复杂的情况
+            // 3.如果想要保留原先的类型 我们可以这么做 多类型选择器
+            this.className = 'box change';
+        }
+
+
+        // 3.
+    </script>
+</body>
+
+</html>

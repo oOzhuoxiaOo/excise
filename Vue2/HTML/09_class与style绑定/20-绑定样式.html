@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 引入Vue -->
+    <script src="../../JS/vue.js"></script>
+    <script type="text/javascript">Vue.config.productionTip = false;//阻止Vue 在启动时产生生产提示 </script>
+    <style>
+        .base {
+            width: 200px;
+            height: 200px;
+            border: solid;
+        }
+        .normal {
+            background-color: rgb(15, 15, 15);
+        }
+        .happy {
+            background-color: rgb(115, 11, 11);
+        }
+        .sad {
+            background-color: green;
+        }
+        .bor {
+            border: solid 5px red;
+        }
+        .font {
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+        <!-- 
+        📕绑定样式
+            1.绑定class样式--字符串写法，适用于：要绑定的样式个数确定为一个,样式的类名不确定，需要动态指定
+            2.绑定class样式--数组写法，适用于：要绑定的样式个数不确定、名字也不确定
+            3.绑定class--对象写法，适用于：要绑定的样式个数确定、名字确定、但要动态决定用不用
+     -->
+
+     <!-- 准备好一个容器 -->
+    <div id="root">
+        <h1>Hello {{name}}</h1>
+        <!-- 绑定class样式--字符串写法，适用于：样式的类名不确定，需要动态指定 -->
+        <div class="base" :class="sad"></div>
+        <!-- 绑定class样式--数组写法，适用于：要绑定的样式个数不确定、名字也不确定 -->
+        <div class="base" :class="classNames" @click="change">111</div>
+        <!-- 绑定class--对象写法，适用于：要绑定的样式个数确定、名字确定、但要动态决定用不用---->
+        <div class="base" :class="classObj">222</div>
+    </div>
+
+    <script>
+        // 创建Vue实例
+        const vm = new Vue({
+            el:'#root',
+            data:{
+                name:'xiana',
+                happy:'happy',
+                sad:'sad',
+                classNames:['happy','bor'],
+                classObj:{
+                    happy:true,
+                    bor:true
+                }
+            },
+            methods:{
+                change(){
+                    this.classNames.push('font');
+                    this.classNames.splice(0,1);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

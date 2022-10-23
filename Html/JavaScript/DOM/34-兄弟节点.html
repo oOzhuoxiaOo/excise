@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div>我是div</div>
+    <span>我是span</span>
+    <script>
+        var div = document.querySelector('div');
+        // 1.nextSibling得到的下一i个兄弟节点 包含文本节点和元素节点
+        // ⭐有兼容性问题
+        console.log(div.nextSibling);//如果没有后一个节点 返回null
+        console.log(div.previousSibling);
+        // 2.div.nextElementSibling得到下一个兄弟元素节点
+        // ⭐有兼容性问题
+        console.log(div.nextElementSibling);//span 
+        console.log(div.previousElementSibling); //null没有兄弟
+    </script>
+</body>
+
+</html>

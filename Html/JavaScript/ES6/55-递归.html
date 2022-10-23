@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 递归函数 自己调用自己 需要退出条件
+        function fn() {
+            console.log('我要打印六句话');
+            if(n >= 6) {
+                return;
+            }
+            n++;
+            fn();
+        }
+        let n = 1;
+        fn();
+    </script>
+</body>
+</html>

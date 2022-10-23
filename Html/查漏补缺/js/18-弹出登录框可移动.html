@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .login {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 400px;
+            height: 300px;
+            background-color: rgb(135, 135, 135);
+        }
+        .login-head {
+            height: 50px;
+            background-color: rgb(220, 114, 38);
+        }
+        .close {
+            position: absolute;
+            top: 0;
+            right:0;
+            padding: 2px;
+            background-color: rgb(213, 26, 26);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button>登录</button>
+    <div class="login">
+        <div class="login-head">
+            <div class="close" title="关闭">X</div>
+        </div>
+    </div>
+    <script>
+        let btn = document.querySelector('button');
+        let close = document.querySelector('.close');
+        let login = document.querySelector('.login');
+        let login_head = document.querySelector('.login-head');
+        // 点击事件（鼠标按下并且弹起）：点击按钮让login显现 并且设置初始位置
+        btn.addEventListener('click',function(){
+            login.style.display = 'block';
+            login.style.top = '50%';
+            login.style.left = '50%';
+        })
+        // 点击事件：login的关闭按钮 点击关闭
+        close.addEventListener('click',function(){
+            login.style.display = 'none';
+        })
+        // 按下事件（鼠标按下）:鼠标按下移动框时触发 
+        login_head.addEventListener('mousedown',function(e){
+            // let x = e.pageX 
+            // 获取初始值 ：鼠标在盒子内相对左/上边框的位置 
+            // 目的是让offsetLeft(通过设置left)随着 <page - 初始值> 动态变化 
+                let x =  e.pageX - login.offsetLeft;
+                let y =  e.pageY - login.offsetTop;
+                // 移动函数 
+                // 目的是让offsetLeft(通过设置left)随着 <page - 初始值> 动态变化 
+            function movefn(k) {
+                login.style.left = `${k.pageX - x}px`;
+                login.style.top = `${k.pageY - y}px`;
+            }
+            // 鼠标移动事件
+            document.addEventListener('mousemove',movefn);
+            // 鼠标松开 移除移动事件
+            document.addEventListener('mouseup',function(){
+                document.removeEventListener('mousemove',movefn);
+            })
+        })
+
+    </script>
+</body>
+</html>

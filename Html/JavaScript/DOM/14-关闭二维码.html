@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../IconFont/IconFont-0/iconfont.css">
+    <link rel="stylesheet" href="../css/iconFontBase.css">
+    <title>Document</title>
+    <style>
+        .box1 {
+            background-color: rgb(218, 181, 181);
+            position: relative;
+            width: 300px;
+        }
+        img {
+            width: 300px;
+        }
+        i {
+            position: absolute;
+            top: 0px;
+            right:10px;
+            font-size:36px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <i class="close-btn">x</i>
+        <img src="../../../Image/Pz-0011.jpg" alt="">
+    </div>
+    <script>
+        // 控制样式
+        // 1.获取元素
+        var btn = document.querySelector('.close-btn');
+        var box = document.querySelector('.box1');
+        // 2.注册事件 处理程序
+        btn.onclick = function() {
+            box.style.display = 'none';
+        }
+
+
+        // 3.
+    </script>
+</body>
+
+</html>

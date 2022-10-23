@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <div class="aaa">
+            <div class="bbb"></div>
+            <div class="bbb"></div>
+            <div class="bbb"></div>
+            <div class="bbb"></div>
+        </div>
+    </div>
+    <script>
+        let box = document.querySelector('.box');
+        console.log(box);
+        // box.的意思是box里所有的.bbb，包括儿子孙子
+        let www = box.querySelectorAll('.bbb');
+        console.log(www);
+    </script>
+</body>
+</html>

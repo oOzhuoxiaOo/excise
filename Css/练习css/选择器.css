@@ -1,0 +1,35 @@
+/* 标签选择器 */
+/* 选择标签名 */
+/* 缺点：不能差异化样式 */
+p {
+    font-size: 30px;
+}
+
+/* 类选择器 */
+/* 能差异化样式 */
+.header-color {
+    color:hotpink;
+}
+.font-size-20px {
+    font-size:20px;
+}
+
+/* 做3个小盒子 */
+.red{
+    background-color:brown;
+}
+.green {
+    background-color:green;
+}
+.box {
+    width: 100px;
+    height: 100px;
+}
+
+
+/* id选择器 */
+
+#xiana {
+    color:red;
+    font-size:30px;
+}

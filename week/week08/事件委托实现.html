@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: rgb(194, 241, 209);
+            font-size: 26px;
+        }
+        td {
+            border: solid 3px black;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+        }
+        .result {
+            width: 400px;
+            height: 300px;
+            background-color: rgb(0, 0, 0);
+            color: aliceblue;
+            margin: 15px auto;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <div class="result">
+        <h2>结果查询</h2>
+        <ol>
+        </ol>
+    </div>
+
+    <script>
+        let rd = Math.floor(Math.random()*9);
+        console.log(`随机数为${rd}`)
+        let table = document.querySelector('table');
+        let tds = document.querySelectorAll('td');
+        let ol = document.querySelector('.result ol');
+        let k = 0;
+        tds.forEach((val,index)=>{
+            val.index = index;//给每个td添加自定义属性index[0-8]
+        })
+        function isTrue(parame){
+            let li = document.createElement('li');
+            li.innerText = parame === 0 ? `这是第${k++}次点击😭`: `这是第${k++}次点击😀`;
+            ol.appendChild(li);
+        }
+        function btnClick(e) {
+            console.log(e.target);
+            if(e.target.index !== rd) {
+                e.target.innerText = 'Miss';
+                isTrue(0);
+            } else {
+                e.target.innerText = '😀'
+                this.removeEventListener('click',btnClick);
+                isTrue(1);
+            }
+        }
+        table.addEventListener('click',btnClick)
+    </script>
+</body>
+</html>

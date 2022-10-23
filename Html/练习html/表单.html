@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+    <title>表单</title>
+    <link rel="stylesheet" href="/css-/练习/基本.css">
+    <body>
+        <div class="content">
+
+            <!--表单-->
+            <form action="url" method="get" name="form1"><!--表单域-->
+                <!-- text文本框,用户可以输入任何文字 -->
+                <!-- maxlengt:能输入的最大长度     ----很少用 -->
+                用户名：<input type="text" name="usename" value="请输入用户名" maxlength="5"> <br>
+                <!--密码框，用户看不见输入的密码-->
+                密码：<input type="password"  name="pwd"> <br>
+                <!-- radio:单选按纽,可以实现多选 -->
+                <!-- 单选框和复选框可以设置checked属性.在刚打开页面会默认自动选择这个按钮 -->
+                <!-- name是表单元素的名字,这里性别单选按钮必须有相同的名字才能实现多选一 -->
+                性别：男<input type="radio" name="sex" > 女 <input type="radio" name="sex" checked="checked"> <br>
+                 <!-- checkcbox:多选按钮,复选框（检查框）value:规定input元素的值,在text中会显示文字,其他不会 -->
+                 爱好：菠萝包<input type="checkbox" name="hobby" value="菠萝包"> 冰凉的<input type="checkbox" 
+                 name="hobby" value="冰凉的"> 喝水<input type="checkbox" name="hobbby" value="喝水">
+                 <br>
+                 <!-- 点击了提交按钮，可以把表单域form里的表单元素里面的值，提交给后台服务器 -->
+                 <input type="submit" value="免费注册">
+                 <!-- 重置按钮可以还原表单里的元素变回默认状态 -->
+                 <input type="reset" value="重新设置">
+                 <!-- 普通按钮button，后期搭配js使用 -->
+                 <input type="button" value="获取验证码"> <br>
+                 <!-- 文件域，上传文件使用的 -->
+                 <input type="file" value="上传图像">
+            </form>
+        </div>
+    </body>
+</head>

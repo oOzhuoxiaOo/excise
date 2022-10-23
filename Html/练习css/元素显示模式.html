@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <title> 元素的显示模式</title>
+    <link rel="stylesheet" href="/css-/练习/基本.css">
+    <style>
+        .D-one {
+            width: 200px;
+            height: 200px;
+            background:rgb(82, 174, 210);
+        }
+        input {
+            height: 50px;
+            width: 60px;
+        }
+        a {
+            width: 300px;
+            height: 200px;
+            background-color:chocolate;
+            display:block;
+        }
+        .D-two {
+            display:inline;
+            background-color:coral;
+        }
+        .D-three {
+            width: 200px;
+            height: 60px;
+            background: rgb(108, 39, 211);
+            display: inline-block;
+        }
+    </style>
+    <body>
+        <div class="content">
+            <!-- 可以放行内和块级元素 -->
+            <!-- 默认宽度是父亲宽度的100% -->
+            <!-- 文字类的元素内不能放块级元素，比如p,h, -->
+            <div class="D-one">自己独占一行</div>瑟瑟发抖
+            <!-- 行内元素，也叫内联元素 -->
+            <!-- 高宽设置无效，默认宽度是内容的宽度 -->
+            <!-- 行内元素只能容纳文本和行内元素 -->
+            <!-- 链接里不能放链接 -->
+            <!-- a里面可以放块级元素，但给a转换下块模式更安全 -->
+            <span>行内元素<span>--行内元素</span></span>
+            <!-- 行内块元素 -->
+            <!-- <img/><input/><td> -->
+            <!-- 具有行内和块的特点 -->
+            <!-- 和相邻行内（行内块）元素在一行上，之间会有空白缝隙，一行可以显示多个 （行内元素特点1）-->
+            <!-- 默认1宽度是本身内容的宽度（行内元素特点） -->
+            <!-- 高度、行高、内外边距可以控制（块级元素特点） -->
+            <input type="text">
+            <input type="text">
+            <!-- 将行内元素转化为块级元素 -->
+            <!-- display:block -->
+            <a href="">将行内元素转化为块级元素</a>
+            <!-- 将块级元素转化为行内元素 -->
+            <div class="D-two">将块级元素转化为行内元素</div>
+            <div class="D-two">将块级元素转化为行内元素</div>
+            <!-- 行内元素转化为行内块元素 -->
+            <span class="D-three">将行内元素转化为行内块元素</span>
+
+        </div>
+    </body>
+</head>

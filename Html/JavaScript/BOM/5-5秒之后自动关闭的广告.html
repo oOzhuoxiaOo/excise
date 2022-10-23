@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <img src="../../../Image/Pz-0011.jpg" alt="">
+    <script>
+        // 回调函数 就是再次调用 和点击事件里的函数都是回调函数
+        var ad = document.querySelector('img');
+        setTimeout(function() {
+            ad.style.display = 'none';
+        },3000);
+    </script>
+</body>
+</html>

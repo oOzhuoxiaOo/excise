@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 自定义css变量 */
+        /* 可以继承 */
+        /* :root相当于html */
+        /* 注意，规则集所指定的选择器定义了自定义属性的可见作用域。
+        通常的最佳实践是定义在根伪类 :root 下，这样就可以在 HTML 文档的任何地方访问到它了： */
+        :root {
+            --c-text-primary: rgb(0, 0, 0);
+            --c-bg-body:rgb(133, 118, 179);
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: var(--c-bg-body);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

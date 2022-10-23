@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 方法和属性称为成员
+        function Star(uname, uage) {
+            this.uname = uname;//this指向实例对象xixana
+            this.uage = uage;
+        }
+        let that;
+        Star.prototype.sing = function(){
+            console.log('唱歌');
+            that = this;
+        }
+        let xiana = new Star('夏娜', 18);
+        xiana.sing();
+        console.log(that === xiana);//true
+        // ⭐结论：谁调用 就指向谁
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

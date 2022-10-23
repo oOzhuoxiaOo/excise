@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .father {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        background-color: violet;
+        margin: 100px;
+    }
+    .son {
+        width: 100px;
+        height: 150px;
+        background-color: purple;
+        margin-left: 45px;
+    }
+</style>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+        console.log(father.offsetWidth);
+        console.log(father.offsetHeight);
+        // ⭐style得不到值 style只能得到行内样式表的值 此时用的是内嵌
+        // ⭐style得到的值带单位px offset不带
+        // ⭐style得到的不包含padding border
+        console.log(father.style.width);
+        // ⭐offset不能赋值
+        father.offsetWidth = '300px';
+        // 🐍获取元素大小 用offset合适 改值 用style
+        
+    </script>
+</body>
+</html>

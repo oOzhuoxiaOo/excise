@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 2000px;
+            background-color: rgb(118, 116, 116);
+        }
+        .box1 {
+            overflow: auto;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(187, 7, 7);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box1">
+            <h1>1</h1>
+            <h1>1</h1>
+            <h1>1</h1>
+            <h1>1</h1>
+            <h1>1</h1>
+            <h1>1</h1>
+            <h1>1</h1>
+            <h1>1</h1>
+            <h1>1</h1>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('scroll', function () {
+            console.dir(document.documentElement);
+            // document.documentElement代表根元素节点html
+            // client为视口的意思，而html根节点就是我们能看到的一个视口.比喻：他本身就相当于一个overflow:auto)
+            // 所以获取获取document.documentElement.clientHeight就相当于不向下滑动时，不带浏览器窗口等,能看到的高度
+            // 而屏幕分辨率则一般不改变window.screen.height
+            // 📕监测方法，使用浏览器的选择元素工具，选择滚动条就能选中html元素，说明滚动条不是body的，而是html的
+            console.dir(document.documentElement.clientHeight);//600
+            // window.innerHeight: (浏览器窗口高度，不包含工具栏，菜单等，仅仅是可视区域dom的height)
+            /*  scrollTop：
+             对于滚动元素而言，就是已经滚动的距离，对于html而言，就是window.scrollY
+             window.scrollY，别名：window.pageYOffset，根节点已经垂直滚动的距离 */
+            console.dir(document.body.clientHeight);//2000
+            console.dir(window.innerHeight);//600
+            console.log(1);
+            console.log(window)
+            console.dir(document.querySelector('.box1'))//clientHeight:200
+
+            // 📕获取整个页面的可视区高度：【不需要可视区外的高度】
+            const height = window.innerHeight
+                || document.documentElement.clientHeight
+                || document.body.clientHeight;//(兼容性写法，此处浏览器中body的clientHeight并不准确)
+        })
+    </script>
+</body>
+
+</html>

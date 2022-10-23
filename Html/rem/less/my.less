@@ -1,0 +1,29 @@
+@color:rgb(64, 64, 64);
+@divColor:purple;
+@font14:14px;
+@border:5px + 5;
+body {
+    background-color: @color;
+}
+div {
+    border: @border solid #fff;
+    background-color: @divColor;
+    font-size: @font14;
+    width: 300px - 50;//250
+    height: 300px * 0.5;//150
+    a {
+        display: block;
+        // ⭐运算符左右必须有一个空格隔开
+        // ⭐两个数参与运算 如果只有一个数有单位 则最后的结果以这个单位为准
+        // 🔖如果两个数都有单位 而且不一样的单位 以第一个单位为准
+        width: (176 / 50rem); //🐍加小括号
+        height: (176 / 50rem);
+        color: red;
+        background-color: rgb(25, 25, 25);
+        // 如果有伪类选择器 交集选择器 伪元素选择器 需要加&
+        // &代表自身
+        &:hover {
+            color: blue;
+        }
+    }
+}

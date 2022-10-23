@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 当有多个表达式(值)时 非布尔
+        // 左边的表达式可以确定结果时
+        // 就不会继续徐运算右边表达式的值
+        console.log(2 && 3); // =3
+        console.log(true && 3); // =3
+        console.log(0 && 3); //=0  0表示假
+        console.log(0 && 1 + 2 && 2 + 2); //=0
+
+        console.log(1 && 3); //1表示真
+        console.log(false && 3);
+        console.log('------------------')
+        /* ||或   与&&相反 */
+        console.log(2 || 3); // =2
+        console.log(true || 3); // =true
+        console.log(0 || 3); //= 3
+        console.log(0 || 0 || 3); // = 3
+        console.log('-  -   -   -   -   -')
+        // 计算一下
+        var num = 1;
+        console.log(123 || num++);
+        console.log(num); // num = 1,并没有参加num++ 运算
+        // 逻辑中断很重要
+        // 会影响程序的运行结果
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

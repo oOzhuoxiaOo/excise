@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        section {
+            width: 100%;
+            /* 保护盒子里的内容,让内容有最小最大 */
+            /* 控制父亲盒子的最大小宽度 */
+            /* 大于980就不会再大了  */
+            /* 小于320就不会再小了 */
+            max-width: 980px;
+            min-width: 320px;
+        }
+        section div {
+            float: left;
+            width: 50%;
+            height: 400px;
+            
+        }
+        section div:nth-child(1) {
+            background-color: rgb(55, 90, 247);
+        }
+        section div:nth-child(2) {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div></div>
+        <div></div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let number = 100;
+        let person = {
+            name:'xiana',
+            age:16,
+            sex:'nv',
+            
+        }
+        // 通过defineProerty方法添加的属性 默认不可枚举(不能被遍历)
+        Object.defineProperty(person,'like',{
+            // value:number,
+            // enumerable:true, //控制属性是否可被枚举 默认为false
+            // writable:true,//控制属性是否可被修改，默认为false
+            // configurable:true,//控制属性是否可被删除，默认为false
+            get:function(){
+                console.log('有人读取like属性了')
+                return number;
+            },
+            set:function(value){
+                console.log('有人修改了like属性,且值是',value)
+                number =  value;
+            }
+        });
+        console.log(person);
+        // Object.keys(person)返回一个数组，数组内容为对象的属性名
+        console.log(Object.keys(person))
+        // for(let key in person) {
+        //     // 无like
+        //     console.log(key);
+        // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+        }
+        span {
+            position: absolute;
+            display: block;
+            width: 150px;
+            height: 150px;
+            background-color: rgb(118, 118, 118);
+        }
+    </style>
+</head>
+<body>
+    <button>点击才走</button>
+    <div></div>
+    <span></span>
+    <script>
+        // 目标对象 目标位置
+        function animate(obj,target) {
+            // 相当于给传过来的对象(div等)添加一个属性
+            // 不断点击按钮 速度越来越快 因为开启了太多个计时器
+            // 解决方案 只有一个定时器执行就好了
+            // 先清除以前的计时器 保留现在的
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+            if(obj.offsetLeft >= target) {
+                // 停止动画 也就是停止计时器
+                clearInterval(timer);
+            }
+            obj.style.left = obj.offsetLeft + 1 + 'px';
+        },8)
+        }
+        
+        var div = document.querySelector('div');
+        var span = document.querySelector('span');
+        var btn = document.querySelector('button');
+        // 调用函数
+        animate(div,300);
+        btn.addEventListener('click',function() {
+            animate(span,200);
+        })
+    </script>
+</body>
+</html>

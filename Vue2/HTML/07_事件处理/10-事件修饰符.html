@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-事件修饰符</title>
+    <!-- 引入Vue -->
+    <script src="../../JS/vue.js"></script>
+    <script type="text/javascript">Vue.config.productionTip = false;//阻止Vue 在启动时产生生产提示 </script>
+    
+    <style>
+
+        body {
+            height: 1200px;
+        }
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(0, 0, 0);
+            margin-top: 20px;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(93, 218, 128);
+        }
+        .result {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(151, 122, 122);
+            overflow: auto;
+        }
+        .result li{
+            height: 100px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- 
+        📕Vue中的事件修饰符
+        1.prevent:阻止默认事件(常用)
+        2.stop:阻止事件冒泡（常用）
+        3.once:事件只触发一次（常用）
+        4.capture:使用事件的捕获模式(只记住前三个即可，后边了解即可
+        5.self:只有在e.target是当前操作元素时才触发事件
+        6.passive:事件的默认行为立即执行，无需等待事件回调执行完毕 
+
+     -->
+
+     <!-- 准备好一个容器 -->
+    <div id="root">
+        <h1>Hello {{name}}</h1>
+        <!-- 🔖阻止默认事件(常用) -->
+        <a href="http://cn.bing.com" @click="showInfo">点击到bing 无阻止默认行为</a>
+        <br>
+        <a href="http://cn.bing.com" @click.prevent="showInfo">点击到bing 阻止默认行为</a>
+        <!-- 🔖阻止冒泡（常用） -->
+        <div class="father"  @click="showInfo">
+            <div class="son" @click.stop="showInfo"></div>
+            <!-- 修饰符可以连续写 -->
+            <!-- 也可既阻止冒泡又阻止默认事件(可用在a标签)(此处为先阻止冒泡，再阻止默认事件) -->
+            <!-- <div class="son" @click.stop.prevent="showInfo"></div> -->
+        </div>
+        <!-- 🔖事件只触发一次（常用） -->
+        <button  @click.once="showInfo">事件只触发一次</button>
+        <!-- 🔖使用事件的捕获模式 -->
+        <div class="father"  @click.capture="showMsge('father')">
+            <div class="son" @click="showMsge('son')"></div>
+        </div>
+        <!-- 🔖只有在e.target是当前操作元素时才触发事件 -->
+        <div class="father"  @click.self="showMsge('father')">
+            <div class="son" @click="showMsge('son')"></div>
+        </div>
+        <!-- 🔖事件的默认行为立即执行，无需等待事件回调执行完毕 (很少用)-->
+        <!-- scrool则是优先响应滚动  wheel则是优先处理事件-->
+        <div class="result" @wheel="demo">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+        </div>
+
+    </div>
+
+    <script>
+        // 创建Vue实例
+        const vm = new Vue({
+            el:'#root',
+            data:{
+                name:'xiana',
+                age:16
+            },
+            methods:{
+                showInfo(e){
+                    // e.stopPropagation();//阻止冒泡
+                    alert('夏娜你好');
+                },
+                showMsge(str){
+                    alert(str);
+                },
+                demo(){
+                    for(let i = 0; i < 2000; i++) {
+                        console.log('#');
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

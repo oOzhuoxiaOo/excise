@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            width: 400px;
+            height: 300px;
+            border: solid;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+            
+        }
+        .left,
+        .right{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: rgb(116, 115, 115);
+            top: 50%;
+            transform: translateY(-50%);
+            line-height: 40px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            right:0;
+        }
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="left" v-on:click="changeLeft" v-show="index!=0 ">👈</div>
+        <div class="right" v-on:click="changeRight" v-show="index!=imgArr.length - 1 ">👉</div>
+        <img v-bind:src="imgArr[index]" alt="">
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                index:0,
+                imgArr:['/Image/Pz-0001.png',
+                '/Image/Pz-0002.png',
+                '/Image/Pz-0003.png',
+                '/Image/Pz-0004.png',
+                '/Image/Pz-0005.png',],
+            },
+            methods:{
+                changeLeft:function(){
+                        this.index--;
+                },
+                changeRight:function(){
+                        this.index++;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

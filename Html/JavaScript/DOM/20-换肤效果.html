@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../IconFont/IconFont-0/iconfont.css">
+    <link rel="stylesheet" href="../css/iconFontBase.css">
+    <title>Document</title>
+    <style>
+        body {
+            background: url(../../../Image/Pz-0001.png) no-repeat;
+            background-size: cover;
+        }
+        .picturee {
+            width: 410px;
+        }
+        li {
+            float: left;
+            list-style: none;
+        }
+        img {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="picture">
+        <li><img src="../../../Image/Pz-0001.png" alt=""></li>
+        <li><img src="../../../Image/Pz-0002.png" alt=""></li>
+        <li><img src="../../../Image/Pz-0003.png" alt=""></li>
+        <li><img src="../../../Image/Pz-0004.png" alt=""></li>
+    </ul>
+    <script>
+        // 先排除其他人 再设置自己的样式 这种思想为排他思想
+        // 控制样式
+        // 1.获取元素
+        var imgs = document.querySelector('.picture').querySelectorAll('img');
+        var body = document.querySelector('body');
+        for(var i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function() {
+                // this.src是我们需要的图片路径
+                console.log(this.src);
+                body.style.backgroundImage = 'url(' + this.src + ')';
+                      }
+        }
+
+
+        // 2.注册事件 处理程序 失去焦点
+
+            // 根据表单里面的长度 lpt.value.length
+
+        // 3.
+    </script>
+</body>
+
+</html>

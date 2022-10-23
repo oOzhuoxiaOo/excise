@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        // arguments 存了所有传过来的实参
+        // 只有函数有arguments对象 而且每个函数都内置好了这个argument
+        // 再不确定传过来的实参时可使用
+        function fn() {
+            console.log(arguments);
+            console.log(arguments.length);
+            console.log(arguments[2]);
+            // 可以按照数组的方式遍历
+            for (var i = 0; i < arguments.length; i++) {
+                console.log('遍历\t' + arguments[i]);
+            }
+
+        }
+        //伪数组 以数组形式展示 所以可以进行遍历
+        // 1.具有数组的length长度特性
+        // 2.按照索引的方式进行存储
+        // 他没有一些真正数组的方法 pop() push()
+        fn(1, 2, 3, '夏娜', 1); 
+    </script>
+</head>
+
+<body></body>
+
+</html>

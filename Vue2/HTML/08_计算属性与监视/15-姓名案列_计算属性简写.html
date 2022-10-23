@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性简写</title>
+    <!-- 引入Vue -->
+    <script src="../../JS/vue.js"></script>
+    <script type="text/javascript">Vue.config.productionTip = false;//阻止Vue 在启动时产生生产提示 </script>
+    <style>
+        body {
+            font-size: 20px;
+        }
+
+        span {
+            border: solid;
+        }
+
+        .require {
+            background-color: rgb(156, 152, 152);
+            /* color: aliceblue; */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        <div class="require">
+            <h2>需求:</h2>
+            <h4>1.每次输入姓和名会同步到全名</h3>
+                <h4>2.全名中,姓最多显示三个字</h4>
+        </div>
+        <h2>3.使用计算属性实现姓名案列</h2>
+        <!-- 通过 v-model双向绑定value数据 -->
+        请输入姓 <input type="text" v-model="firstName"><br><br>
+        请输入名 <input type="text" v-model="lastName"><br><br>
+        全名:<span>{{fullName}}</span>
+    </div>
+
+    <script>
+        // 创建Vue实例
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                firstName: '夏',
+                lastName: '娜',
+            },
+            // 计算属性
+            computed: {
+                // 计算属性完整写法
+                /* fullName:{
+                    get(){
+                      c
+                    },
+                    set(value){
+                        const arr = value.split('-');
+                        this.firstName = arr[0];
+                        this.lastName = arr[1];
+                    }
+                } */
+                // 计算属性简写
+                // 注意，只考虑geter时可用，把函数当 对象中getter用
+                fullName: function () {
+                    console.log('fullName被读取了一次');
+                    console.log('this指向', this)
+                    return this.firstName + '-' + this.lastName;
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

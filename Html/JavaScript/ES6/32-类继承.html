@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // // 手机
+        // function Phone(brand,price){
+        //     this.brand = brand;
+        //     this.price = price;
+        // }
+        // Phone.prototype.callff = function() {
+        //     console.log('我可以打电话');
+        // }
+
+        // // 智能手机
+        // function SmartPhone(brand,price,color,size){
+        //     Phone.call(this, brand, price);
+        //     this.color =  color;
+        //     this.size = size;
+        // }
+        // let Huawei = new SmartPhone('华为',1999,'red','100size');
+        // console.log(Huawei);
+
+        // class Grandpa {
+        //     constructor(uname){
+        //         this.uname = uname;
+        //     }
+        //     yeye(){
+        //         console.log('yeye');
+        //     }
+        // }
+
+
+        // class Father{
+        //     constructor(uname){
+        //         this.uname = uname;
+        //     }
+        //     money() {
+        //         console.log(100);
+        //     }
+        // }
+
+        // class Son extends Father {
+            
+        // }
+        //  let son = new Son('夏娜');
+        //  console.log(son);
+
+        class Father{
+            constructor(x,y){
+                this.x = x;
+                this.y = y;
+            }
+            sum() {
+                console.log(this.x + this.y);
+            }
+        }
+
+        class Son extends Father {
+            constructor(x,y,uname,uage) {
+                super(x,y);//调用了父类的构造函数
+                this.uname = uname;
+                this.uageg = uage;
+            }
+        }
+         let son = new Son(1,2,'夏娜',18);
+         son.sum();
+         console.log(son);
+    </script>
+</body>
+</html>

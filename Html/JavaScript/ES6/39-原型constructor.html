@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="./image/原型链.png" alt="">
+    <script>
+        // 方法和属性称为成员
+        function Star(uname, uage) {
+            this.uname = uname;
+            this.uage = uage;
+        }
+        Star.jingtai = '静态成员';
+
+        Star.prototype.sing = function(){
+            console.log('唱歌');
+        }
+        Star.prototype.playgame = function(){
+            console.log('原神');
+        }
+        // Star.prototype = {//覆盖了原prototype
+        //     constructor: Star,//指回去
+        //     sing: function () {
+        //         console.log(this);
+        //     },
+        //     playgame: function () {
+        //         console.log('玩原神');
+        //     }
+        // }
+
+
+        let xiana = new Star('夏娜', 18);
+        console.log(xiana);
+        // 对象原型（__proto__）和构造函数原型对象(prototype)里
+        // 都有一个constructor属性 ，我们称为构造函数，因为它指回构造函数本身
+        // constructor主要用于记录对象引用哪个构造函数，他可以让原型对象重新指向原来的构造函数
+        // 比如xiana是通过Star创造出来的
+        // console.log(xiana.__proto__);
+        // console.log(Star.prototype);
+        // console.log(xiana.__proto__.constructor);;
+        // console.log(Star.prototype.constructor);;
+        // xiana.sing();
+        console.dir(Star);
+        xiana.sing();
+        // console.log(xiana.__proto__);
+
+
+
+
+
+    </script>
+</body>
+
+</html>

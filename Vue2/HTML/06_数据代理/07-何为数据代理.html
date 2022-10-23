@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj1 = {x:100};
+        let obj2 = {y:200};
+        Object.defineProperty(obj2,'x',{
+            // 有人读取x时，展现的是return结果
+            get(){
+                return obj1.x;
+            },
+            // 有人修改x时,value为修改后的值，把value赋值给obj.x
+            set(value){
+                obj1.x = value;
+            }
+        })
+    </script>
+</body>
+</html>

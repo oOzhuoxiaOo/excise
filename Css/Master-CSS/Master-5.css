@@ -1,0 +1,78 @@
+
+* {
+    box-sizing:border-box;
+}
+
+body {
+    background-color: #fff;
+}
+
+.header {
+    height: 100px;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    /* flex-flow: column wrap;flex-direction（决定主轴的方向（即项目的排列方向）） */
+                           /*column：主轴为垂直方向，起点在上沿。*/
+                           /*flex-wrap（定义项目是否换行以及如何换行）,wrap在本行下方*/
+    height:250vh;
+    border: coral solid;
+    counter-reset: iteam;
+    width: 80%;
+    margin: auto;
+}
+
+.iteam {
+    position:relative;
+    margin: 1%;
+    
+   
+    counter-increment:iteam-counter;
+    width: calc(100%/4 - 24px);
+    overflow: hidden;
+  
+}
+
+.iteam::after {
+    position:absolute;
+    display:block;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    background-color: #000;
+    color:#fff;
+    content: counter(iteam-counter);
+
+}
+
+.iteam img {
+   display: block;
+   border-radius: 20%;
+   width: 100%;
+   height: auto;
+   box-shadow: 0 0 8px black;
+}
+
+/* .iteam:nth-child(5n+1) {
+order: 1;
+}
+.iteam:nth-child(5n+2){
+    order: 2;
+}
+.iteam:nth-child(5n+3){
+order: 3;
+}
+.iteam:nth-child(5n+4){
+order: 4;
+}
+.iteam:nth-child(5n){
+order: 5;
+} */

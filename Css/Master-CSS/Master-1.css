@@ -1,0 +1,131 @@
+body{
+    color: #555555;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1.5em;/*行高*/
+}
+button{
+    background-color: #444444;
+    color: aliceblue;
+    padding: 10px 15px;
+}
+button:hover{
+    background-color: red;
+}
+button:active{
+    background-color:cadetblue;
+}
+
+a{
+    text-decoration: none;
+    color: #555555;
+}
+
+a:hover{
+    color:cyan;
+}
+a:visited{
+    color:red;
+}
+.clearfix {
+    clear:both;
+}
+.box1{
+    background-color:aquamarine;
+    border: 5px blue solid;
+    border-right:5px red solid;
+    border-left: 8px blue solid;
+    border-top: 10px green dotted;
+    border-bottom: 1px firebrick solid;
+    border-bottom-width:8px;
+    border-bottom-style: dashed;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    margin-top: 20px;
+
+}
+.box1 h1{
+    font-family: 'Times New Roman', Times, serif;/*字体家庭:衬线体*/
+    font-weight: 800;
+    font-style: italic;/*字形：斜体*/
+    text-decoration: underline;/*文字修饰：下划线*/
+    text-transform: uppercase;/*文字变换：字母变大写*/
+    letter-spacing: 1em; /*字母间隔：1em*/
+    word-spacing: 2em;/*单词间隔：2em*/
+}
+.box2{
+    border: 5px dotted #555555;
+    border-radius:35px;
+    padding: 20px;
+    margin:20px 0px;
+    /* position: relative;
+    top: 30px;
+    left:30px; */
+}
+.container{
+    width:80%;
+    margin:auto;
+}
+
+.list li {
+    list-style: square;/*方块*/
+    list-style-image: url(../image/00004@0.5x.jpg);/*外部导入图片做标签*/
+    
+
+}
+
+.block {        
+    float:left;
+    width:33.3%;
+    border: 1px solid #ccc;
+    box-sizing:border-box;
+}
+
+#main-block {
+    float:left;/*浮动：向左*/
+    width: 70%;/*宽度70%*/
+    border: 1px solid #ccc;
+    box-sizing:border-box;
+}
+#sidebar {
+    float: right;/*浮动：向右*/
+    width: 30%;/*宽度30%*/
+    border: 1px solid #ccc;
+    box-sizing:border-box;
+}
+
+.list2 li:nth-child(even) {/*偶数变换*/
+    background-color: grey;
+}
+.list2 li:first-child{/*第一个*/
+    background-color: red;
+}
+.list2 li:nth-child(3) {/*第三个*/
+    color: aqua;
+}
+
+.position-box {/*父相*/
+    width:500px;
+    height:500px;
+    border:5px solid black;
+    position:relative;/*父先相对位置*/
+
+}
+.position-box h1 {/*父相子绝*/
+    position:absolute;/*子根据父位置做浮动。无上下位relative则认页面为父*/
+    top:50px;
+}
+.position-box h2 {/*父相子绝*/
+    position:absolute;/*子根据父位置做浮动*/
+    right:30px;
+}
+
+#fixed {
+    position:fixed;/*固定位置，弹窗广告常见*/
+    right:0;
+    bottom:350px;
+}
+

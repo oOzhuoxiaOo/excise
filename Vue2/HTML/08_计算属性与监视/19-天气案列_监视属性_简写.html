@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气案列_深度监视</title>
+    <!-- 引入Vue -->
+    <script src="../../JS/vue.js"></script>
+    <script type="text/javascript">Vue.config.productionTip = false;//阻止Vue 在启动时产生生产提示 </script>
+</head>
+
+<body>
+        <!-- 
+        📕深度监视
+     -->
+
+     <!-- 准备好一个容器 -->
+     <div id="root">
+        <!-- 需求:
+                1.一句话，今天天气(很热/凉爽)
+                2.一个按钮：点击按钮，切换很热和凉爽 -->
+        <h1>Hello {{name}}</h1>
+        <p>今天天气 {{info}} </p>
+        <button @click="changeWeather">切换天气</button>
+        <hr>
+
+    </div>
+
+    <script>
+        // 创建Vue实例
+        const vm = new Vue({
+            el:'#root',
+            data:{
+                name:'xiana',
+                isHot:true,
+                number:{
+                    a:1,
+                    b:2
+                }
+            },
+            methods:{
+                changeWeather(){
+                    this.isHot = !this.isHot;
+                }
+            },
+            computed:{
+                info:function(){
+                    return this.isHot ? '很热' : '凉爽';
+                }
+            },
+            watch:{
+                // 要监视的属性
+                // 💧第一种方式(vm内写watch的方式)
+                // 🔖不简写
+                /* isHot:{
+                    immediate:true, //初始化时让handler调用一下,默认为false
+                    // handler什么时候调用？当isHot发生改变时
+                    handler(newValue,oldValue){//参数为新值、旧值
+                        console.log('isHot被改变了',newValue,oldValue);
+                    }
+                }, */
+                // 🔖简写
+                // 什么情况需要简写？不需要配置其他要求时(deep\immediate等)，只有handler时
+                // 和计算属性computer简写方式类似
+                /* isHot(newValue,oldValue){
+                    console.log('isHot被改变了',newValue,oldValue);
+                } */
+            }
+        })
+        // 💧第二种方式(vm外灵活添加监视属性)
+        // 🔖不简写
+       /*  vm.$watch('isHot',{
+            handler(newValue,oldValue){
+                console.log('isHot被改变了',newValue,oldValue);
+            }
+        }) */
+        // 🔖简写
+        vm.$watch('isHot',function(newValue,oldValue){
+            console.log('isHot被改变了',newValue,oldValue);
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+/* 复合选择器的权重叠加 */
+/* 虽然能叠加,但不能有进位  */
+    /* 0,0,0,1 + 0,0,0,1 = 0,0,0,2 */
+    /*  */
+    ul li {
+        color:black;
+    }
+    /* 0,0,0,1 */
+    li {
+        color: red;
+    }
+    /* 0,0,1,0  + 0,0,0,1 = 0,0,1,1 */
+    .nav li {
+        color:blue;
+    }
+</style>
+<body>
+    <!-- 继承或者*权重是0,0,0,0 -->
+    <!-- 元素选择器:0,0,0,1 -->
+    <!-- 类和伪类:0,0,1,0, -->
+    <!-- id选择器:0,1,0,0, -->
+    <!-- 行内样式:1,0,0,0 -->
+    <!-- !importent:无穷大 -->
+    <ul class="nav">
+        <li>
+            复合选择器有权重叠加的问题
+        </li>
+    </ul>
+</body>
+</html>

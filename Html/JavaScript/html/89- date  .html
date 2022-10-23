@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        // Date() 日期对象 是一个构造函数 
+        // 必须使用new 来调用创建我们的日期对象
+        var day1 = new Date(); // 实时日期  创建一个数组对象 
+        console.log(day1);
+        // 参数常用写法
+        // 数字 注意 月份数字是从0开始 字符串从1
+        var day2 = new Date(2022, 7, 01, 1, 10, 10);
+        console.log(day2);
+        // 字符串
+        var day3 = new Date('2022-8-1 8:8:8');
+        console.log(day3);
+
+
+        var day4 = new Date(2022, 7, 1);
+        console.log(day4);
+        var day4 = new Date('2022-8-1');
+        console.log(day4);
+
+        // 根据一个实例化的date 获得该date 属于哪一日
+        var day5 = day4.getDate();
+        console.log(day5);
+
+        // 根据时间获得周几 周日返回的是0
+        var day6 = day1.getDay(); 
+        console.log(day6);
+        var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+        console.log(arr[day6]);
+        // 根据时间获得月份标数 0-11
+        var day7 = day1.getMonth();
+        console.log(day7);
+
+    </script>
+</head>
+
+<body></body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 50px;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: solid;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    查找价格在<input type="text" class="ipt0">和<input type="text" class="ipt0">之间的
+    <button>查询</button>
+    <br> 查找名称 <input type="text" class="ipt1">
+    <button>查询</button>
+    <table>
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>名称</td>
+                <td>价格</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        let goods = [{
+            id: 1,
+            name: '苹果',
+            price: 10,
+        },
+        {
+            id: 2,
+            name: '香蕉',
+            price: 20,
+        },
+        {
+            id: 3,
+            name: '华为',
+            price: 1000,
+        },
+        {
+            id: 4,
+            name: 'oppo',
+            price: 800,
+        },
+        {
+            id: 5,
+            name: '手办',
+            price: 9999
+        }
+        ];
+
+        console.log(goods);
+        // 开始
+        let tbody = document.querySelector('tbody');
+        let btn = document.querySelectorAll('button');
+        goods.forEach(function (value) {
+            let tr = document.createElement('tr');
+            tr.innerHTML = `<td>${value.id}</td> <td>${value.name}</td> <td>${value.price}</td>`
+            tbody.appendChild(tr);
+
+        })
+        btn[0].addEventListener('click', function () {
+            let ipts = document.querySelectorAll('.ipt0');
+            // console.log(ipts);
+            let newArr = goods.filter(function(a, index) {
+                return a.price >= ipts[0].value && a.price <= ipts[1].value;
+            })
+            console.log(newArr);
+            tbody.innerHTML = '';
+            newArr.forEach(function(value) {
+                let tr = document.createElement('tr');
+                tr.innerHTML = `<td>${value.id}</td> <td>${value.name}</td> <td>${value.price}</td>`
+                tbody.appendChild(tr);
+            })
+        })
+        btn[1].addEventListener('click',function(){
+            let ipt1 = document.querySelector('.ipt1');
+            // console.log(ipts);
+            let newArr = [];
+            goods.some(function(a, index) {
+                if(a.name == ipt1.value){
+                    newArr.push(a);
+                    return true;
+                }
+            })
+            console.log(newArr);
+            tbody.innerHTML = '';
+            newArr.forEach(function(value) {
+                let tr = document.createElement('tr');
+                tr.innerHTML = `<td>${value.id}</td> <td>${value.name}</td> <td>${value.price}</td>`
+                tbody.appendChild(tr);
+        })
+    })
+        
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            background-color: violet;
+            margin-top: 50px;
+        }
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            /* 嵌套元素垂直塌陷
+            父亲的margin：top比孩子的小的话：
+            会造成父元素margin：top和孩子一样，孩子的margin变为0 */
+            margin-top: 100px;
+            
+        }
+        /* 解决方案👇 -------------------------------------*/
+        .boxtwo {
+            width: 500px;
+            height: 500px;
+            background-color: violet;
+            margin-top: 50px;
+            /* 1.👇给父亲加个边框
+            (不想显示边框可以把solid改为透明：transparent) */
+            border: red solid;
+            /* 2.👇给父亲加个内边距 */
+            /* padding: 1px; */
+            /* 3.👇清除浮动,和超出隐藏 */
+            /* overflow: hidden; */
+        }
+        .boxtwo1 {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1"></div>
+    </div>
+    <div class="boxtwo">
+        <div class="boxtwo1"></div>
+    </div>
+</body>
+</html>

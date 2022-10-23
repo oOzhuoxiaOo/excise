@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 选出ul中奇数的li */
+        ul li:nth-child(odd) {
+            background-color: rgb(65, 166, 243);
+        }
+        /* 选出ul中偶数数的li */
+        /* ul li:nth-child(even) {
+            background-color: rgb(220, 121, 227);
+        } */
+        
+        /* 选出ol中所有li */
+        /* ol li:nth-child(n) {
+            background-color: rgb(128, 187, 101);
+        } */
+
+        /* 选出从第3个之后的 */
+        /* ol li:nth-child(n+3) {
+            background-color: rgb(128, 187, 101);
+        } */
+
+        /* 奇数 */
+        /* ol li:nth-child(2n-1) {
+            background-color: rgb(128, 187, 101);
+        } */
+
+        /* 偶数 */
+        /* ol li:nth-child(2n) {
+            background-color: rgb(128, 187, 101);
+        } */
+        
+        /* 选出前5个 */
+        ol li:nth-child(-n+5) {
+            background-color: rgb(128, 187, 101);
+        }
+
+        
+    </style>
+</head>
+<body>
+    <ul>
+        <li>我是第1个孩子</li>
+        <li>我是第2个孩子</li>
+        <li>我是第3个孩子</li>
+        <li>我是第4个孩子</li>
+        <li>我是第5个孩子</li>
+        <li>我是第6个孩子</li>
+    </ul>
+    <ol>
+        <li>我是第1个孩子</li>
+        <li>我是第2个孩子</li>
+        <li>我是第3个孩子</li>
+        <li>我是第4个孩子</li>
+        <li>我是第5个孩子</li>
+        <li>我是第6个孩子</li>
+    </ol>
+
+</body>
+</html>

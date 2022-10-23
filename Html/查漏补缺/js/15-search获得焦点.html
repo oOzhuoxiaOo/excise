@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">搜索</label><input type="text">
+    <script>
+        let input = document.querySelector('input');
+        let body = document.querySelector('body');
+        // 如果在document输入按键 input自动获得焦点
+        // keydown是包括ctrl按键 keypress不包括特殊按键
+        document.addEventListener('keypress',function(){
+            input.focus();
+        })
+        // input获得焦点 body变暗
+        input.addEventListener('focus',function(){
+            body.style.backgroundColor = 'rgb(0,0,0,.3)';
+        })
+        // input失去焦点 body变亮
+        input.addEventListener('blur',function(){
+            body.style.backgroundColor = '';
+        })
+    </script>
+</body>
+</html>

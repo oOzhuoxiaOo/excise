@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            /* top: 200px; */
+            width: 100px;
+            height: 100px;
+            padding: 50px;
+            border: 50px solid;
+            background-color: rgb(185, 0, 0);
+        }
+        .son {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(222, 203, 203);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="son"></div>
+    </div>
+    <script>
+        let box = document.querySelector('.box');
+        let son = document.querySelector('.son');
+        console.dir(box);
+        console.log(`客户端宽度(不含border):${box.clientWidth}`);//es6{}括号里输出变成了string
+        console.log(`客户端宽度(含border):${box.offsetWidth}`);//offsetWidth不能赋值 只可读 改值用style
+        console.log(`(行内样式)样式宽度(不含border和padding):${box.style.width}`);//得到的值带单位(px)
+        console.dir(son);
+        console.log(son.offsetParent)//离他最近的拥有定位的父亲
+        console.log(son.offsetLeft)//相对offsetParent的偏移量
+    </script>
+</body>
+</html>

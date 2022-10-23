@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+        }
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: red;
+        }
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body class="body">
+    <div class="box">
+        <div class="father">
+            <div class="son"></div>
+        </div>
+    </div>
+    <script>
+        let con = function() {
+            console.log(this.className);
+        }
+        let body = document.querySelector('body');
+        let box = document.querySelector('.box');
+        let father = document.querySelector('.father');
+        let son = document.querySelector('.son');
+        // 先捕获  后冒泡 默认false()冒泡 
+        // 他会先body>box>father>son  如果其中有捕获的也就是true的 会再捕获阶段捕获 
+        // 再son->father->box->body  如果有冒泡的也就是默认或者 falese 会再冒泡阶段捕获
+        
+        body.addEventListener('click',con,true);
+        box.addEventListener('click',con,false);
+        father.addEventListener('click',con,true);
+        son.addEventListener('click',con,false);
+    </script>
+</body>
+</html>

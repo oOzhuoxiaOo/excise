@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(160, 157, 157);
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(177, 201, 134);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="father">
+        <div class="son">son</div>
+    </div>
+    <script>
+        // 事件发生时会在元素节点间按特定顺序传播 DOM事件流
+        // 实际开发中更专注事件冒泡
+        // 传统事件没有冒泡
+        // 📕同时点到事件时
+        // 当事件方法默认为false 为冒泡流文档 先执行儿子 再父亲
+        // 为true时 为捕获流文档 先父亲 再儿子
+        var son = document.querySelector('.son');
+        var father = document.querySelector('.father');
+        var box = document.querySelector('.box');
+        son.addEventListener('click',function(e){
+            console.log('son');
+            console.log(e.target)
+            alert('son');
+        },true)
+        father.addEventListener('click',function(e){
+            console.log('father');
+            console.log(e.target)
+            alert('father');
+        },true)
+        box.addEventListener('click',function(e){
+            alert('box');
+        },false)
+    </script>
+</body>
+</html>

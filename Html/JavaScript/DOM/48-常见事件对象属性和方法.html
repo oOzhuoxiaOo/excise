@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(160, 157, 157);
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(177, 201, 134);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="father">
+        <div class="son">son</div>
+    </div>
+    <script>
+        // 常见事件对象属性和方法
+        // 📕e.target 返回的是触发事件的元素
+        // 📕this 绑定的是绑定的事件的对象
+        var son = document.querySelector('.son');
+        var father = document.querySelector('.father');
+        son.addEventListener('click',function(e){
+            console.log(e.target);
+            console.log(this);
+        })
+        father.addEventListener('click',function(e){
+            // 给father绑定了事件 this指向father
+            console.log(this);
+            // e.target 指向点击的元素(可以是他的孩子（委托）)
+            console.log(e.target);
+        })
+    </script>
+</body>
+</html>

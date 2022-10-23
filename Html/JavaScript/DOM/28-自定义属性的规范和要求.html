@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../IconFont/IconFont-0/iconfont.css">
+    <link rel="stylesheet" href="../css/iconFontBase.css">
+    <title>Document</title>
+    <style>
+        .tab {
+            width: 700px;
+            background-color: rgb(229, 105, 105);
+        }
+        .tab_list li {
+            list-style: none;
+         }
+         .tab_list li {
+            float: left;
+            width: 100px;
+            height: 50px;
+            background-color: rgb(195, 173, 173);
+
+         }
+         .tab_list {
+            background-color: rgb(110, 193, 179);
+         }
+         /* 给浮动元素的父亲添加伪元素清除浮动 */
+         .tab_list::after {
+            content:'';
+            display: block;
+            /* background-color: #fff; */
+            clear: both;
+         }
+         .current {
+            background-color: rgb(152, 62, 168)!important;
+         }
+         .tab_con img {
+            width: 200px;
+         }
+         .tab_con {
+            background-color: rgb(116, 202, 96);
+         }
+         .item {
+            display: none;
+         }
+    </style>
+</head>
+<body>
+    <div data-index="1" data-aaa-bbb="夏娜"></div>
+    <!-- h5要求采用date-开头定义自定义i属性 -->
+    <div class="box1" date-index = '1'></div>
+    <script>
+        // 获取对象元素
+        var div = document.querySelector('div');
+        //  自定义属性 或者用js设置
+        div.setAttribute('data-time', 20);
+        // 获取自定义属性
+        // 兼容性获取'
+        div.getAttribute('data-index');
+        // h5新增的获取自定义属性的方法
+        // 里面存放了所有以data开头的自定义属性
+        // 🌙只能获取data-开头的
+        console.log(div.dataset)
+        console.log(div.dataset.index);
+        // data-aaa-bbb 在获取中有多个'- '需要用驼峰 dataset.aaaBbb
+        console.log(div.dataset.aaaBbb);
+        // 或者
+        console.log(div.dataset['index']);
+    </script>
+</body>
+</html>

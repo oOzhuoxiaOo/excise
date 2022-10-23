@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            perspective:500px;
+        }
+        /* div {
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+            margin: 0 auto;
+            transform: translateZ(0px);
+        } */
+        div {
+            line-height: 200px;
+            text-align: center;
+            font-size: 100px;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+        body div:nth-child(1) {
+            background-color: violet;
+            transform: translateZ(100px);
+            transform: rotateX(-45deg);
+        }
+        body div:nth-child(2) {
+            background-color: rgb(130, 238, 168);
+            transform: translateZ(100px);
+            transform: rotateX(45deg);
+        }
+        body div:nth-child(3) {
+            background-color: rgb(75, 100, 214);
+            transform: translateZ(100px);
+            transform: rotateX(-45deg);
+        }
+        body div:nth-child(4) {
+            background-color: rgb(211, 180, 44);
+            transform: translateZ(100px);
+            transform: rotateY(45deg);
+        }
+        body div:nth-child(5) {
+            background-color: rgb(138, 11, 222);
+            transform: translateZ(100px);
+            transform: rotateY(-45deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <img src="../../Image/Pz-0011.jpg" width="200px" alt="">
+    </div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+</body>
+</html>

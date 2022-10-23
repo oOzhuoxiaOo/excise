@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../IconFont/IconFont-0/iconfont.css">
+    <link rel="stylesheet" href="../css/iconFontBase.css">
+    <title>Document</title>
+    <style>
+        .tab {
+            width: 700px;
+            background-color: rgb(229, 105, 105);
+        }
+        .tab_list li {
+            list-style: none;
+         }
+         .tab_list li {
+            float: left;
+            width: 100px;
+            height: 50px;
+            background-color: rgb(195, 173, 173);
+
+         }
+         .tab_list {
+            background-color: rgb(110, 193, 179);
+         }
+         /* 给浮动元素的父亲添加伪元素清除浮动 */
+         .tab_list::after {
+            content:'';
+            display: block;
+            /* background-color: #fff; */
+            clear: both;
+         }
+         .current {
+            background-color: rgb(152, 62, 168)!important;
+         }
+         .tab_con img {
+            width: 200px;
+         }
+         .tab_con {
+            background-color: rgb(116, 202, 96);
+         }
+         .item {
+            display: none;
+         }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="current">夏娜</li>
+                <li>亚斯娜</li>
+                <li>伊卡洛斯</li>
+                <li>古河渚</li>
+                <li>古河汐</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block;">
+                <img src="../../../Image/Gif-0001.gif" alt="">
+            </div>
+            <div class="item">
+                <img src="../../../Image/Gif-0002.gif" alt="">
+
+            </div>
+            <div class="item">
+                <img src="../../../Image/Pz-0011.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="../../../Image/Pz-0010.png" alt="">
+
+            </div>
+            <div class="item">
+                <img src="../../../Image/Pz-0012.png" alt="">
+            </div>
+        </div>
+    </div>
+    <script>
+        // 获取元素
+        var lists = document.querySelector('.tab_list').querySelectorAll('li');
+        console.log(lists);
+        var items = document.querySelectorAll('.item');
+        console.log(items);
+        // 添加事件
+        for(var i = 0; i < lists.length; i++) {
+            // 给五个小li设置索引号
+            lists[i].setAttribute('index',i);
+            lists[i].onclick = function() {
+                // 🌙 选项卡模块
+                // ⭐ 干掉所有人
+                for(var j = 0; j < lists.length;j++) {
+                    lists[j].className = '';
+                }
+                // ⭐保留自己
+                this.className = 'current';
+
+                // ⭐⭐下面的显示内容模块
+                var index = this.getAttribute('index');
+                console.log(index);
+                // ⭐干掉所有人 让其余item这些div隐藏
+                for(var i = 0; i < items.length; i++) {
+                    items[i].style.display = 'none';
+                }
+                // ⭐留下我自己
+                items[index].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>

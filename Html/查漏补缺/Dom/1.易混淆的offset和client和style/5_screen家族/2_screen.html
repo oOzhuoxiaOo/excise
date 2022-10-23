@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .father {
+            overflow: auto;
+            position: relative;
+            transform: translateY(200px);
+            margin: 0 auto;
+            width: 400px;
+            height: 400px;
+            padding: 20px;
+            background-color: rgb(227, 96, 96);
+            border: solid 20px black;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(175, 208, 234);
+            border: solid 3px;
+        }
+    </style>
+</head>
+<body>
+    <button>点击获取屏幕分辨率</button>
+    <div class="father">
+        <div class="ceshi">
+            <div class="son"></div>
+        </div>
+    </div>
+    <script>
+        let father = document.querySelector('.father');
+        let son = document.querySelector('.son');
+        let body = document.body;
+        console.log(son.offsetParent)
+        console.dir(father)
+        console.dir(son);
+        console.log(`offsetTop:${son.offsetTop}`);
+        console.dir(window);
+        console.dir("分辨率宽为：" + window.screen.width);
+        console.dir("分辨率高为：" + window.screen.height);
+        console.dir("body宽为为：" + body.offsetWidth);
+        
+        document.querySelector('button').addEventListener('click',function(){
+            // 分辨率为可用宽高一般不变
+            console.dir("分辨率宽为：" + window.screen.width);
+            console.dir("分辨率高为：" + window.screen.height);
+        })
+
+    </script>
+</body>
+</html>

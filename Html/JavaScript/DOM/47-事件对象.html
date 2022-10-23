@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(160, 157, 157);
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(177, 201, 134);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="father">
+        <div class="son">son</div>
+    </div>
+    <script>
+        // 事件发生时会在元素节点间按特定顺序传播 DOM事件流
+        // 实际开发中更专注事件冒泡
+        // 传统事件没有冒泡
+        // 同时点到事件时
+        // 当事件方法默认为false 为冒泡流文档 先执行儿子 再父亲
+        // 为true时 为捕获流文档 先父亲 再儿子
+        var son = document.querySelector('.son');
+        son.onclick = function(event) {
+            console.log(event);
+            // 📕event 我们可以自己定义 比如e
+            // 📕.event就是一个事件对象 写到我们监听函数里的 当形参来看
+            // 📕事件对象只有有了事件才会存在 它是系统给我们自动创建的 不需要我们传递参数
+            // 📕事件对象 是我们事件一系列相关数据的集合 跟事件相关的 比如鼠
+            // 标点击里面就包含了鼠标的相关信息，鼠标坐标，键盘事件里面就包含
+            // 了键盘的相关信息，比如按下了哪个键
+        }
+    </script>
+</body>
+</html>

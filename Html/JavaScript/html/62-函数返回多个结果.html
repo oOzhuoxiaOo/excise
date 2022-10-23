@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        function getArr(num1, num2) { 
+            return [num1 + num2, num1 - num2, num1 * num2];
+        }
+        var arr = [1,2,3,4,7,6,5];
+        // 实际开发中用变量接收函数数据
+        var re = getArr(2,5); //返回的是一个数组
+        // 如果函数没有return 返回的是undefined
+        console.log(re);
+    </script>
+</head>
+
+<body></body>
+
+</html>

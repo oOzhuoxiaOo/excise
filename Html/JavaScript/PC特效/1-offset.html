@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .father {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        background-color: violet;
+        margin: 100px;
+    }
+    .son {
+        width: 100px;
+        height: 150px;
+        background-color: purple;
+        margin-left: 45px;
+    }
+</style>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+        console.log(father.offsetTop);
+        console.log(father.offsetLeft);
+        // 返回偏移
+        // 他以带有定位的父亲为准 
+        // 如果没有父亲或者父亲没有定位 则以 body 为准
+        // 此处给父亲加了relative
+        console.log(son.offsetTop);
+        console.log(son.offsetLeft);
+        // ⭐得到元素的宽高
+        console.log(son.offsetWidth);
+        console.log(son.offsetHeight);
+        // ⭐返回带有定位的父亲 否则返回的是body
+        console.log(son.offsetParent); //返回有定位的父亲 否则是body
+        console.log(son.parentNode); //亲爸爸
+    </script>
+</body>
+</html>

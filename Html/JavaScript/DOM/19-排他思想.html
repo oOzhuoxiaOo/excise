@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../IconFont/IconFont-0/iconfont.css">
+    <link rel="stylesheet" href="../css/iconFontBase.css">
+    <title>Document</title>
+    <style>
+        div {
+            width: 600px;
+
+        }
+        .message {
+            display: inline-block;
+            font-size: 12px;
+            color:rgb(0, 0, 0);
+            background:url(../../../Image/Gif-0001.gif) no-repeat left center;
+            background-size: 20px;
+            padding-left: 20px;
+        }
+        .wrong {
+            color:red;
+            background-image: url(../../../Image/Gif-0002.gif);
+        }
+        .right {
+            color: green;
+            background-image: url(../../../Image/Pz-0005.png);
+        }
+    </style>
+</head>
+
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+    <script>
+        // 先排除其他人 再设置自己的样式 这种思想为排他思想
+        // 控制样式
+        // 1.获取元素
+        var  btns = document.getElementsByTagName('button');
+        // btns是伪数组
+        for(var i = 0; i< btns.length; i++) {
+            btns[i].onclick = function()  {
+                // (1))次点击先把所有按钮背景颜色去掉
+                for(var j = 0; j < btns.length ; j++) {
+                    btns[j].style.backgroundColor = '';
+                }
+                console.log(11);
+                // (2)再给点击的元素背景颜色为pink
+                this.style.backgroundColor = 'pink';
+            }
+        }
+
+        // 2.注册事件 处理程序 失去焦点
+
+            // 根据表单里面的长度 lpt.value.length
+
+        // 3.
+    </script>
+</body>
+
+</html>

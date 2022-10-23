@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button>点击</button>
+    <script>
+        let str0 = '  夏  娜  ';
+        // 去除字符串两端的空格(中间不去)
+        // return 一个新字符串 原字符串不变
+        console.log(str0.trim());
+        console.log(str0);
+
+        let btn = document.querySelector('button');
+        let ipt = document.querySelector('input');
+        btn.addEventListener('click',function(){
+            // 输入空格则字符串不为空 具有长度了 需要用用trim()
+            if(ipt.value.trim() === ''){
+                alert('请输入内容');
+            }
+            console.log(ipt.value);
+        })
+
+
+    </script>
+</body>
+</html>

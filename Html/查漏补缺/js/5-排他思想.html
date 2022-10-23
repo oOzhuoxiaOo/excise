@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        ul {
+            display: flex;
+            /* background-color: rgb(216, 163, 163); */
+            height: inherit;
+        }
+        li {
+            flex: 1;
+            border: solid black;
+            list-style: none;
+        }
+        .box {
+            min-width: 400px;
+            max-width: 600px;
+            height: 100px;
+            border: solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+    <script>
+        // ⭐需求：点击哪个哪个就变色 其他恢复白色
+        // 获取所有box中li 得到一个伪数组
+        let lis = document.querySelector('.box').querySelectorAll('li');
+        for(let i = 0; i < lis.length; i++) {
+            // 给每个li添加一个点击变色事件
+            lis[i].addEventListener('click',function() {
+                // 先让让所有li先空白
+                for(let j = 0; j < lis.length; j++) {
+                    lis[j].style.backgroundColor = '';
+                }
+                // 给单独鼠标点击指定li变色
+                this.style.backgroundColor = 'purple';
+            })
+        }
+
+    </script>
+</body>
+</html>

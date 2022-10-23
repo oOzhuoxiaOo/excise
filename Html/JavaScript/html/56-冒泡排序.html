@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        // 冒泡排序 从小到大
+        var arr = [1 , 5, 3, 4, 7, 6, 10, 9, 8 ,2];
+        for(var i = 0; i < arr.length; i++) {
+            for( var j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j+1]) {
+                    var a = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = a;
+                }
+            }
+        }
+        console.log(arr);
+        // 冒泡排序 从 大到小
+        var arr1 = [1 , 5, 3, 4, 7, 6, 10, 9, 8 ,2];
+        for(var i = 0; i < arr1.length; i++) {
+            for( var j = 0; j < arr1.length - i - 1; j++) {
+                if (arr1[j] < arr1[j+1]) {
+                    var a = arr1[j];
+                    arr1[j] = arr1[j+1];
+                    arr1[j+1] = a;
+                }
+            }
+        }
+        console.log(arr1);
+    </script>
+</head>
+
+<body></body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <button id="xn" >夏娜</button>
+    <button id="bai" >白</button> <br>
+    <img src="../../../Image/Pz-0011.jpg" alt="" >
+    <script>
+        // 修改元素属性 src
+        // 1.获取元素
+        var xn = document.getElementById('xn');
+        var bai = document.getElementById('bai');
+        var img = document.querySelector('img');
+        // 2.注册事件 处理程序
+        xn.onclick = function() {
+            img.src = '../../../Image/Pz-0011.jpg';
+            img.title = '夏娜';
+        }
+        bai.onclick = function() {
+            img.src = '../../../Image/Pz-0009.png';
+            img.title = '白';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 200px;
+            width: 200px;
+            background-color: rgb(36, 61, 230);
+        }
+        .box1 {
+            /* 不设置宽度，块级元素和父亲一样宽 */
+            /* 宽度不会被padding撑开，但高度会 */
+            height: 20px;
+            padding:5px;
+            background-color: rgb(138, 213, 8);
+        }
+        .box2 {
+            /* 设置宽度，块级元素设置padding
+            会把自身撑开 */
+            width: 100%;
+            height: 20px;
+            padding: 5px;
+            background-color: rgb(219, 13, 150);
+        }
+        .box3 {
+            /* 不设置高度，块级元素 没有高度 */
+            /* 宽度高度都会被padding撑开 */
+            width: 20px;
+            padding:20px;
+            background-color: rgb(138, 213, 8);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+    </div>
+</body>
+</html>

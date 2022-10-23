@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            /* border: solid; */
+            border-collapse: collapse;
+            
+        }
+        td {
+            border: solid;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // let body = document.querySelector('body');
+        // body.style.backgroundColor = 'rgb(0,0,0,.9)';
+        // body.style.color = 'rgb(255,255,255)';
+        // body.style.fontSize = '25px';
+        
+        // 几几乘法表? x表示几
+        function Xtable(x) {
+            // 找到body标签
+            let body = document.querySelector('body');
+            // 创建一个table标签
+            let table = document.createElement('table');
+            //  将table标签放到body里
+            body.appendChild(table);
+            // 乘法表的算法
+            for(let i = 1; i <= x; i++) {
+                // 创建一个tr标签
+                let tr = document.createElement('tr');
+                for(let j = 1; j < i+1; j++) {
+                    // 创建一个td标签
+                    let td = document.createElement('td');
+                    // 把本次td标签放到本次tr标签里
+                    tr.appendChild(td);
+                    // 给td标签赋值
+                    td.innerHTML = `${j}x${i}=${i*(j)}`
+                }
+                // 把本次tr标签放到table里
+                table.appendChild(tr);
+            }
+        }
+
+        // 调用函数 99乘法表
+        // 乘法表位置：body里最后那个位置(尾部)
+        Xtable(9);
+        // 33乘法表
+        Xtable(3);
+        
+        
+    </script>
+</body>
+</html>

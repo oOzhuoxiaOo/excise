@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .items {
+            /* 将文本分为4列 
+                一列排完才排下一列 均匀为4列*/
+            column-count: 4;
+            /* 列间隔为0px */
+            column-gap: 0;
+            /* 初始化计时器 计时器名为item-counter(每到碰到items，计时器数归0) */
+            counter-reset: item-counter;
+        }
+        .item {
+            position: relative;
+            padding: 2px;
+            /* 每到item计时器递增 */
+            counter-increment: item-counter;
+        }
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            /* height: 100%; */
+        }
+        .item::after {
+            position: absolute;
+            display: block;
+            width: 24px;
+            height: 24px;
+            top: 5px;
+            left: 5px;
+            font-size: 16px;
+            text-align: center;
+            line-height: 24px;
+            background-color: rgb(6, 6, 6);
+            color: aliceblue;
+            /* 依次输出计时器 */
+            content: counter(item-counter);
+        }
+        .ceshi {
+            position: relative;
+            height: 150px;
+            background-color: rgb(192, 105, 105);
+        }
+        .ceshi::after{
+            position: absolute;
+            display: block;
+            width: 24px;
+            height: 24px;
+            top: 5px;
+            left: 5px;
+            font-size: 16px;
+            text-align: center;
+            line-height: 24px;
+            background-color: rgb(6, 6, 6);
+            color: aliceblue;
+            /* 依次输出计时器 */
+            /* :13没有变化，说明遇到 ceshi没有题赠 */
+            content: counter(item-counter);
+        }
+    </style>
+</head>
+<body>
+    <div class="items">
+        <div class="item">
+            <img src="/Image/00001.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/00002.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0001.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0002.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0003.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0004.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0005.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0006.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0007.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0008.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0009.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0010.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0011.jpg" alt="">
+        </div>
+        <div class="ceshi"></div>
+    </div>
+</body>
+</html>

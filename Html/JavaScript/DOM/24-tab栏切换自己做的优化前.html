@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../IconFont/IconFont-0/iconfont.css">
+    <link rel="stylesheet" href="../css/iconFontBase.css">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: rgb(188, 228, 103);
+        }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            list-style: none;
+        }
+        .list li {
+            float: left;
+            width: 100px;
+            height: 50px;
+            background-color: rgb(213, 162, 162);
+        }
+        /* 清除浮动 让浮动元素的父亲 添加一个伪元素 清除左浮动（该元素左边不能有浮动），右浮动 */
+        .list ul::after { 
+            content: '';
+            display: block; /*设置为块 让块在父内容下方 而不是右方*/
+            /* height: ; */
+            clear: both; /*清除左右浮动*/
+            /* visibility: hidden; 隐藏伪元素 */
+        }
+        .contents div {
+            display: none;
+        }
+        .contents div:nth-child(1) {
+            display: block;
+        }
+        .contents div img {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="list">
+            <ul>
+                <li>夏娜</li>
+                <li>亚斯娜</li>
+                <li>伊卡洛斯</li>
+                <li>古河渚</li>
+                <li>古河汐</li>
+            </ul>
+        </div>
+        <div class="contents">
+            <div>
+                <img src="../../../Image/Gif-0001.gif" alt="">
+            </div>
+            <div>
+                <img src="../../../Image/Gif-0002.gif" alt="">
+
+            </div>
+            <div>
+                <img src="../../../Image/Pz-0011.jpg" alt="">
+            </div>
+            <div>
+                <img src="../../../Image/Pz-0010.png" alt="">
+
+            </div>
+            <div>
+                <img src="../../../Image/Pz-0012.png" alt="">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        //⭐ 鼠标点击菜单变色 利用排他思想
+        // ⭐鼠标点击更改content内容 块隐藏和显示
+
+        // ⭐获取元素对象
+        var lists = document.querySelector('.list').querySelectorAll('li');
+        var divs = document.querySelector('.contents').querySelectorAll('div');
+        console.log(lists);
+        console.log(divs);
+        // ⭐⭐添加事件 变色 || tab内容
+        for(let i = 0; i < lists.length; i++) {
+            lists[i].onclick = function() {
+                // 每次点击单个列表元素后先给所有列表元素重置色彩 目的是清除上次点击的色彩
+                for(var j = 0; j < lists.length; j ++) {
+                    lists[j].style.backgroundColor = '';
+                    divs[j].style.display = 'none';
+                }
+                // 每次点击初始化色彩下一步 给点击的添加色彩
+                this.style.backgroundColor = 'purple';
+                divs[i].style.display = 'block';
+                //先执行外层for循坏 当点击事件时 此时i值已经为5了 所以不能在事件对象用i比如divs[i]
+                // var 声明的i是唯一 的 每次改变都改变了自身栈地址
+                // console.log('divs' + i + ':\t'+ divs[i]); 
+                
+    
+            }
+        }
+        console.log(i);
+
+    </script>
+</body>
+
+</html>

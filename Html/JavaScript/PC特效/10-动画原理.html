@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        // 获得盒子当前位置
+        // 让盒子再当前位置加1
+        // 利用定时器重复操作
+        // 加一个定时器结束条件
+        // 注意此元素需要添加定位
+        var div = document.querySelector('div');
+        var timer = setInterval(function() {
+            if(div.offsetLeft >= 400) {
+                // 停止动画 也就是停止计时器
+                clearInterval(timer);
+            }
+            div.style.left = div.offsetLeft + 1 + 'px';
+        },30)
+    </script>
+</body>
+</html>

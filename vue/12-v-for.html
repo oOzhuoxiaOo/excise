@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <!-- v-for -->
+            <!-- 遍历克隆数组元素 克隆li标签 -->
+            <!-- 根据数据生成列表结构 -->
+            <li v-for="(item,index) in arr">
+                {{index}} {{item}}
+            </li>
+            <h2 v-for="item in arrObj">
+                {{item.name}}
+            </h2>
+        </ul>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        var app = new  Vue({
+            el:'#app',
+            data:{
+                arr:['夏娜','亚斯娜','伊卡洛斯','穹'],
+                arrObj:[{
+                    name:'天'
+                },{
+                    name:'地'
+                },{
+                    name:'玄'
+                }]
+            }
+
+        })
+    </script>
+</body>
+
+</html>

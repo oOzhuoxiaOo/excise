@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            /* background-color: rgb(196, 50, 50); */
+            border: solid;
+        }
+        li {
+            background-color: rgb(222, 186, 186);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>没有退路可言</li>
+        <li>没有退路可言</li>
+        <li>没有退路可言</li>
+        <li>没有退路可言</li>
+        <li>没有退路可言</li>
+    </ul>
+    <script>
+        // 事件委托核心原理 给父节点添加监听器 利用事件冒泡影响每一个子节点
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click',function(e) {
+            // alert('没有退路可言');
+            // e.target可以获得我们点击的对象
+            e.target.style.backgroundColor = 'purple';
+        })
+    </script>
+</body>
+</html>

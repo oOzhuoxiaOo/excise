@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        // 用户输入年份 获得二月份天数
+        // 判断闰年
+        function judgeLeap(year) {
+            return year % 4 == 0 && year % 100 != 0 || year % 400 == 0 ? true : false;
+        }
+        // 获得天数
+        function backDay() {
+            var year = prompt('夏娜,请输入年份:');
+            var day = 29;
+            if(!judgeLeap(year)) {
+                day = 28;
+                alert('当前年份是平年2月份28天');
+            } else {
+                alert('当前年份是润年2月份29天');
+            }
+        }
+        backDay();
+    </script>
+</head>
+
+<body></body>
+
+</html>

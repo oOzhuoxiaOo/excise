@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+        }
+    </style>
+</head>
+<body>
+    <button>点击移动</button>
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        // 封装动画函数 
+        // obj 传输对象 targetLeft移动限制范围
+        function animate(obj,targetLeft) {
+            // 清除上一个正在进行定时器 防止多次点击造成速度叠加
+            clearInterval(obj.timer);
+            // 通过obj.timer 在传输对象里添加一个属性 不用再次声明一个相同命名得到定时器 防止歧义
+            obj.timer = setInterval(function() {
+                if(obj.offsetLeft >= targetLeft) {
+                    clearInterval(obj.timer); 
+                } else {
+                    obj.style.left = obj.offsetLeft + 1 + 'px';
+                }
+            },10)
+        }
+        animate(div,500);
+    </script>
+</body>
+</html>

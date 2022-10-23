@@ -1,0 +1,108 @@
+* {
+    margin:auto;
+}
+
+body {
+    background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg9.51tietu.net%2Fpic%2F2019-091401%2Fc2xwoofgdchc2xwoofgdch.jpg&refer=http%3A%2F%2Fimg9.51tietu.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1650759702&t=23c2eb9eebafdfc9ec0441264f4d6141);
+    /* background-image: url(https://cn.bing.com/images/search?view=detailV2&ccid=Sg%2fB3eDo&id=8573403081D0A9CE41539B9226E0F8C632EA4FD1&thid=OIP.Sg_B3eDohusCwQLjU9qJ3AHaEK&mediaurl=https%3a%2f%2fpic1.zhimg.com%2fv2-4a0fc1dde0e886eb02c102e353da89dc_r.jpg&exph=1619&expw=2879&q=%e5%a3%81%e7%ba%b8&simid=608024767884327602&FORM=IRPRST&ck=EF3436C2E8976FA4D809F3B45CE2922E&selectedIndex=69); */
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    height:100%;
+    width: 100%;
+    border:cyan solid;
+}
+
+.header {
+    height: 300px;
+    border: burlywood solid;
+}
+
+.header-nav {
+    height: 60px;
+    border: floralwhite solid;
+}
+
+.header-nav-menu{
+    font-size: 1.5em;
+}
+
+.header-nav-menu li {
+      text-decoration: none;/*取消圆点标签属性*/
+      list-style: none;/*用来设置标签是圆点、方块等*/
+      /* float: left;float CSS属性指定一个元素应沿其容器的左侧或右侧放置，允许文本和内联元素环绕它 */
+      display:inline;
+      border:2px chartreuse solid;
+      
+}
+
+.header-nav-menu li a{
+    color:#fafafa ;
+    text-decoration: none;
+    margin:0px;
+    /*display:block;*//*使li成为块级元素*/
+                  /*例子：链接 a 元素，在默认情况下是是“行内元素”，因此对a元素设置高度、宽度等属性，都是无效的。而比如div，p，li，img等默认情况下的display属性值就是“block”。所以对于链接a来说只能这样：display:block;强制将它改成块元素*/
+    height: 30px;
+    line-height: 40px;
+    border: white solid;   
+}
+
+.header-nav-menu li a:hover {
+    background-color:black;
+    opacity: calc(0.7);
+}
+.header-cover {
+    height: 100px;
+    border: chartreuse solid;
+}
+
+.header-bottom {
+    height: 100px;
+    border:red solid;
+}
+
+.header-bottom-icon {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius:50%;
+    border:aqua solid;
+    overflow: hidden;
+}
+
+.header-bottom-title {
+    position:absolute;
+    height: 40px;
+    width: 100px;
+    left:95px;
+    border:cornsilk solid;
+    
+    
+}
+
+.header-bottom-title span {
+    color:#fafafa;
+    font-size: 1.5em;
+}
+
+.header-bottom-paper {
+    position:absolute;
+    border:#fafafa solid;
+    width: 400px;
+    height: 30px;
+    top:224px;
+    left: 95px;
+    padding: 1px 2px;
+    text-align: left;
+    
+}
+
+.header-bottom-paper span {
+    color: #fafafa;
+    font-size: 1em;
+}

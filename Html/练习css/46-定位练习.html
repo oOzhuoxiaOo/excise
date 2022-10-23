@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 a {
+            text-decoration: none;
+        }
+
+        .box1 li{
+            list-style: none;
+        }
+        .box1 {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 50px auto;
+        }
+
+        .box1 img {
+            width: 400px;
+            height: 400px;
+        }
+
+        .signLeft,
+        .signRight {
+            color: black;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: rgb(238, 55, 55, .9);
+            top: 50%;
+            margin-top: -15px;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        .signLeft {
+            left: 0;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .signRight {
+            Right: 0;
+            border-radius: 15px 0 0 15px;
+        }
+        .list {
+            position: absolute;
+            width: 80px;
+            height: 20px;
+            bottom: 0;
+            left: 50%;
+            margin-left: -40px;
+            background-color: rgb(56, 93, 180);
+        }
+        .list li {
+            float: left;
+            width: 10px;
+            height: 10px;
+            background-color: rgb(195, 62, 62);
+            margin: 5px;
+            border-radius: 50%;
+        }
+        .box1 .selectAfter {
+            background-color: rgb(24, 213, 134);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <img src="../../Image/Ha-0002.jpg" alt="">
+        <a href="#" class="signLeft">&lt;</a>
+        <a href="#" class="signRight">&gt;</a>
+        <ul class="list">
+            <li class="selectAfter"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+</html>

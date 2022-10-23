@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<head>
+    <title>案列-注册页面</title>
+    <link rel="stylesheet" href="../../Css/练习/基本.css" type="text/css">
+    <link rel="stylesheet" href="../Css/练习/案列-注册页面.css">
+    <style>
+        body {
+            color:rgb(81, 221, 0);
+        }
+    </style>
+
+<body>
+    <div class="content">
+       <h1>音无结弦之时，鸣奏浮华之世</h1>
+       <form action="">
+           <table>
+               <tr>
+                   <td>账号:</td>
+                   <td>
+                       <input type="text" name="pw" placeholder="请输入账号" required="" patter>
+                   </td>
+               </tr>
+               <tr>
+                   <td> 密码</td>
+                   <td>
+                    <input type="password" name="pw" placeholder="请输入密码" required="" patter>
+                   </td>
+               </tr>
+               <tr>
+                   <td>性别:</td>
+                   <td>
+                       <!-- 单选按钮和label实现 -->
+                       <input type="radio" name="sex" value="男" id="sex-boy"><label for="sex-girl">男</label>
+                       <input type="radio" name="sex" value="女" id="sex-boy"><label for="sex-boy">女</label>
+                   </td>
+               </tr>
+               <tr>
+                   <td>生日</td>
+                   <td>
+                       <!-- 选择菜单控件实现 -->
+                       <select name="" id="">
+                           <option value="">请选择年份</option>
+                           <option value="">2001</option>
+                           <option value="">2002</option>
+                           <option value="">2003</option>
+                           <option value="">2004</option>
+                           <option value="">2005</option>
+                           <option value="">2006</option>
+                           <option value="">2007</option>
+                           <option value="">2008</option>
+                           <option value="">2009</option>
+                           <option value="">20010</option>
+                           <option value="">20011</option>
+                           <option value="">20012</option>
+                       </select>
+                       <select name="" id="">
+                           <option value="">请选择月份</option>
+                           <option value="">1</option>
+                           <option value="">2</option>
+                           <option value="">3</option>
+                           <option value="">4</option>
+                           <option value="">5</option>
+                           <option value="">6</option>
+                           <option value="">7</option>
+                           <option value="">8</option>
+                           <option value="">9</option>
+                           <option value="">10</option>
+                           <option value="">11</option>
+                           <option value="">12</option>
+                       </select>
+                       <select name="" id="">
+                           <option value="">日</option>
+                           <option value="">1</option>
+                           <option value="">2</option>
+                           <option value="">3</option>
+                           <option value="">4</option>
+                           <option value="">5</option>
+                           <option value="">6</option>
+                           <option value="">7</option>
+                           <option value="">8</option>
+                           <option value="">9</option>
+                           <option value="">10</option>
+                           <option value="">11</option>
+                           <option value="">12</option>
+                           <option value="">13</option>
+                           <option value="">14</option>
+                           <option value="">15</option>
+                           <option value="">16</option>
+                           <option value="">17</option>
+                           <option value="">18</option>
+                           <option value="">19</option>
+                           <option value="">20</option>
+                           <option value="">21</option>
+                           <option value="">22</option>
+                           <option value="">23</option>
+                           <option value="">24</option>
+                           <option value="">25</option>
+                           <option value="">26</option>
+                           <option value="">27</option>
+                           <option value="">28</option>
+                           <option value="">29</option>
+                           <option value="">30</option>
+                       </select>
+                   </td>
+               </tr>
+               <tr>
+                   <td>所在区域</td>
+                   <td>
+                       <input type="text" name="address">
+                   </td>
+               </tr>
+               <tr>
+                   <td> 婚姻状况</td>
+                   <td>
+                       <input type="radio" name="gam" id="gam-married"><label for="gam-married">已婚</label>
+                       <input type="radio" name="gam" id="gam-married"><label for="gam-unmarried">未婚</label>
+                       <input type="radio" name="gam" id="gam-married"><label for="gam-divorce">离异</label>
+                   </td>
+               </tr>
+               <tr>
+                    <td>学历</td>
+                    <td>
+                        <select name="" id="">
+                            <option value="">小学</option>
+                            <option value="">初中</option>
+                            <option value="">高中</option>
+                            <option value="">大学</option>
+                            <option value="">研究生</option>
+                            <option value="">博士</option>                       
+                        </select>
+                    </td>
+               </tr>
+               <tr>
+                   <td>爱好</td>
+                   <td>
+                       <input type="checkbox" name="hobby" value="手机" id="hobby-1"><label for="hobby-1">手机</label>
+                       <input type="checkbox" name="hobby" value="游戏" id="hobby-2"><label for="hobby-2">游戏</label>
+                       <input type="checkbox" name="hobby" value="电影" id="hobby-3"><label for="hobby-3">电影</label>
+                       <input type="checkbox" name="hobby" value="动漫" id="hobby-4"><label for="hobby-4">动漫</label>
+                   </td>
+               </tr>
+               <tr>
+                   <td>自我介绍</td>
+                   <td>
+                       <textarea name="to-introduce-myself" cols="30" rows="3"></textarea>
+                   </td>
+               </tr>
+               <tr>
+                   <td>1</td>
+                   <td>
+                       <input type="button" value="注册">
+                   </td>
+               </tr>
+               <tr>
+                   <td>2</td>
+                   <td>
+                       <input type="checkbox" value="agreement"  checked="checked"> 我同意注册条款和加入标准
+                   </td>
+               </tr>
+               <tr>
+                   <td>3</td>
+                   <td>
+                       <a href="#">点击加入会员</a>
+                   </td>
+               </tr>
+          
+           </table>
+       </form>
+    </div>
+</body>
+</head>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 对这个script 标签内开启严格模式
+        // 开启严格模式（更加规范代码 
+        // 比如未声明的k不能使用 会报错）
+        // 无法定义class等和类冲突变量名
+        'use strict'
+    </script>
+    <script>
+        // 'use strict'
+        let k = 10;
+        // 不能删除已经定义的变量
+        console.log(k);
+        // delete k;
+    </script>
+    <script>
+        // 对单个函数开启严格模式
+        // this在全局也就是指向window  变成undefined
+        // 但定时器的this指向还是 window
+        function fn() {
+            'use strict'
+            console.log(this);
+        }
+        fn();
+        setTimeout(function(){
+            console.log('setTimeout的this指向还是window')
+            console.log(this);
+        },1000);
+    </script>
+</body>
+</html>

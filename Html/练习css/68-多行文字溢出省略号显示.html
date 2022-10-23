@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 多行文字溢出省略 */
+        .box1 {
+            width: 100px;
+            /*  */
+            height: 45px;
+            background-color: rgb(212, 96, 96);
+
+            /* 超出隐藏 */
+            overflow: hidden;
+            /* 变省略号 */
+            text-overflow: ellipsis;
+            /* 弹性布局设置 */
+            display: -webkit-box;
+            /* 两行 */
+            -webkit-line-clamp: 2;
+            /* 方式                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
+            -webkit-box-orient: vertical;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box1">
+        我有一个梦想,dream 一袋米要抗击楼
+    </div>
+</body>
+</html>

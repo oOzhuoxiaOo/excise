@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 生成器是一个通过构造函数Generator创建的对象，生成器既是一个迭代器，同时又是一个可迭代对象
+        // 生成器的创建，必须使用生成器函数（Generator Function）
+        // 异步编程 纯回调函数 node fs ajax mongolb
+        //yield函数代码的分隔符
+        function * gen() {
+            console.log(11);
+            yield `一只没有耳朵`;
+            console.log(22);
+            yield `一只没有尾巴`;
+            console.log(33);
+            yield `真奇怪`;
+            console.log(44);
+        }
+
+        // function fn() {
+        //     console.log('223');
+        // }
+
+        const iterator = gen();
+        // let fn1 = fn(); //fn1为返回值？
+        // // fn1;
+        // console.log(iterator);//object
+
+        // console.log(typeof iterator);//object
+        // console.log(typeof fn);//function
+        // console.log(typeof fn1);//返回的值确定
+
+        // yield 为分隔符 
+        // next（）为一个方法
+        // iterator.next();
+        // iterator.next();
+        // iterator.next();
+        // iterator.next();
+
+        console.log(iterator.next());        //  for(let v of gen()){
+        console.log(iterator.next());        //  for(let v of gen()){
+        console.log(iterator.next());        //  for(let v of gen()){
+        console.log(iterator.next());        //  for(let v of gen()){
+        //     console.log(v);
+        //  }
+    </script>
+</body>
+</html>

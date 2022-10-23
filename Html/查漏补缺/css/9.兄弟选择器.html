@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 50px;
+            height: 50px;
+            border: solid;
+        }
+        /* 同级之后 .box都会被选中 */
+        .boxZ ~ .box {
+            background-color: purple;
+        }
+        /* 同级之后第一个 .box会被选中(必须为下一个，且下一个必须有.box,注意：必须为亲兄弟(紧贴的下一个)) */
+        .boxZ + .box {
+            background-color: rgb(67, 145, 209);
+        }
+    </style>
+</head>
+<body>
+    <div class="box box-2">-2</div>
+    <div class="box box-1">-1</div>
+    <div class="box box0">0</div>
+    <div class="box boxZ">zzz</div>
+    <div class="box box1">1</div>
+    <div class="box box2">2</div>
+    <div class="box box3">3</div>
+</body>
+</html>

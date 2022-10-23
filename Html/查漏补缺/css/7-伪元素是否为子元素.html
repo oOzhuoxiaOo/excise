@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪元素是否为子元素</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            font-size: 20px;
+        }
+        /* 📕其中伪类和伪元素的根本区别在于：
+                它们是否创造了新的元素, 这个新创造的元素就叫 “伪无素” 。 */
+        .box::after{
+            content:'after'
+        }
+        .box:hover:after {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span>span</span>
+    </div>
+</body>
+</html>

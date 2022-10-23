@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 引入Vue -->
+    <script src="../../JS/vue.js"></script>
+    <script type="text/javascript">Vue.config.productionTip = false;//阻止Vue 在启动时产生生产提示 </script>
+</head>
+
+<body>
+        <!-- 
+        📕收集表单数据：
+            若<input type="text"/>，则v-model收集的是value的值,用户输入的就是value的值
+            若<input type="redio"/>,则v-model收集的是value的值,且要给标签配置value的值
+            若<input type="checked"/>
+                1.没有配置input的value属性，那么收集的就是checked(勾选 or 未勾选，是布尔值)
+                2.配置input的value属性:
+                    (1)v-model的初始值是非数组，那么收集的就是checked(勾选 or 未勾选，是布尔值)
+                    (2)v-model的初始值是数组，那么收集的值就是value组成的数组
+                备注：v-model的三个修饰符：
+                    lazy：失去焦点再收集数据
+                    number：输入字符串转为有效的数字
+                    trim：输入首位空格过滤
+     -->
+
+     <!-- 准备好一个容器 -->
+    <div id="root">
+        <!--表单内部有button的话，button的type默认为submit
+            表单只要一提交就执行demo
+            表单在提交完后有一个默认动作是跳转页面-->
+            <!--  此处给事件添加修饰符prvent阻止默认行为：跳转页面 -->
+        <form @submit.prevent="demo">
+            <label for="ID">帐号:</label>
+            <!-- v-model修饰符trim 去掉收集数据的前后空格(中间不去) -->
+            <input type="text" id="ID" name="ID" v-model.trim="userInfo.account">
+            <br><br>
+    
+            <label for="PW">密码</label>
+            <input type="password" id="PW" v-model="userInfo.password">
+            <br><br>
+    
+            <label for="AGE">年龄</label>
+            <!-- 🔖输入的数据默认为字符，需求为数字时，可以用v-model的修饰符.number -->
+            <!-- type=number能够让用户只输入数字(abc等无法输入) -->
+            <input type="number" id="AGE" v-model.number="userInfo.age">
+            <br><br>
+    
+            性别: 
+            <label for="nan">男</label>
+            <!-- 🔖1.由于单选框不用输入数据，需要单独设置value值进行收集数据
+                    v-model=('数据变量名sex')  则被选中时checked=true sex就会是设定的value值
+                    2.此处的sex数据 在data中默认设置为了male-->
+            <input type="radio" id="nan" name="sex" v-model="userInfo.sex" value="male">
+            <label for="nv">女</label>
+            <input type="radio" id="nv" name="sex" v-model="userInfo.sex" value="female">
+            <br><br>
+    
+            爱好:  
+            <label for="stu">学习</label>
+            <input type="checkbox" name="hobby" id="stu" v-model="userInfo.hobby" value="stu">
+            <label for="game">打游戏</label>
+            <input type="checkbox" name="hobby" id="game" v-model="userInfo.hobby" value="game">
+            <label for="eat">吃饭</label>
+            <input type="checkbox" name="hobby" id="eat" v-model="userInfo.hobby" value="eat">
+            <!-- 🔖注意👆， 1.复选框(2个以上)中，v-model绑定的data数据要设置为数组，
+                                每个数组索引的值为选中的自己设置的value值
+                            2.如果设置为字符串，v-model收集到的就是checked结果,选中一个导致全部框的checked都为true -->
+            <br><br>
+            
+            所属校区: 
+            <select v-model="userInfo.address">
+                <!-- 🔖 多选菜单 v-model要添加到select上，值为所选择的option的value值 -->
+                <option value="sAd">选择地区</option>
+                <option value="henan">河南</option>
+                <option value="beijing">北京</option>
+                <option value="shanghai">上海</option>
+            </select>
+            <br><br>
+    
+            其他信息:
+            <!-- v-model的修饰符.lazy,当失去焦点的一瞬间，更新数据，而不是数据改变就双向更新数据 -->
+            <textarea v-model.lazy="userInfo.other"></textarea>
+            <br><br>
+    
+            <!-- 🔖此处 一个多选框，不需要设置value,是否接受协议的数据为agree:true/false即可 -->
+            <input type="checkbox" name="agree" v-model="userInfo.agree">阅读并接受<a href="">用户协议</a>
+            <!-- 表单内的<button>未指定类型时，默认的类型为submit -->
+            <button>提交</button>
+        </form>
+
+    </div>
+
+    <script>
+        // 创建Vue实例
+        const vm = new Vue({
+            el:'#root',
+            data:{
+                userInfo:{
+                    account:'',
+                    password:'',
+                    age:'',
+                    sex:'male',
+                    hobby:[],
+                    address:'sAd',
+                    other:'',
+                    agree:'',
+                }
+            },
+            methods:{
+                demo(){
+                    console.log(JSON.stringify(this.userInfo))
+                    // console.log(this)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // es6前构造函数的继承
+        function Father(uname,age) {
+            this.uname = uname;
+            this.age = age;
+        }
+        function Son(uname,age,score) {
+            // 利用call使用 (父)构造函数 ,需要改变this指向
+            Father.call(this,uname,age);//this表示new的一个实例对象son
+            // console.log(this);
+            this.score = score;
+        }
+
+        let son = new Son('夏娜',18,100);
+        console.log(son);
+    </script>
+</body>
+</html>

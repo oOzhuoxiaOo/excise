@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box1 {
+            /* 让子元素中行内元素和行内块元素居中 */
+            text-align: center;
+        }
+        a {
+            display: inline-block;
+            text-decoration: none;
+            background-color: rgb(211, 192, 171);
+            color: black;
+            width: 70px;
+            height: 50px;
+            line-height: 50px;
+        }
+        .box1 .next,
+        .box1 .pre {
+            width: 100px;
+        }
+
+        .current {
+            background-color: #fff;
+        }
+
+        .box1 input {
+            width: 100px;
+            height: 50px;
+        }
+        button {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <a class="pre" href="#">&lt;&lt;上一页</a>
+        <a class="current" href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a class="current" href="#">...</a>
+        <a class="next" href="#">&gt;&gt;下一页</a>
+        到第几<input type="text">页
+        <button>确定</button>
+    </div>
+</body>
+</html>

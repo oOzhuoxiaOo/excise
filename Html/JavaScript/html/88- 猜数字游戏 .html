@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        // 猜数字游戏
+        function getRandomInt(min, max) {
+            return Math.floor(min + (max - min + 1) * Math.random());
+        }
+        // 自己写的方法1 比较麻烦
+        // var guessNum = prompt('猜数字1-10');
+        // var judge = 0;
+        // var num = getRandomInt(1, 10);
+        // while (judge == 0) {
+        //     if (guessNum == num) {
+        //         alert('猜对了，数字就是:\t' + num);
+        //         judge = 1;
+        //     } else if (guessNum < num) {
+        //         alert('猜小了');
+        //         guessNum = prompt('再猜');
+        //     } else {
+        //         alert('猜大了');
+        //         guessNum = prompt('再猜');
+        //     }
+        // }
+
+        // 方法二
+        var num = getRandomInt(1, 10);
+        while (true) {
+            var guessNum = prompt('猜数字1-10');
+            if (guessNum == num) {
+                alert('猜对了，数字就是:\t' + num);
+                break; //猜对了退出循坏
+            } else if (guessNum < num) {
+                alert('猜小了');
+            } else {
+                alert('猜大了');
+            }
+        }
+
+    </script>
+</head>
+
+<body></body>
+
+</html>

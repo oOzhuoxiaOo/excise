@@ -1,0 +1,28 @@
+.property{
+    border: 1px black solid;
+    border-spacing:0px;/*单元格间距：0*/
+
+    border-collapse: separate;    /* 表格折叠，默认就是分离的 */
+    border-collapse:collapse;/*改为合并，发现线变细了,单元格之间的线变一条了*/
+}
+
+.property td {
+    border:1px black solid;
+}
+.property th {
+    border:1px black solid;
+}
+
+.example-4 {
+    border-spacing:0;
+    border-collapse:collapse;
+    border: 1px black solid;
+}
+.example-4 th {
+    border: 1px black solid;
+
+}
+.example-4 td {
+    border: 1px black solid;
+
+}

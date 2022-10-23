@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // +++++++
+        // 数据类型转换 字符转数字
+        // 1.parseInt(变量) 字符转化为数字 得到是整数
+        var str = '111';
+        console.log(str);
+        console.log(parseInt(str));
+        console.log(parseInt('3.14')); //直接不约取整
+        console.log(parseInt('3.94'));
+        console.log(parseInt('120px')); //后面学习会用到 会去掉 px单位
+        console.log(parseInt('rem120px')); // NaN
+
+        // ++++++++++
+        // 2.小数 parseFloat(变量)
+        console.log(parseFloat('3.14'))
+        console.log(parseFloat('120px')); //后面学习会用到 会去掉 px单位
+        console.log(parseFloat('rem120px')); // NaN
+
+        // 3.利用Number变量
+        var str = '123'
+        console.log(Number(str));
+        console.log(Number('12'));
+        // 4.利用* - / 隐式转换
+        console.log('123' * 2);
+        console.log('123' - 2);
+        console.log('123' - '2');
+        console.log('123' / 2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

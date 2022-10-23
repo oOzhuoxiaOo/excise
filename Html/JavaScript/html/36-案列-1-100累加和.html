@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.1-100累加和
+        var result = 0;
+        for(var i = 1; i <= 100; i++) {
+            result +=i;
+        }
+        console.log('1-100和:' + result);
+        // 2.1-100所有数的平均值
+        var average = result / 100;
+        console.log('1-100平均值' + average);
+        // 3.1-100间所有偶数和奇数的和 
+        var resultEven = 0;
+        var resultOdd = 0;
+        for(var i = 1; i <= 100; i++) {
+            if( i % 2 == 0) {
+                resultEven += i;
+            } else {
+                resultOdd += i;
+            }
+        }
+        console.log('1-100偶数和:' + resultEven);
+        console.log('1-100奇数和:' + resultOdd);
+        // 4.1-100能被3整除的和
+        var result3 = 0;
+        for(var i = 1; i <= 100; i++) {
+            if( i % 3 == 0) {
+                result3 += i;
+            } 
+        }
+        console.log('1-100能被3整除和:' + result3);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

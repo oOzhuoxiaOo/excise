@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            color: rgb(203, 12, 184);
+        }
+        .menu {
+            width: 500px;
+            background-color: black;
+            /* color: aqua; */
+        }
+        a {
+            display: block;
+            color:inherit; 
+            /* https://blog.csdn.net/m0_46482100/article/details/104896576 */
+            /* //继承 找 父亲 有父亲爷爷或者祖辈 继承最近的颜色设置 */
+            /* CSS transitions 可以决定哪些属性发生动画效果 (明确地列出这些属性)，
+            何时开始 (设置 delay），
+            持续多久 (设置 duration) 
+            以及如何动画 (定义timing function，比如匀速地或先快后慢)。 */
+            transition: background-color .3s ease;    
+        }
+        
+        a:hover {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        menu
+        <div class="menu-body">
+            <a href="">1</a>
+            <a href="">2</a>
+            <a href="">3</a>
+            <a href="">4</a>
+        </div>
+    </div>
+</body>
+</html>

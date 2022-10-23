@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 50px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <img src="../../../Image/Gif-0001.gif" alt="">
+    <script>
+        // ⭐天使跟着鼠标移动
+        // 注意添加绝对定位
+        var img = document.querySelector('img');
+        // 鼠标移动1px 就会触发mousemove一次
+        document.addEventListener('mousemove',function(e) {
+            // 鼠标移动1px 就会触发mousemove获得最新的鼠标坐标
+            // 🐍注意 获得的单位不是 🐍px🐍
+            var x = e.pageX;
+            var y = e.pageY;
+            console.log(1);
+            img.style.left = x -25 + 'px'; //位置在鼠标右下方 通过图片大小 自定义平移下图位置一半
+            img.style.top = y -28 + 'px';
+        })
+    </script>
+</body>
+</html>

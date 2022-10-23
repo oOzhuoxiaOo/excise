@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 输入班级人数
+        // 输入每个学生成绩
+        // 输出平均成绩
+        var result = 0;
+        var people = prompt('输入班级人数');
+        for(var i = 1; i <= people; i++) {
+            var score = prompt('输入第' + i + '个学生的成绩');
+            result += parseInt(score);
+        }
+        var average = result / people;
+        alert('平均成绩为：' + average);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

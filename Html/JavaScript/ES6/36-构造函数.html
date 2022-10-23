@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 方法和属性称为成员
+        function Star(uname,uage) {
+            this.uname = uname;
+            this.uage = uage;
+            this.sing = function(){
+                console.log('kkk');
+            }
+        }
+        Star.jingtai = '静态成员';
+        let xiana = new Star('夏娜',18);
+        let qiong = new Star('穹',16);
+        xiana.sing()
+        qiong.sing();
+        console.log(xiana.jingtai);//静态成员不能通过实列化对象访问
+        console.log(Star.jingtai);//可通过构造函数访问
+
+        console.log(xiana.sing === qiong.sing);//地址不同 输出false
+        
+        
+         
+        
+    </script>
+</body>
+</html>

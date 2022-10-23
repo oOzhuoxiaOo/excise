@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            width: 500px;
+            background-color: rgb(217, 131, 217);
+        }
+        li a {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        // 获取元素
+        var ul = document.querySelector('ul');
+        // 1.node.cloneNode();
+        console.log(ul.children[0].cloneNode());
+        // 元素.cloneNode() 括号为空或者false为浅拷贝
+        // 浅拷贝 只拷贝元素标签
+        // 元素.cloneNode() 括号为📕true📕为深拷贝
+        // 深拷贝 标签加内容
+        var lili = ul.children[0].cloneNode(true);
+        // 添加事件
+        ul.appendChild(lili);
+    </script>
+</body>
+
+</html>

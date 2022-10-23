@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ⭐1.定义动画 */
+        /* frame:帧 frames:动画 */
+        /* from to 等价 0% 100% */
+        /* @keyframes move {
+            from {
+                transform: translate(0,0);
+            }
+            to {
+                transform: translate(400px,0);
+            } 
+        }*/
+        /* 可以做多个状态得到变化 keyframe关键帧 */
+        /* 百分比就是 总时间的划分 */
+        @keyframes move {
+            0% {
+                transform: translate(0,0);
+            }
+            25% {
+                transform: translate(400px,0);
+            }
+            50% {
+                transform: translate(400px,400px);
+            }
+            75% {
+                transform:translate(0,400px);
+            }
+            100% {
+                transform:translate(0,0);
+            }
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #1f1f1f;
+            /* ⭐2.调用动画 */
+            /* 动画名称 */
+            animation-name: move;
+            /* 持续时间 */
+            animation-duration: 2s;
+
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

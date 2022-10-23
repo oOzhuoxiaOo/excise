@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 所有input中有属性type的 */
+        input[type] {
+            color: brown;
+        }
+        /* 所有input中有属性type值为text的 */
+        input[type=text] {
+            color: rgb(40, 0, 216);
+        }
+
+        /* 选择div中class中开头有box的元素 */
+        div[class^=box] {
+            color: rgb(228, 4, 172);
+        }
+        /* 选择div中class中以tl结尾的元素 */
+        div[class$=tl] {
+            color: rgb(0, 34, 255);
+        }
+        /* 选择div中class中具有www都选择 */
+        /* div权重为1,里面属性选择器权重为10
+        和为11比类选择器大 */
+        div[class*=www] {
+            color: rgb(255, 0, 0);
+        }
+        /* 类\属性\伪类选择器权重都是10 */
+    </style>
+</head>
+<body>
+    <input type="text">
+    <input type="text" name="" id="" value="输入密码">
+    <input type="button" value="确定button">
+    <!-- 可以选择属性值开头的一些元素 -->
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+    <div class="box4">4</div>
+    <div class="cbox">5</div>
+    <!-- 选择属性结尾值一样的元素 -->
+    <div class="cox1-tl">1</div>
+    <div class="cox2-tl">2</div>
+    <div class="cox3">3</div>
+    <div class="cox4">4</div>
+    <div class="cox5-tl">5</div>
+    <!-- class中任意有www就选择 -->
+    <div class="111www">a</div>
+    <div class="www111">b</div>
+    <div class="www333">c</div>
+    <div class="333www">d</div>
+    <div class="333ww">e</div>
+</body>
+</html>

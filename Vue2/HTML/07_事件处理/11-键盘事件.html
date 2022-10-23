@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11-键盘事件</title>
+    <!-- 引入Vue -->
+    <script src="../../JS/vue.js"></script>
+    <script type="text/javascript">Vue.config.productionTip = false;//阻止Vue 在启动时产生生产提示 </script>
+</head>
+
+<body>
+        <!-- 
+        📕
+        1.Vue中常用的按键别名:
+            回车 => enter 
+            删除 => delete(捕获 '删除' 和 '退格' 键)
+            退出 => esc
+            空格 => space
+            换行 => tab(特殊，必须配合keydown使用)
+            上 => up
+            下 => down
+            左 => left
+            右 => right
+        2.Vue未提供别的按键，可以使用按键原始的key去绑定，但要注意要转为
+        3. 系统修饰键（用法特殊）：ctrl、alt、shift、meta（win）
+            (1).配合keyup使用时，按下修饰键的同时，再按下其他键，事件才会触发 
+                     还可以既按ctrl又按y @keyup.ctrl.y
+            (2).配合keydown使用时，正常触发事件
+        4.也可以时使用keyCode去指定具体按键(不推荐)
+            (1).如@keyup.13 = 'showInfo'
+        5.Vue.config.keyCodes.自定义按键名 = 键码.可以去定制按键别名
+     -->
+
+     <!-- 准备好一个容器 -->
+    <div id="root">
+        <h1>Hello {{name}}</h1>
+        <!-- 按下任何键触发事件（方法内部判断按下哪个键） -->
+        <input type="text" placeholder="请输入内容" @keyup="showInfo">;
+        <!-- Vue提供给的简写形式 -->
+        <input type="text" placeholder="请输入内容" @keyup.Enter="showInfo2">;
+    </div>
+
+    <script>
+        // 创建Vue实例
+        const vm = new Vue({
+            el:'#root',
+            data:{
+                name:'xiana',
+                age:16
+            },
+            methods:{
+                // e:事件参数，也叫事件对象，e.target  真正触发事件的对象
+                showInfo(e){
+                    if(e.key == 'Enter'){
+                        console.log('按下了Enter,下面👇为value的值')
+                        console.log(e.target.value);
+                        console.log(e);
+                    }
+                    // console.log(e.key);
+                },
+                showInfo2(e){
+                    console.log('按下了Enter键,下面👇为value的值')
+                    console.log(e.target.value);//真正触发事件的对象（此处为input）
+                    console.log(e);//事件对象
+                    console.log(e.target)//点击的对象
+                    console.log(e.key)//按下了什么键
+                },
+
+            }
+        })
+    </script>
+</body>
+
+</html>

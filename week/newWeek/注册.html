@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <label for="">输入邮箱</label>
+         <input type="email" name="" id="email">
+         <label for="" class="hint">请输入邮箱</label><br>
+         
+
+        <label for="">输入密码</label> 
+        <input type="password" name="" id=""><br>
+        <input type="submit" value="提交" id="submit">
+        <script>
+            let email = document.querySelector('#email');
+            let hint = document.querySelector('.hint');
+            let flag = false;
+            email.addEventListener('blur',function(){
+                console.log(email.value);
+                if(email.value.search(/@/) != -1){
+                hint.innerHTML = `✔格式正确`;
+                flag = true;
+            } else {
+                hint.innerHTML = `❌格式错误`;
+                false;
+                }
+            })
+            let submit = document.querySelector('#submit');
+            submit.addEventListener('click',function(){
+                if(flag == true){
+                    alert(`${email.value}欢迎来到HTML`);
+                } else {
+                    alert('❌格式错误,请检查');
+                }
+            })
+        </script>
+    </div>
+</body>
+</html>

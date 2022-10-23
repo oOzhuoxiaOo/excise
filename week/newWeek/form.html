@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* 定义主背景色和字体颜色 */
+        body {
+            color: #fff;
+            background-color: rgb(13, 13, 13);
+        }
+        form {
+            padding: 0;
+            margin: 0 auto;
+            border: solid;
+            width: 500px;
+            height: 500px;
+            /* 线性渐变 为了给背景图添加透明效果 */
+            background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+            url(/Image/Wp-0003.jpg) center / cover;
+            /* 设置为弹性 为了让table居中定位 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        table {
+            border: solid;
+            width: 400px;
+            height: 400px;
+            
+        }
+        /* td {
+            border: solid;
+        } */
+        /* 选择tr的孩子 td 并且为第一个td的 */
+        tr td:nth-child(1) {
+            padding-right: 5px;
+            /* 让这个td里的文字右对齐 */
+            text-align: right;
+        }
+        input {
+            height: 30px;
+        }
+        /* 选择input中具有属性type为radio的    input */
+        input[type=radio] {
+            /* 让radio对齐中线(和文字同线,模糊居中效果) */
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <!-- 通常，当用户单击“提交”按钮时，表单数据将发送到服务器上的文件中。 -->
+    <!-- 向目标地址发送表单数据 -->
+    <form action="./datebase.html" >
+        <table>
+            <tr>
+                <td>First name:</td>
+                <td><input type="text" name="ming"></td>
+            </tr>
+            <tr>
+                <td>Last name</td>
+                <td><input type="text" name="xing"></td>
+            </tr>
+            <tr>
+                <td>Preferred content</td>
+                <td>
+                    <select name="like" id="like">
+                        <option value="看电影">看电影</option>
+                        <option value="玩游戏">玩游戏</option>
+                        <option value="学习">学习</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Gemder</td>
+                <td> 
+                    <input type="radio" name="sex" value="male" id="male"><label for="male">male</label>
+                    <input type="radio" name="sex" value="female" id="female"><label for="female">female</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Your Id</td>
+                <td><input type="text" placeholder="你的ID" name="ID"></td>
+            </tr>
+            <tr>
+                <td>Your password</td>
+                <td><input type="password" placeholder="你的password" name="password"></td>
+            </tr>
+            <tr>
+                <td>Re-type password</td>
+                <td><input type="password" placeholder="再次确认你的password" name="R_password"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit">
+                    <input type="reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

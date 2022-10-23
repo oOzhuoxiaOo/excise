@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../IconFont/IconFont-0/iconfont.css">
+    <title>Document</title>
+    <style>
+        /* 首先定义一个名为 "--main-bg-color" 的自定义属性，然后使用 */
+        /* :root是一个伪类，表示文档根元素，非IE及ie8及以上浏览器都支持，
+        在:root中声明相当于全局属性，
+        只要当前页面引用了:root segment所在文件，
+        都可以使用var()来引用 */
+
+        /* 
+        1、结合元素选择器
+        css
+           p.important {color: red}
+               匹配class属性包含important的所有p元
+        2、多类选择器
+                .option.selected {color: red}
+                   匹配class属性同时包含option和selected的元素
+ */
+        :root {
+            --c-text-primary: #191919;
+            --c-text-secondary: #737374;
+            --c-border-primary: #ccc;
+            --c-bg-body: #ccc;
+            --c-bg-primary: #fff;
+            --c-bg-secondary: #d4d8dd;
+            --c-bg-button: #fff;
+        }
+
+        /* :root后面的点紧贴root 点是类 #是id选择器 需要生效 在html标签添加此类或者id */
+        :root.dark-theme {
+            --c-text-primary: #eee;
+            --c-text-secondary: #d3d5db;
+            --c-border-primary: #454545;
+            --c-bg-body: #5e5e5e;
+            --c-bg-primary: #323339;
+            --c-bg-secondary: #222128;
+            --c-bg-button: #494a50;
+        }
+
+        :root.black-theme {
+            --c-text-primary: #edeeef;
+            --c-text-secondary: #d4d7e1;
+            --c-border-primary: #323232;
+            --c-bg-body: #000;
+            --c-bg-primary: #1b1d23;
+            --c-bg-secondary: #000001;
+            --c-bg-button: #343844;
+        }
+
+        body {
+            display: flex;
+            line-height: 1.5;
+            justify-content: center;
+            background-color: var(--c-bg-body);
+            transform: background-color 1s ease;
+            color: var(--c-text-primary);
+            /* primary:主要的 */
+        }
+
+        .menu {
+            width: 90%;
+            margin-top: 80px;
+            max-width: 320px;
+            background-color: var(--c-bg-primary);
+            transition: background-color 0.3s ease;
+            border-radius: 15px;
+        }
+
+        .menu-header {
+            padding: 1rem;
+        }
+
+        .menu-header-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            /* secondary:次要的 */
+            color: var(--c-text-secondary);
+        }
+
+        .theme-switcher input {
+            display: none;
+        }
+
+        .theme-switcher {
+            position: relative;
+            background-color: var(--c-bg-secondary);
+            border-radius: 10px;
+            display: flex;
+            padding: 0 3px;
+
+        }
+
+        .theme-switcher label {
+            position: relative;
+            display: flex;
+            z-index: 2;
+            padding: 8px 0;
+            width: calc(100% / 3);
+            color: var(--c-text-secondary);
+        }
+
+        .theme-switcher label span {
+            display: flex;
+            justify-content: center;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        .theme-switcher label span:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .theme-switcher .slider {
+            position: absolute;
+            z-index: 1;
+            width: calc((100% - 6px) / 3);
+            top: 3px;
+            bottom: 3px;
+            transform: translateX(0);
+            border-radius: 8px;
+            transition: .3s ease, transform .25s ease-out;
+            background-color: var(--c-bg-button);
+        }
+
+        /* checked slider拥有相同的父元素 并且slider在input后面  */
+        /* 选中checked元素后面的所有slider */
+        /* x，y 可设置为百分比值，代表着基于 自身宽度/高度 的百分比 */
+        .theme-switcher input:nth-of-type(1):checked~.slider {
+            transform: translateX(0);
+        }
+
+        .theme-switcher input:nth-of-type(2):checked~.slider {
+            transform: translateX(100%);
+        }
+
+        .theme-switcher input:nth-of-type(3):checked~.slider {
+            transform: translateX(200%);
+        }
+
+        .menu-body a {
+            text-decoration: none;
+            /* color拥有继承性 */
+            color: inherit;
+            display: flex;
+            padding: .6rem .5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: .3s ease;
+        }
+
+        .menu-body a:hover {
+            /* 自定义颜色使用 */
+            background-color: var(--c-bg-secondary);
+        }
+
+        .ion-icon {
+            margin-right: 5px;
+            font-size: 20px;
+            margin: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="menu-header">
+            <h2 class="menu-header-title">Theme</h2>
+            <div class="theme-switcher">
+                <input type="radio" name="themes" id="light-theme">
+                <label for="light-theme">
+                    <span class="ion-icon iconfont icon-Daytimemode"></span>
+                    <span>Light</span>
+                </label>
+                <input type="radio" name="themes" id="dark-theme">
+                <label for="dark-theme">
+                    <span class="ion-icon iconfont icon-sport"></span>
+                    <span>Dark</span>
+                </label>
+                <input type="radio" name="themes" id="black-theme">
+                <label for="black-theme">
+                    <span class="ion-icon iconfont icon-prompt-fill"></span>
+                    <span>Black</span>
+                </label>
+
+                <span class="slider"></span>
+            </div>
+
+        </div>
+
+        <div class="menu-body">
+            <a href="#"><span class="iconfont icon-set1"></span> Account setting</a>
+            <a href="#"><span class="iconfont icon-messagecenter-fill"></span> Give Feedback</a>
+            <a href="#">About</a>
+            <a href="#">Support</a>
+        </div>
+    </div>
+    <script>
+        //👇返回一个伪数组 html[0]为html标签及其所有内容
+        var html = document.getElementsByTagName('html');
+        console.log(html[0]);
+        // 👇该方法与 getElementById() 方法相似，但是它查询元素的 name 属性，而不是 id 属性。
+        // 另外，因为一个文档中的 name 属性可能不唯一
+        // （如 HTML 表单中的单选按钮通常具有相同的 name 属性），
+        // 所有 getElementsByName() 方法返回的是元素的数组，
+        // 而不是一个元素。
+        // 👇返回一个伪数组 为三个input
+        var radios = document.getElementsByName('themes');
+        console.log(radios);
+        for (var i = 0; i < radios.length; i++) {
+            // change 事件被<input>, <select>, 和<textarea> 元素触发。
+            // 1.<input type="radio"> 和 <input type="checkbox"> 的默认选项被修改时（通过点击或者键盘事件）。
+            radios[i].addEventListener('change', function () {
+                // https://blog.csdn.net/csm0912/article/details/84302580?spm=1001.2101.3001.6650.14&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-14-84302580-blog-109245877.pc_relevant_multi_platform_whitelistv4&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-14-84302580-blog-109245877.pc_relevant_multi_platform_whitelistv4&utm_relevant_index=15
+                // remove(class1, class2, ...) 移除元素中一个或多个类名
+                // item(index) 返回元素中索引值对应的类名。索引值从 0 开始。
+                console.log(html[0].classList.item(0));
+                console.log(this.id);
+                console.log('html0为👇');
+                console.log(html[0]);
+                // 功能介绍⭐：每次切换皮肤前 把原皮肤去掉
+                html[0].classList.remove(html[0].classList.item(0));//💧括号0 不是中括号
+                // //add(class1, class2, ...) 在元素中添加一个或多个类名，如果已经类名已经存在，则不会添加
+                // this.id为点击的raduis按钮的id名称
+                html[0].classList.add(this.id);
+
+            })
+        }
+    </script>
+</body>
+
+</html>

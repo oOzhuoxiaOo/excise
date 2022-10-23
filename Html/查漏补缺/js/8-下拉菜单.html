@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .nav {
+            width: 400px;
+            height: 100px;
+            /* border: solid; */
+            margin: 0 auto;
+            display: flex;
+        }
+        .nav>li {
+            position: relative;
+            flex: 1;
+            /* border: solid; */
+        }
+        .nav>li>a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(135, 133, 133);
+        }
+        .nav>li>ul {
+            display: none;
+            position: absolute;
+            top: 100px;
+            left: 0;
+            width: 100%;
+            /* border: solid red; */
+        }
+        .nav>li>ul>li {
+            height: 100px;
+            background-color: rgb(177, 151, 105);
+            cursor: pointer;
+        }
+        .nav>li>ul>li:hover {
+            background-color: rgb(222, 83, 83);
+            border-bottom: solid rgb(21, 179, 74);
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="">1</a>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">2</a>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">3</a>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">4</a>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        // 需求 悬浮显示菜单栏 离开隐藏菜单栏
+        // 获得大nav
+        let nav = document.querySelector('.nav');
+        // 给nav里他的三个孩子li添加鼠标经过和离开事件
+        for(let i = 0 ;i<nav.children.length;i++) {
+            // children是伪数组，从序号0开始
+            nav.children[i].addEventListener('mouseover',function(){
+                console.log(this.children[1]);
+                // this表示nav.children[i] 
+                // 此处this.children[1]相当于三个li的第二个孩子ul
+                this.children[1].style.display = 'block';
+            })
+            nav.children[i].addEventListener('mouseleave',function(){
+                console.log(this.children[1]);
+                this.children[1].style.display = 'none';
+            })
+            
+        }
+    </script>
+</body>
+</html>

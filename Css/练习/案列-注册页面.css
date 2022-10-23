@@ -1,0 +1,18 @@
+form {
+    border:2px black solid;
+    width: 500px;   
+}
+
+form>table {
+    border: 1px black solid;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+form tr td {
+
+    border:1px black solid;
+}
+
+a {
+    color:aqua;
+}

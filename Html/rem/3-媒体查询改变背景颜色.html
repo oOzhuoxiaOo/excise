@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 小于600 */
+        @media screen and (max-width:600px) {
+            body {
+                background-color: purple;
+            }
+        } 
+        /* 大于600小于800 */
+        /* @media screen and  (min-width:600px) and (max-width:800px) {
+            body {
+                background-color: black;
+            }
+        }  */
+        /* ⭐层叠性 后面的会覆盖前面的 
+        所以当宽度为600-800间执行此处 
+        大于800时下面的body会覆盖前面的 但div没有被层叠掉 也是起作用的 和css样式里类似 */
+        @media screen and (min-width:600px) {
+            body {
+                background-color: black;
+            }
+            div {
+                width: 200px;
+                height: 200px;
+                background-color: rgb(0, 188, 72);
+            }
+        } 
+        /* 大于800 */
+        @media screen and (min-width:800px) {
+            body {
+                background-color: green;
+            }
+        } 
+        /* 🐍screen和and必须带上
+        单位px必须带上 */
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

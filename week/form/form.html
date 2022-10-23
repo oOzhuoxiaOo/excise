@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./form.css">
+</head>
+
+<body>
+    <!-- 通常，当用户单击“提交”按钮时，表单数据将发送到服务器上的文件中。 -->
+    <!-- 向目标地址发送表单数据  http 新打开页面-->
+    <form action="./datebase.html" method="get" target="_blank">
+        <table>
+            <!-- 你的姓 -->
+            <tr>
+                <td>First name:</td>
+                <td><input type="text" name="ming"></td>
+            </tr>
+            <!-- 你的名 -->
+            <tr>
+                <td>Last name</td>
+                <td><input type="text" name="xing"></td>
+            </tr>
+            <!-- 你的爱好 -->
+            <tr>
+                <td>Preferred content</td>
+                <td>
+                    <select name="like" id="like">
+                        <option value="看电影">看电影</option>
+                        <option value="玩游戏">玩游戏</option>
+                        <option value="学习">学习</option>
+                    </select>
+                </td>
+            </tr>
+            <!-- 你的性别sex -->
+            <tr>
+                <td>Gemder</td>
+                <td>
+                    <input type="radio" name="sex" value="male" id="male"><label for="male">male</label>
+                    <input type="radio" name="sex" value="female" id="female"><label for="female">female</label>
+                </td>
+            </tr>
+            <!-- 你的用户名ID -->
+            <tr>
+                <td>Your Id</td>
+                <td><input type="text" placeholder="你的ID" name="ID"></td>
+            </tr>
+            <!-- 你的密码password -->
+            <tr>
+                <td>Your password</td>
+                <td><input type="password" placeholder="你的password" name="password"></td>
+            </tr>
+            <!-- 再次输入密码 -->
+            <tr>
+                <td>Re-type password</td>
+                <td><input type="password" placeholder="再次确认你的password" name="R_password"></td>
+            </tr>
+            <!-- 按钮:提交,重置 -->
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit">
+                    <input type="reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

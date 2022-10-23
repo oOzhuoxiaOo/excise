@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>姓名案列_watch</title>
+    <!-- 引入Vue -->
+    <script src="../../JS/vue.js"></script>
+    <script type="text/javascript">Vue.config.productionTip = false;//阻止Vue 在启动时产生生产提示 </script>
+    <style>
+        body {
+            font-size: 20px;
+        }
+
+        span {
+            border: solid;
+        }
+
+        .require {
+            background-color: rgb(156, 152, 152);
+            /* color: aliceblue; */
+        }
+    </style>
+</head>
+
+<body>
+       <!-- 
+        📕watch和computed比较(监视(帧视)和计算属性)
+            1.computed能完成的功能，watch都可以完成
+            2.watch能完成的功能，computed不一定完成，例如:watchc可以进行异步操作.
+        两个重要小原则:
+            1.所有被vue所管理的函数，最好写成普通函数，这样this的指向才是 vm 或者 组件实例对象(以后要学的)
+            2.所有不被Vue所管理的函数(定时器的回调函数、ajax的回调函数、promise的回调等),最好写成箭头函数
+              这样this的指向才是 vm 或者 组件实例对象
+        茶楼小酌
+            1.退出循环是break,return是退出函数并返回, 如果函数有返回值,可以将返回值返回
+     -->
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        <div class="require">
+            <h2>需求:</h2>
+            <h4>1.每次输入姓和名会同步到全名</h3>
+                <h4>2.全名中,姓最多显示三个字</h4>
+        </div>
+        <h2>3.使用c</h2>
+        <!-- 通过 v-model双向绑定value数据 -->
+        请输入姓 <input type="text" v-model="firstName"><br><br>
+        请输入名 <input type="text" v-model="lastName"><br><br>
+        全名:<span>{{fullName}}</span>
+    </div>
+
+    <script>
+        // 创建Vue实例
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                firstName: '夏',
+                lastName: '娜',
+                fullName:'夏-娜'
+            },
+            // 计算属性
+            /* computed: {
+                fullName: function () {
+                    console.log('fullName被读取了一次');
+                    console.log('this指向', this)
+                    return this.firstName + '-' + this.lastName;
+                }
+
+            } */
+            watch:{
+                // 此处不需要对fullName进行监视 因为修改的是firstName和lastName 
+                // ，而fullName值并为发生变化，检测不到
+                firstName(newValue){
+                    // 1秒后才发生变化
+                    // 注意，vm内定时器尽量使用箭头函数，如果不用箭头函数，this将指向windows
+                    // 如果使用箭头函数，this就会和父级this指向一样指向vm
+                    setTimeout(()=>{
+                        this.fullName = this.firstName + '-' + this.lastName; 
+                    },1000)
+                },
+                lastName(newValue){
+                    this.fullName = this.firstName + '-' + this.lastName; 
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

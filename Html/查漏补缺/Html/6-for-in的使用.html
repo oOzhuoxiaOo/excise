@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /*  let persons = [10,11,12,13];
+        for(var prop in persons) {
+            console.log(prop);//prop为索引
+            console.log(persons[prop]);//persons为传入的整个对象
+        } */
+
+       /*  let personsArr = [
+            {name:'xiana',age:16},
+            {name:'qiong',age:16},
+            {name:'bai',age:16},
+        ]
+        for(var prop in personsArr) {
+            console.log(prop);//prop为索引
+            console.log(personsArr[prop]);//persons为传入的整个对象
+        } */
+
+       /*  let xiana = {
+            name:'xiana',
+            age:16,
+            like:'boluobao'
+        }
+        for(var p in xiana) {
+            console.log(p)//如果传入的是单个对象，则p为对象的键
+            console.log(xiana[p])
+        } */
+
+
+        let a = {
+            persons:[
+            {name:'xiana',age:16},
+            {name:'qiong',age:16},
+            {name:'bai',age:16},
+            ]
+        }
+        for(var prop in a.persons) {
+            console.log(prop);//prop为索引
+            // console.log(personsArr[prop]);//persons为传入的整个对象
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.box1 {
+    width: 200px;  
+    height: 200px;
+    background-color: rgb(246, 32, 32);
+}
+.box2 {
+    left: 200px;
+    top: 100px;
+    width: 200px;  
+    height: 200px;
+    background-color: rgb(200, 250, 0);
+}
+.box3 {
+    width: 200px;  
+    height: 200px;
+    background-color: rgb(0, 65, 244);
+}
+/* 给行内元素添加绝对定位等定位后
+可直接设置宽高
+块级元素添加定位 不设置宽高
+则默认内容大小 */
+span {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background-color: rgb(222, 102, 102);
+}
+</style>
+<body>
+    <span>123</span>
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+</body>
+</html>

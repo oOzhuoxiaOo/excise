@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+    <script>
+    //    1.dom
+    let myDiv = document.querySelector('div');
+    console.dir(myDiv);
+    // 2.jQuery
+    $('div');//是一个jQuery对象
+    console.dir($('div'));
+    // 3.jQuery对象只能用jQuery方法
+    // dom则使用原生js属性和方法
+    // 因为$为顶级对象
+    // 例如
+    // myDiv.hide();❌
+    </script>
+</body>
+</html>

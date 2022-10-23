@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        // 筛选大于10的追加给新数组
+        //  方法1
+        var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+        var newArr = [];
+        var j = 0;
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] > 10) {
+                newArr[j] = arr[i];
+                j++;
+            }
+        }
+        console.log(arr);
+        console.log('方法一\t' + newArr);
+        // 方法2 
+        var newArr1 = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] > 10) {
+                newArr1[newArr1.length] = arr[i]; //新数组长度作为索引
+            }
+        }
+        console.log('方法二\t' + newArr1);
+    </script>
+</head>
+
+<body></body>
+
+</html>

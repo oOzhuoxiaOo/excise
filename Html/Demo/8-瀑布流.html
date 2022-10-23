@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100vw;
+        }
+        .box {
+            position: relative;
+        }
+        .box .item {
+            position: absolute;
+            width: 300px;
+        }
+        .item img  {
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="item">
+            <img src="/Image/Pz-0001.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0002.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0003.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0004.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0005.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0006.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0007.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0008.png" alt="">
+        </div>
+        <div class="item">
+            <img src="/Image/Pz-0009.png" alt="">
+        </div>
+    </div>
+    <script src="../封装函数/waterFull.js"></script>
+    <script>
+            // 假数据
+    let dataArr = [
+        { src: '/Image/Pz-0001.png' },
+        { src: '/Image/Pz-0002.png' },
+        { src: '/Image/Pz-0003.png' },
+        { src: '/Image/Pz-0004.png' },
+        { src: '/Image/Pz-0005.png' },
+        { src: '/Image/Pz-0006.png' },
+        { src: '/Image/Pz-0007.png' },
+        { src: '/Image/Pz-0008.png' },
+        { src: '/Image/Pz-0009.png' },
+        { src: '/Image/Pz-0010.png' },
+        { src: '/Image/Pz-0011.jpg' },
+        { src: '/Image/Pz-0012.png' },
+        { src: '/Image/Pz-0013.png' },
+        { src: '/Image/pz-0014.jfif' },
+        { src: '/Image/pz-0015.jfif' },
+        { src: '/Image/Wp-0001.jpg' },
+        { src: '/Image/Wp-0002.jpg' },
+        { src: '/Image/Wp-0003.jpg' },
+        { src: '/Image/Wp-0004.jpg' },
+    ]
+        let wtfull = new waterFull('.box','.item',dataArr);
+    </script>
+</body>
+</html>

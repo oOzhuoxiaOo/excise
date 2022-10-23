@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            display: flex;
+            width: 80%;
+            height: 200px;
+            background-color: #6a4b4b;
+            margin: 0 auto;
+            /*  让三个盒子沿着侧轴轴底对齐 */
+            /* align-items:flex-end; */
+            /* 我们想只让一个盒子来侧轴底测 */
+        }
+        p span {
+            width: 100px;
+            height: 100px;     
+        }
+        p span:nth-child(1) {
+            background-color: red;
+        }
+        p span:nth-child(2) {
+            align-self:flex-end;
+            background-color: blue;
+
+        }
+        p span:nth-child(3) {
+            /* order定义排列顺序 默认是0 -1在0前面*/ 
+            order: -1;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </p>
+</body>
+</html>

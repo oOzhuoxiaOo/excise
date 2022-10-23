@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            overflow: hidden;
+            width: 300px;
+            height: 500px;
+            background: purple url(../../../Image/Pz-0011.jpg) no-repeat;
+            background-size: 300px;
+        }
+        .glass {
+            display: none;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(66, 188, 82);
+            opacity:.5;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="glass"></div>
+    </div>
+    <script>
+        var glass = document.querySelector('.glass');
+        var box = document.querySelector('.box');
+
+        box.addEventListener('mousemove',function(e) {
+            var x = e.pageX - glass.offsetWidth / 2;
+            var y = e.pageY - glass.offsetHeight / 2;
+            glass.style.display = 'block';
+            glass.style.left = x + 'px';
+            glass.style.top = y + 'px';
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: rgb(34, 34, 34);
+            color: aliceblue;
+            line-height: 100px;
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span class="hour">1</span>
+        <span class="minute">2</span>
+        <span class="second">3</span>
+    </div>
+    <script>
+        var hour = document.querySelector('.hour');
+        var minute = document.querySelector('.minute');
+        var second = document.querySelector('.second');
+        var inputTime = +new Date('2022-8-11 12:00:00');//return未来时间总毫秒数
+        countDown();//先调用一次这个函数 防止第一次刷新页面有空白  因为计时器我设置的是每一秒执行 中间有间隔
+        // 开始计时器
+        setInterval(countDown,1000);
+        function countDown() {
+            var nowTime = +new Date(); //当前时间用毫秒数
+            var times = (inputTime - nowTime) / 1000; //剩余时间总的秒数 1s = 1000ms
+            var s = parseInt(times % 60);  //秒
+            s = s < 10 ? '0' + s : s;
+            second.innerHTML = s; //把剩余的秒给 秒黑色盒子
+            var m = parseInt(times / 60 % 60); //分
+            m = m < 10 ? '0' + m : m;
+            minute.innerHTML = m; //把剩余的分钟给 分钟黑色盒子
+            var h = parseInt(times / 60 / 60 % 24); //时
+            h = h < 10 ? '0' + h : h;
+            hour.innerHTML = h; //把剩余的小时给 小时黑色盒子
+
+        }
+    </script>
+</body>
+</html>

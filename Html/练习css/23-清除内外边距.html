@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+             /* <!-- 一般有的元素会自带padding和margin -->
+             比如body的margin为8px，ul自带padding */
+             /*👇 这时候需要清除内外边距 */
+             padding: 0;
+             margin: 0;
+        }
+        span {
+            /* 行内元素一只设置左右边距
+            要想拥有，转换成行内块 */
+            margin: 20px;
+            background-color: rgb(212, 75, 75);
+        }
+    </style>
+</head>
+<body>
+   
+    <ul>
+        <li>夏娜今天吃什么</li>
+    </ul>
+    <span>行内元素一只设置左右边距</span>
+</body>
+</html>

@@ -1,0 +1,42 @@
+            /* 定义主背景色和字体颜色 */
+            body {
+                color: #fff;
+                background-color: rgb(13, 13, 13);
+            }
+            form {
+                padding: 0;
+                margin: 0 auto;
+                border: solid;
+                width: 500px;
+                height: 500px;
+                /* 线性渐变 为了给背景图添加透明效果 */
+                background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+                url(./images/Wp-0003.jpg) center / cover;
+                /* 设置为弹性 为了让table居中定位 */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            table {
+                border: solid;
+                width: 400px;
+                height: 400px;
+                
+            }
+            /* td {
+                border: solid;
+            } */
+            /* 选择tr的孩子 td 并且为第一个td的 */
+            tr td:nth-child(1) {
+                padding-right: 5px;
+                /* 让这个td里的文字右对齐 */
+                text-align: right;
+            }
+            input {
+                height: 30px;
+            }
+            /* 选择input中具有属性type为radio的    input */
+            input[type=radio] {
+                /* 让radio对齐中线(和文字同线,模糊居中效果) */
+                vertical-align: middle;
+            }

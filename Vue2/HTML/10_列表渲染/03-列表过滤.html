@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-列表过滤</title>
+    <!-- 引入Vue -->
+    <script src="../../JS/vue.js"></script>
+    <script type="text/javascript">Vue.config.productionTip = false;//阻止Vue 在启动时产生生产提示 </script>
+</head>
+
+<body>
+    <!-- 
+        📕
+     -->
+
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        <!-- 遍历数组 🔖-->
+        <h2>遍历数组</h2>
+        <input type="text" v-model="keyWord">
+        <ul>
+            <li v-for="(p,index) in newPersons" :key="p.id">-{{p.name}}</li>
+        </ul>
+        
+    </div>
+
+    <script>
+        // 创建Vue实例
+        // 🔖通过计算属性实现
+        /* const vm = new Vue({
+            el: '#root',
+            data: {
+                persons: [
+                    { id: '001', name: '夏娜', age: 16 },
+                    { id: '002', name: '穹', age: 16 },
+                    { id: '003', name: '亚斯娜', age: 16 },
+                    { id: '004', name: '伊卡洛斯', age: 16 },
+                    { id: '005', name: '布洛尼亚', age: 16 },
+                ],
+                keyWord:''
+            },
+            computed:{
+                filPersons(){
+                    return this.persons.filter((p)=>{
+                        // 注意，因为查询的是字符串name，如果keyWord为空，则返回0而不是-1
+                        return p.name.indexOf(this.keyWord) != -1
+                    })
+                }
+            }
+        }) */
+
+
+        // 🔖通过watch实现
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                persons: [
+                    { id: '001', name: '夏娜', age: 16 },
+                    { id: '002', name: '穹', age: 16 },
+                    { id: '003', name: '亚斯娜', age: 16 },
+                    { id: '004', name: '伊卡洛斯', age: 16 },
+                    { id: '005', name: '布洛尼亚', age: 16 },
+                ],
+                newPersons:[],
+                keyWord:'',
+            },
+            watch:{
+                keyWord:{
+                    // 需要初始化一次，否则刚刷新页面没数据
+                    immediate:true,
+                    // 输入的数据keyWord被修改时执行
+                    handler(){
+                        this.newPersons = this.persons.filter((p)=>{
+                            return p.name.indexOf(this.keyWord) != -1;
+                        })
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

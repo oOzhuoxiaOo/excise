@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-认识Vue</title>
+    <!-- 引入Vue -->
+    <script src="../../JS/vue.js"></script>
+    <script type="text/javascript">Vue.config.productionTip = false;//阻止Vue 在启动时产生生产提示 </script>
+</head>
+
+<body>
+
+     <!-- 准备好一个容器 -->
+    <div id="root">
+        <h1>Hello</h1>
+        <!-- 
+            v-bind:单向绑定 
+                   表单内用户输入修改value值 👉不会👈 改变data里的数据
+                        备注:v-bind 专注于属性
+            v-model:value双向绑定 
+                   表单内用户输入修改value值 👉会👈 改变data里的数据
+                   由于可供用户输入的元素只有表单等 可简写为v-model直接代表v-model:value
+                        备注:v-model专注于表单属性value等
+         -->
+        <input type="text" v-bind:value="name"><br>
+        <input type="text" v-model:value="name"><br>
+    </div>
+
+    <script>
+        // 创建Vue实例
+        new Vue({
+            el:'#root',//el用来指定当前Vue实例为哪个容器,值通常为css选择器字符串.
+            data:{//data中用于存储数据，数据供el所指定的容器去使用，值我们先写成一个对象
+                name:'xiana',
+                age:16
+            }
+        })
+    </script>
+</body>
+
+</html>

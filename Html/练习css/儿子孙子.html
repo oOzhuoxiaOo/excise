@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/css-/练习/基本.css">
+    <style>
+        /* 后代选择器 */
+        .nav a {
+            /* .nav的所有儿子孙子.....a */
+            color: brown;
+        }
+        /* 子元素选择器 */
+        .nav>a {
+            /* .nav的所有儿子a */
+            color: black;
+        }
+        div,
+        .nav a,
+        p {
+            /* 并集选择器 */
+            font-size: 16px;
+        }
+
+
+        /* ---------------------------------------- */
+        /* 伪类选择器 */
+        /* 注意顺序不能颠倒link visited hover active */
+        a:link {
+            /* 选择未被访问过的 */
+            color: cyan;
+        }
+        a:visited {
+            /* 选择访问过的 */
+            color: chocolate;
+        }
+        a:hover {
+            /* 鼠标悬停效果 */
+            color: blueviolet;
+            cursor:pointer;
+        }
+        a:active {
+            /* 鼠标一直按的效果 */
+            color:darkblue;
+        }
+
+        input:focus {
+            /* 获取焦点的表单元素 */
+            color:rgb(255, 0, 0);
+            background-color:antiquewhite;
+        }
+    </style>
+    <body>
+        <div class="content">
+            <div class="nav">
+                <a href="#">我是儿子</a>
+                <p><a href="#">我是孙子</a></p>
+            </div>
+            <input type="text">
+            <input type="text">
+            <input type="text">
+        </div>
+
+    </body>
+</head>

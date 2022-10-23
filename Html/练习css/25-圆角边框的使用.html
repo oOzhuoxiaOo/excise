@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color:violet;
+            /* 如果是正方形，设置为圆形
+            半径设为边长的一半就行👇 */
+            border-radius:100px;
+            /* 或者👇 */
+            /* border-radius:50%; */
+        }
+        .box1 {
+            width:200px;
+            height: 100px;
+            background-color:violet;
+            /* 如果是 长方形，设置为圆角矩形
+            半径设为高的一半就行👇 */
+            border-radius:50px;
+        }
+        .box2 {
+            width:200px;
+            height: 200px;
+            background-color:violet;
+            /* 设置不同边角：顺时针👇 */
+            border-radius:20px 40px 60px 80px;
+            /* 👇两个值：对角线，先\再/ */
+            /* border-radius: 0px 50px; */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">圆形</div>
+    <div class="box1">圆角矩形</div>
+    <div class="box2">设置不同边角</div>
+</body>
+</html>

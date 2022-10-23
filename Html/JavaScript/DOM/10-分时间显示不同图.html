@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <button id="xn" >夏娜</button>
+    <button id="bai" >白</button> <br>
+    <div>上午好</div>
+    <img src="../../../Image/Pz-0011.jpg" alt="" title="夏娜">
+    
+    <script>
+        // 根据时间判断一天是上午还是下午晚上 图片各不同
+        // 1.获取元素
+        var img = document.querySelector('img');
+        var div = document.querySelector('div');
+        // 2.得到当前小时数
+        var date = new Date();
+        var h = date.getHours();
+        // 3.判断小时数 改变啊图片和文字信息
+        if(h<12) {
+            img.src = '../../../Image/Pz-0011.jpg';
+            div.innerHTML = '<h5>上午好</h5>';
+        } else if (h<18) {
+            img.src = '../../../Image/Pz-0012.png';
+            div.innerHTML = '<h5>下午好</h5>';
+        } else {
+            img.src = '../../../Image/Pz-0013.png';
+            div.innerHTML = '<strong>晚上好</strong>';
+        }
+
+    </script>
+</body>
+
+</html>

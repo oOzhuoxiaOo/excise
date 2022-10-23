@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Css/基础样式/base.css">
+    <link rel="stylesheet" href="/IconFont/IconFont-0/iconfont.css">
+    <style>
+        body {
+            background-color: #fff;
+        }
+
+        main {
+            /* display: flex; */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: 800px;
+            height: 500px;
+            background-color: rgb(36,36,36,.7);
+            /* display: flex;
+            flex-direction: column; */
+        }
+
+         main h4 {
+            text-align: center;
+            background-color: rgb(10, 1, 133);
+         }
+         #tab {
+            /* background-color: rgb(0, 0, 0); */
+            border: 1px solid red;
+            /* display: flex; */
+         }
+
+         .firstnav {
+            display: flex;
+            padding-top: 8px;
+            padding-left: 5px;
+            background-color: rgb(46, 46, 46);
+         }
+         .firstnav ul {
+            display: flex;
+            text-align: left;
+            flex: 1;
+         }
+         .firstnav ul li {
+            border-right: 1px solid #fff;
+        
+            padding: 8px;
+            margin: 0 2px;
+         }
+         .firstnav .tabadd {
+            padding: 0 10px;
+            /* border: solid; */
+            font-size: 26px;
+         }
+         .tabadd:hover {
+            background-color: rgb(155, 155, 155);
+         }
+
+         #tab section {
+            height: 200px;
+            background-color: rgb(236, 235, 235);
+            color: black;
+            display: none;
+         }
+         #tab .active-block {
+            display: block;
+         }
+         .liactive {
+            border: 0 !important;
+            border-radius: 10px 10px 0 0;
+            box-shadow:  black;
+            background-color: rgb(80, 80, 80);
+            
+         }
+         .icon-close {
+            margin: 0 5px 0 15px;
+         }
+         .icon-close:hover {
+            background-color: rgb(144, 140, 140);
+         }
+         
+    </style>
+</head>
+<body>
+    <main>
+        <h4>
+            Js面向对象 动态添加标签页
+        </h4>
+        <div class="tabsbox" id="tab">
+            <!-- tab标签 -->
+            <nav class="firstnav">
+                <ul>
+                    <li class="liactive"><span>测试1</span><span class="iconfont icon-close" title="关闭此标签页"></span></li>
+                    <li><span>测试2</span><span class="iconfont icon-close" title="关闭此标签页"></span></li>
+                    <li><span>测试3</span><span class="iconfont icon-close" title="关闭此标签页"></span></li>
+                </ul>
+                <div class="tabadd" title="添加一个页面"><span>+</span></div>
+            </nav>
+            <div class="tab-sections">
+               <section class="active-block">section1</section>
+               <section>section2</section>
+               <section>section3</section>
+            </div>
+        </div>
+    </main>
+    <script src="./js/35-.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            /* 消除内外边距，防止坍塌,便于控制 */
+            padding: 0;
+            margin: 0;
+        }
+        .box  {
+            width: 300px;
+            height: 700px;
+            background-color:rgb(240, 76, 221);
+            /* 水平居中，上边距100px */
+            margin: 100px auto;
+        }
+        .box img  {
+            /* picture的宽度和父亲的一样宽 */
+            width: 100%;
+        }
+        .review {
+            height: 70px;
+            background-color: rgb(92, 163, 243);
+            /* 没有设置宽度，内外边距不会坍塌 */
+            padding:0 30px;
+            margin-top: 30px;
+        }
+        .appraise {
+            font-size: 14px;
+            color: rgb(84, 84, 84);
+            padding: 0 30px;
+            margin-top: 30px;
+            background-color: ghostwhite;
+        }
+
+        .info {
+            margin-top: 15px;
+            padding: 0 30px;
+        }
+        .info h4 {
+            /* 行内块实现一行，并且取消加粗 */
+            display:inline-block;
+            font-weight: 400;
+        }
+        .info span {
+            color: rgb(212, 255, 0);
+        }
+        .info em {
+            font-style: normal;
+            color: rgb(58, 58, 58);
+            margin: 0 6px 0 10px;
+        }
+        a {
+            text-decoration: none;
+            color:rgb(92, 10, 255)
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="../../Image/Pz-0001.png" alt="">
+        <p class="review">夏娜最喜欢的图片,买买买，可惜没钱了</p>
+        <div class="appraise">来自于 穹白空 的评价</div>
+        <div class="info">
+            <h4><a href="#">Redmi Airdost真武器...</a> </h4>
+            <em>|</em>
+            <span>99.9元</span>
+        </div>
+    </div>
+</body>
+</html>

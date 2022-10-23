@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            /*  给父级添加flex属性 */
+            display: flex;
+            width: 80%;
+            height: 400px;
+            background-color: #1f1f1f;
+            /* 默认主轴x轴 */
+            /* flex-direction:row; */
+            /* ⭐换行   
+            注意 🐍align-items是单行 
+                 🐍algin-content是多行 且在 flex-wrap:wrap时才起效果*/
+            flex-wrap:wrap; 
+            /* 因为有了换行 我们侧轴对齐子元素方式我们用 algin-content */
+            /* align-content:flex-start; */
+            align-content:center;
+            /* align-content:flex-end; */
+            /* align-content:space-between; */
+            /* align-content:space-around; */
+
+        }
+        .box span {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            margin:5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+
+    </div>
+</body>
+</html>

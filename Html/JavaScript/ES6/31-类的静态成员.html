@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function Phone(){
+
+        // }
+        // Phone.name = '手机';
+        // Phone.change = function(){
+        //     console.log('夏娜今天吃什么');
+        // }
+        // Phone.prototype.size = '9999px';
+        // let nokia = new Phone();
+        // console.log(nokia);
+
+        class Phone{
+            // 静态属性 静态属性属于类 而不属于构造对象
+            static name = '手机';
+            static age = '18岁';
+            static change(){
+                console.log('我可以改变世界');
+            }
+        }
+        let nokia = new Phone();
+        console.log(nokia);
+        console.log(nokia.name);
+        console.log(Phone.name);
+        console.log(Phone.change);
+    </script>
+</body>
+</html>

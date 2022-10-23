@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Css/基础样式/base.css">
+    <style>
+        body {
+            background-color: rgb(36,36,36);
+            color: aliceblue;
+        }
+        form {
+            text-align: center;
+            width: 300;
+            background: rgb(0, 0, 0);
+        }
+        .box {
+            width: 400px;
+            display: flex;
+        }
+        form,
+        button {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <form action="" method="post">
+            <input type="checkbox" name="ckb" id="checkbox01"><label for="checkbox01">one</label> <br>
+            <input type="checkbox" name="ckb" id="checkbox02"><label for="checkbox02">two</label> <br>
+            <input type="checkbox" name="ckb" id="checkbox03"><label for="checkbox03">three</label>
+        </form>
+        <button>全选</button>
+        <button>反选</button>
+    </div>
+    <script>
+        let checks = document.querySelectorAll(`input[name="ckb"]`);
+        let btns = document.querySelectorAll('button');
+        // console.log(btns);
+        // 全选
+        btns[0].addEventListener('click',function(){
+            for(let i = 0; i < checks.length; i++) {
+                checks[i].checked = true;
+            }
+        })
+        // 反选
+        btns[1].addEventListener('click',function(){
+            for(let i = 0; i < checks.length; i++) {
+                checks[i].checked = !checks[i].checked;
+            }
+        })
+        
+    </script>
+</body>
+</html>

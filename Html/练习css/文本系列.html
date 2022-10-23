@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/css-/练习/基本.css">
+    <style>
+        /* 文本字体颜色的三种写法 */
+        .text-color-one {
+            color: red;
+            /*英文单词写法*/
+        }
+
+        .text-color-two {
+            color: #fff;
+            /*十六进制写法——最常用*/
+
+        }
+
+        .text-color-three {
+            color: rgb(red, green, blue)
+                /*rgb(红，绿，蓝)写法*/
+        }
+
+        /* ---------------------------------------------------------------------------- */
+        /* 文本对齐 */
+        .text-align-left {
+            text-align: left;
+        }
+
+        .text-align-center {
+            text-align: center;
+        }
+
+        .text-align-right {
+            text-align: right;
+        }
+
+        /* ---------------------------------------------------------------------------- */
+        /* 文本装饰:下划线 */
+        .text-decoration-none {
+            /*取消下划线*/
+            text-decoration: none;
+        }
+
+        .text-decoration-underline {
+            /*下划线*/
+            text-decoration: underline;
+        }
+
+        .text-decoration-overline {
+            /*上划线*/
+            text-decoration: overline;
+        }
+
+        .text-decoration-line-through {
+            /*删除线*/
+            text-decoration: line-through;
+        }
+
+        a {
+            /*取消超链接a的下划线*/
+            text-decoration: none;
+        }
+
+        /* ---------------------------------------------------------------------------- */
+        /* 文本缩进 */
+        .text-indent>p {
+            /*em是相对单位,此时相当于缩进2字符  */
+            text-indent: 2em;
+        }
+
+        .line-height {
+            line-height:50px;
+        }
+    </style>
+
+<body>
+    <div class="content">
+        <!-- /* 文本字体颜色的三种写法  color  */ -->
+        <div>
+            <div class="text-color-one">夏娜老师:英文字母写法</div>
+            <div class="text-color-two">夏娜老师:16进制写法</div>
+            <div class="text-color-three">夏娜老师:rgb写法</div>
+        </div>
+
+        <!-- 文本对齐   text-align -->
+        <!-- 本质是让盒子里的文字对齐样式 -->
+        <div>
+            <div class="text-align-left">夏娜老师:文本左对齐</div>
+            <div class="text-align-center">夏娜老师:文本居中</div>
+            <div class="text-align-right">夏娜老师:文本右对齐</div>
+        </div>
+
+        <!-- 文本下划线  text-decoration -->
+        <div>
+            <div class="text-decoration-none">夏娜老师:无下划线,最常用</div>
+            <div class="text-decoration-underline">夏娜老师:有下划线,常用</div>
+            <div class="text-decoration-line-through">夏娜老师:有删除线,几乎不用</div>
+            <div class="text-decoration-overline">夏娜老师:有上划线几乎不用</div>
+            <a href="">夏娜老师:取消超链接a下划线</a>
+        </div>
+
+        <!-- 文本缩进text-indent -->
+        <div class="text-indent">
+            <p>夏娜老师:文本缩进</p>
+            <p>夏娜老师:无论是多任性的事，只要我觉得不行，就会阻止。痛苦的话就帮忙，烦恼的话就一起想办法，但就是不能分开。 ----夏娜</p>
+            <p>夏娜老师:这份感情，这份爱正是最强的自在法。我要用这个自在法向你宣战，并打败你。我不会杀你，不是不想杀你，而是绝对不杀，用拳头打得你讨饶。如果祭礼之蛇附在你身上的话就连他也一起揍飞。然后重新寻找你的力量究竟要做什么，该做什么，直到找到一个火雾战士也可以理解的答案。没错，只要下这些困难的决心就够了，这就是身为火雾战士的我。
+            </p>
+        </div>
+
+        <!-- 行间距 -->
+        <!-- 行间距等于上下间距＋文本高度 -->
+        <!-- 和margin类似，能够交叉合并 -->
+        <div class="line-height">
+            <p>夏娜老师:这里是行间距</p>
+        </div>
+    </div>
+</body>
+</head>

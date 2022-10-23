@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 任何元素添加浮动都具有行内块特性 */
+        .box1 {
+
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            float: left;
+        }
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(5, 62, 232);
+            float: left;
+        }
+        p {
+            /* p有默认margin */
+            height: 200px;
+            background-color: rgb(203, 0, 115);
+            float: left;
+        }
+
+        span {
+            /* 
+            令行内元素拥有宽高，不需要转化为行内块
+            添加浮动，会具有行内块的特点
+            宽高会显示出来 */
+            width: 200px;
+            height: 200px;
+            background-color: rgb(236, 130, 0);
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <span>span</span>
+    <p>33333333333</p>
+
+</body>
+</html>

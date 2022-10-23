@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* 透视写在被透视的父元素上的 */
+            perspective:500px;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+            margin: 0 auto;
+            /* transform: translateZ(100px); */
+            transform: translate3d(100px,100px,100px);
+            /* 🐍xyz是不能省略的 如果没有就写0 */
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

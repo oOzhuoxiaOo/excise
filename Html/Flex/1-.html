@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            /*  给父级添加flex属性 */
+            display: flex;
+            width: 80%;
+            height: 400px;
+            background-color: #1f1f1f;
+            /* 默认的主轴 x 轴 行 row  那么y轴就是侧轴了 */
+            /* 我们元素是跟著主轴排列的 */
+            /* flex-direction: row; */
+            /* 简单了解翻转 */
+            /* flex-direction: row-reverse; */
+            /* 我们可以把主轴设置为y轴 那么 x 轴就成了侧轴 */
+            flex-direction:column;
+        }
+        .box span {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+</body>
+</html>

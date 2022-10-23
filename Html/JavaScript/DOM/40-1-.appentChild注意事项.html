@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul></ul>
+    <script>
+        /* Node.appendChild() 方法将一个节点附
+        加到指定父节点的子节点列表的末尾处。如果
+        将被插入的节点已经存在于当前文档的文档树中
+        ，那么 appendChild() 只会将它从原先的位置
+        移动到新的位置（不需要事先移除要移动的节点
+        ）。
+
+        这意味着，一个节点不可能同时出现在
+        文档的不同位置。所以，如果某个节点已经拥有父节
+        点，在被传递给此方法后，它首先会被移除，再被插入到
+        新的位置。若要保留已在文档中的节点，可以先使用 Nod
+        e.cloneNode() 方法来为它创建一个副本，再将副本附加
+        到目标父节点下。请注意，用 cloneNode 制作的副本不
+        会自动保持同步。 */
+        var ul = document.querySelector('ul');
+        var li = document.createElement('li');
+        for (var i = 0; i < 5; i++) {
+            ul.appendChild(li); //循坏结束后只有一个 因为👆解释
+        }
+    </script>
+</body>
+
+</html>

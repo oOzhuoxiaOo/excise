@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../IconFont/IconFont-0/iconfont.css">
+    <link rel="stylesheet" href="../css/iconFontBase.css">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(185, 178, 178);
+        }
+        li {
+            width: 100px;
+            height: 100px;
+            border: solid;
+            background: url(../../../Image/精灵图/1-数码宝贝.jpg) no-repeat -30px -30px;
+            background-size: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+
+        </ul>
+    </div>
+    <script>
+        // 控制样式
+        // 1.获取元素
+        var lis = document.querySelectorAll('li');
+        // 2.注册事件 处理程序
+        for(var i = 0; i < lis.length; i++) {
+            var index = 30 + i * 170;
+            lis[i].style.backgroundPosition = '-190px -' + index +'px';
+        }
+
+        // 3.
+    </script>
+</body>
+
+</html>

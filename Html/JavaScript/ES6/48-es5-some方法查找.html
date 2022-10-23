@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [1,2,3,4,5];
+        // 查找数组里的元素 如果符合条件返回true 
+        // 返回的是一个布尔值
+        let bool_00 = arr.some(function(value,index){
+            return value > 4;
+        })
+        console.log(bool_00);
+
+        // 如果查找到第一个符合的元素 直接return 
+        let arr1 = ['夏娜','穹','伊卡洛斯'];
+        let bool_01 = arr1.some(function(value,index){
+            return value == '穹';
+        })
+        console.log(bool_01);
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // es5的获取实参方式
+        // function date() {
+            // 是一个arguments对象
+        //     console.log(arguments);
+        // }
+        // date('夏娜','亚斯娜','穹');
+        
+        // rest 参数
+        // function date(...args) {
+        //     // args是一个数组
+        //     console.log(args);
+        // }
+        // date('夏娜','亚斯娜','穹');
+
+        // rest 参数必须要放到最后
+        function fn(a,b,...args) {
+            console.log(a);
+            console.log(b);
+            console.log(args);
+        }
+        fn(1,2,3,4,5,6); //3,4,5,6给的args
+    </script>
+</body>
+</html>

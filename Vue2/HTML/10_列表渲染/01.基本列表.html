@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 引入Vue -->
+    <script src="../../JS/vue.js"></script>
+    <script type="text/javascript">Vue.config.productionTip = false;//阻止Vue 在启动时产生生产提示 </script>
+</head>
+
+<body>
+    <!-- 
+        📕v-for指令
+            1.用于展示列表数据
+            2.语法：v-for='(item,index) in xxx' :key='yyy'
+            3.可遍历：数组、对象、字符串（用的很少）、指定次数（用的很少）
+     -->
+
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        <!-- 遍历数组 🔖-->
+        <h2>遍历数组</h2>
+        <ul>
+            <!-- 非Vue情况下 p应该为索引值，Vue中p直接为索引值对应的值p=items[p]，
+                此处可通过传入新参数index来获取索引值
+                第一个参数为索引值value,第二个参数为数组索引
+                也可以不用in用of 效果一样 -->
+            <li v-for="(p,index) in persons" :key="index">{{index}}-{{p.name}}-{{p.age}}</li>
+            <!-- index可省略 -->
+            <!-- <li v-for="p in persons" :key="p.id">{{p.name}}-{{p.age}}</li> -->
+        </ul>
+        <hr>
+
+        <!-- 遍历对象 🔖-->
+        <h2>遍历对象</h2>
+        <ul>
+            <!-- 如果是对象的话,和数组不同，第一个参数为value为键值，第二个参数为键key -->
+            <li v-for="(value,k) of likes" :key="k">{{k}}-{{value}}</li>
+        </ul>
+        <hr>
+
+        <!-- 遍历字符串 🔖-->
+        <h2>遍历字符串（用的少）</h2>
+        <ul>
+            <!-- 如果为字符串，第一个参数为单个字符char,第二个参数为单个字符的索引 -->
+            <li v-for="(char,index) of strs" :key="index">{{index}}-{{char}}</li>
+        </ul>
+        <hr>
+
+        <!-- 遍历指定次数 🔖 -->
+        <h2>遍历指定次数（用的少）</h2>
+        <ul>
+            <!-- value为从1-5，index为索引 -->
+            <li v-for="(value,index) of 5" :key="index">{{value}}-{{index}}</li>
+        </ul>
+    </div>
+
+    <script>
+        // 创建Vue实例
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                persons: [
+                    { id: '001', name: 'xiana', age: 16 },
+                    { id: '002', name: 'qiong', age: 16 },
+                    { id: '003', name: 'bai', age: 16 },
+                ],
+                likes: {
+                    game: 'lol',
+                    food: 'apple',
+                    person: 'xiana'
+                },
+                strs: 'abcde'
+            }
+        })
+    </script>
+</body>
+
+</html>

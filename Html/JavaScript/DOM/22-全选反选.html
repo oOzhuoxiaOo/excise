@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../IconFont/IconFont-0/iconfont.css">
+    <link rel="stylesheet" href="../css/iconFontBase.css">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .bg {
+            background-color: rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    <input type="checkbox" name="" id="j_cbAll">
+                </td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+        </thead>
+        <tbody id="j_tb">
+            <tr>
+                <td>
+                    <input type="checkbox" name="" id="">
+                </td>
+                <td>222</td>
+                <td>333</td>
+                <td>444</td>
+                <td>555</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="" id="">
+                </td>
+                <td>222</td>
+                <td>333</td>
+                <td>444</td>
+                <td>555</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="" id="">
+                </td>
+                <td>222</td>
+                <td>333</td>
+                <td>444</td>
+                <td>555</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        // 先排除其他人 再设置自己的样式 这种思想为排他思想
+        // 控制样式
+        // 1.获取元素
+        var j_cbAll = document.getElementById('j_cbAll'); //获取全选按钮
+        var jcheckboxs = document.getElementById('j_tb').querySelectorAll('input'); //获取单选按钮 return 伪数组
+        console.log(jcheckboxs); //检查伪数组
+        // 2.注册事件 处理程序 失去焦点
+        j_cbAll.onclick = function () { // 点击全选按钮 随选项全选||全不选
+            // this.checked返回true和false 被选中为true
+            console.log(this.checked);
+            //再点击全选按钮时 三个随选按钮循坏checked值为全选按钮的checked值
+            for (var j = 0; j < jcheckboxs.length; j++) { 
+                jcheckboxs[j].checked = this.checked;
+            }
+        }
+        //三个随选按钮全为true 时 全选按钮true ||三个随选按钮至少有一个为false时 全选按钮为false
+        for (var i = 0; i < jcheckboxs.length; i++) { 
+            // 给三个随选按钮都添加事件
+            jcheckboxs[i].onclick = function () {
+                var flag = true; //布尔值 判断三个随选按钮是否至少有一个为false
+                for (var j = 0; j < jcheckboxs.length; j++) {
+                    if (!jcheckboxs[j].checked) {
+                        flag = false; //退出for循坏 提高效率
+                        break;
+                    }
+                }
+                j_cbAll.checked = flag;
+         
+            }
+
+        }
+
+
+            // 根据表单里面的长度 lpt.value.length
+
+        // 3.
+    </script>
+</body>
+
+</html>

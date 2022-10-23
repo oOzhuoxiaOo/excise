@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0 0;
+        }
+        table,.box {
+            margin: 0 auto;
+            text-align: center;
+        }
+        table,th,td {
+            border: black solid;
+            border-collapse: collapse;
+        }
+        table img {
+            width: 100px;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="box">
+        <!-- 表格 -->
+        <table>
+            <!-- 标题 -->
+            <h2>蔬菜市场价格表</h2>
+            <!-- 表头 -->
+            <thead>
+                <tr>
+                    <th>种类</th>
+                    <th>品名</th>
+                    <th>东市场</th>
+                    <th>西市场</th>
+                    <th>南市场</th>
+                    <th>北市场</th>
+                    <th>蔬菜图片</th>
+                </tr>
+            </thead>
+            <!-- 表身 -->
+            <tbody>
+                <tr>
+                    <!-- 合并1列3行 -->
+                    <th rowspan="3">蔬菜</th>
+                    <td>西红柿</td>
+                    <td>2.5</td>
+                    <td>2.3</td>
+                    <td>2.1</td>
+                    <td>2.3</td>
+                    <td>
+                        <img src="../Image/Ha-0001-01.png" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td>茄子</td>
+                    <td>1.6</td>
+                    <td>1.7</td>
+                    <td>1.9</td>
+                    <td>1.6</td>
+                    <td>
+                        <img src="../Image/Pz-0001.png" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td>辣椒</td>
+                    <td>2.8</td>
+                    <td>3.0</td>
+                    <td>2.7</td>
+                    <td>2.7</td>
+                    <td>
+                        <img src="../Image/Pz-0002.png" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <!-- 合并一列两行 -->
+                    <th rowspan="2">水果</th>
+                    <td>卷心菜</td>
+                    <td>2.1</td>
+                    <td>2.2</td>
+                    <td>2.3</td>
+                    <td>2.4</td>
+                    <td>
+                        <img src="../Image/Pz-0003.png" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td>青菜</td>
+                    <td>2.0</td>
+                    <td>2.3</td>
+                    <td>2.2</td>
+                    <td>2.5</td>
+                    <td>
+                        <img src="../Image/Pz-0004.png" alt="">
+                    </td>
+                </tr>
+            </tbody>
+            <!-- 表尾 -->
+            <tfoot>
+                <tr>
+                    <td colspan="7">日期:2019-08-26;计量单位500克</td>
+                    
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>

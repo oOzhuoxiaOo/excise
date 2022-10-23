@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            border: 10px black solid;
+        }
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(113, 109, 109);
+            float: left;
+            margin-right: 2px;
+        }
+        .test {
+            height: 200px;
+            background-color: rgb(236, 161, 161);
+        }
+        .clear {
+            /* 此时此标签在最面浮动的最下方，起到清除浮动效果 */
+            height: 50px;
+            background-color: rgb(66, 227, 147);
+            /* 👆为了展示特此设置高和颜色,运用时不需要再如此 */
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="clear"></div>
+    </div>
+    <!-- 在最后一个浮动下方添加一个空标签
+    并且添加clear：both属性 -->
+    <div class="test"></div>
+</body>
+</html>

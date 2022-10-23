@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width:100vw;
+            height:100vh;
+        }
+        ul {
+            display: flex;
+            flex: 1;
+            height: inherit;
+        }
+        
+        .box {
+            display: flex;
+            min-width: 400px;
+            max-width: 600px;
+            transform: translateY(200%);
+            height: 100px;
+            margin:0 auto;
+        }
+        li {
+            list-style: none;
+            flex: 1;
+            cursor: pointer;
+        }
+        .card1 {
+            background: url(/Image/Pz-0010.png) no-repeat center / cover;
+        } 
+        .card2 { 
+            background: url(/Image/Pz-0011.jpg) no-repeat center / cover;
+        } 
+        .card3 { 
+            background: url(/Image/Pz-0012.png) no-repeat center / cover;
+        } 
+        .card4 { 
+            background: url(/Image/Pz-0013.png) no-repeat center / cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li class="card1">1</li>
+            <li class="card2">2</li>
+            <li class="card3">3</li>
+            <li class="card4">4</li>
+        </ul>
+    </div>
+    <script>
+        // 需求 换肤效果 点击四个图 点哪个背景图就更换
+
+        // 获得四个.box里的li
+        let lis = document.querySelector('.box').querySelectorAll('li');
+        for(let i = 0; i < lis.length; i++) {
+            // 给每个li添加点击事件
+            lis[i].addEventListener('click',function(){
+                // 每次点击检测事件对象的类名
+                console.log(this.className);
+                // 查找body元素
+                // let body = document.querySelector('body');
+                // let body = document.
+                // 给body元素替换(添加)类
+                body.className = this.className;
+            })
+        }
+    </script>
+</body>
+</html>

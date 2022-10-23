@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            overflow: hidden;
+            width: 0;
+            height: 30px;
+            background-color: #1f1f1f;
+            /* 让我们文字强制一行内显示 */
+            white-space: nowrap;
+            /* step是分几步完成我们的动画 有了steps 就不要写ease 或者linear */
+            animation: w 4s steps(10) forwards;
+            font-size: 20px;
+            color: rgb(184, 220, 38);
+        }
+        @keyframes w {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>夏娜天下第一空白传说</div>
+</body>
+</html>

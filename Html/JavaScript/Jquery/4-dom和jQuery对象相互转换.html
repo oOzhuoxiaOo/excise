@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+        video {
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <video src="/Video/贝贝BiliBili - B站视频下载.mp4" muted></video>
+
+    <script>
+        // jQuery中没有视频play这个方法
+        // 如果想使用原生的方法 需要将jQ转化为Dom
+
+        // 1.jQuery
+        $('video');
+
+        //2.dom
+        let video = document.querySelector('video');
+        // video.play();
+
+        //3.dom -> jQuery
+        $(video);
+
+        //4. jQuery -> dom
+        $('video')[0].play();
+        $('video').get(0).play();
+        
+    </script>
+</body>
+
+</html>

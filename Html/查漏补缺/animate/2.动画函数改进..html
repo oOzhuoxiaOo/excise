@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: #1f1f1f;
+        }
+    </style>
+</head>
+<body>
+    <button>点击运动</button>
+    <div class="box"></div>
+    <script>
+        let box = document.querySelector('.box');
+        let btn = document.querySelector('button');
+        btn.addEventListener('click',function(){
+            console.log(1);
+            animate(box,200);
+        })
+        function animate(obj,target,callback){
+            clearInterval(obj.timer);
+            // 误差原因：offsetLeft 是整数
+            obj.age = 18;
+            console.dir(obj);
+            obj.timer = setInterval(function(){
+                let speed =  (target - obj.offsetLeft) / 10;
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                if(obj.offsetLeft >= target){
+                    clearInterval(obj.timer);
+                    // 添加一个需要自己设置的回调函数 会在移动结束执行
+                    // 通过👆判断移动结束，通过if判断回调函数是否存在
+                   if(callback) {
+                    callback();
+                   }
+                }
+                obj.style.left = `${obj.offsetLeft + speed}px`;
+            },20)
+        }
+    </script>
+</body>
+</html>

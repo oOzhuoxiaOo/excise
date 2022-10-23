@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td,
+        th {
+            padding: 5px 20px;
+            border: 1px solid;
+        }
+        th {
+            background-color: rgb(202, 202, 202);
+        }
+        tr {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+<!--             <tr>
+                <td>夏娜</td>
+                <td>元素使用</td>
+                <td>100</td>
+                <td><a href="#">删除</a></td>
+            </tr>
+            <tr>
+                <td>亚斯娜</td>
+                <td>元素使用</td>
+                <td>80</td>
+                <td><a href="#">删除</a></td>
+            </tr>
+            <tr>
+                <td>古河渚</td>
+                <td>元素使用</td>
+                <td>70</td>
+                <td><a href="#">删除</a></td>
+            </tr>
+            <tr>
+                <td>古河汐</td>
+                <td>元素使用</td>
+                <td>60</td>
+                <td><a href="#">删除</a></td>
+            </tr> -->
+        </tbody>
+    </table>
+    <script>
+        // 1.先去准备好学生的数据
+        var datas = [
+        {
+            name:'夏娜',
+            suject:'元素论',
+            score:100
+        },
+        {
+            name:'亚斯娜',
+            suject:'元素论',
+            score:90
+        },
+        {
+            name:'古河渚',
+            suject:'元素论',
+            score:80
+        },
+        {
+            name:'古河汐',
+            suject:'元素论',
+            score:60
+        }
+        ]
+        // 往tbody 里面创建行
+        var tbody = document.querySelector('tbody');
+        // 创建人数长度的tr
+        for(var i =0; i <datas.length; i++) {
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            // console.log(tbody.appendChild(tr))
+            for(var k in datas[i]) {
+                // 跟数据有关系的三个单元格
+                var td = document.createElement('td');
+                tr.appendChild(td);
+                //k得到的是属性名 属性值需要obj[i][k]
+                console.log('k:' + k); 
+                td.innerHTML = datas[i][k];
+                // td.innerHTML =  k[0];
+            }
+                // console.log(tr);
+                // 创建有删除两个子的单元格
+                var td = document.createElement('td');
+                td.innerHTML = '<a href="javascript:;">删除</a>';//点击连接后不会有#
+                tr.appendChild(td);          
+        }
+        // 删除操作 先获取所有a
+        var as = document.querySelectorAll('a');
+        // 给所有a添加点击事件
+        for(var i = 0; i< as.length; i++) {
+            as[i].onclick = function() {
+                // 点击a删除行 tr>td>a
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+        } 
+    </script>
+</body>
+
+</html>

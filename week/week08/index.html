@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: rgb(194, 241, 209);
+            font-size: 26px;
+        }
+        td {
+            border: solid 3px black;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+        }
+        .result {
+            width: 400px;
+            height: 300px;
+            background-color: rgb(0, 0, 0);
+            color: aliceblue;
+            margin: 15px auto;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <div class="result">
+        <h2>结果查询</h2>
+        <ol>
+        </ol>
+    </div>
+
+    <script>
+        // 📐函数区域
+        
+        
+        /*  💦
+        名称: removeClick
+        参数：parame/that
+                parame: 1/0 为1移除全部 为0移除当前事件
+                that: obj obj为this时，可用that代替上级this,避免为window
+        功能: 移除tds的点击事件
+        return:   */
+         function removeClick(parame,that){
+            if(parame == 1) {
+                console.log('移除全部的点击事件')
+                tds.forEach((emt,index)=>{
+                    emt.removeEventListener('click',changeGame);
+                })
+            } else if (parame == 0){
+                console.log('移除当前所点击元素👇的事件')
+                console.log(that);
+                that.removeEventListener('click',changeGame);
+            }
+        }
+        
+        /*  💦💦
+        名称: addPage
+        参数：0/1 
+                0：输出 😭
+                1：输出 😀
+        功能: 令result元素区域尾部增加一个li标签（😀/😭）*/
+        // return:
+        let result = document.querySelector('.result ol')
+        function addPage(parame,that) {
+            let newLi = document.createElement('li');
+            if(parame == 1) {
+                newLi.innerText = `这是第${k}次点击,😀`;
+            } 
+            if(parame == 0) {
+                newLi.innerText = `这是第${k}次点击,😭`;
+            }
+            result.appendChild(newLi);
+        }
+        
+             /*  💦💦💦
+        类别：事件回调函数
+        名称: changeGame
+        参数：无
+        功能: 点击如果为目标则输出😀  如果不为目标则输出Miss*/
+        // return:
+        function changeGame(){
+            k++;
+            let getIndex = this.getAttribute('index');
+            this.style.backgroundColor = 'pink';
+            if(getIndex == rdm) {
+                this.innerText='😀';
+                this.style.backgroundColor = 'purple';
+                removeClick(1,this);
+                addPage(1);
+            } else {
+                this.innerText='Miss';
+                removeClick(0,this);
+                addPage(0);
+            }}
+        
+        // 随机数([0,8])
+         let rdm = Math.floor(Math.random()*9);
+         //打开控制台输出随机数，用来查看随机数为多少 
+        console.log(rdm);
+        // 用来记录点击次数 每次触发点击事件 k++
+        let k = 0;
+        // 所有td按钮
+        let tds = document.querySelectorAll('td');
+        // 遍历tds按钮，给里面每个 td按钮添加事件
+        tds.forEach((emt,index)=>{
+            // 添加自定义睡属性index （事件中当前元素自定义属性index和随机数进行比较）
+            emt.setAttribute('index',index);
+            emt.addEventListener('click',changeGame);
+        })
+    </script>
+</body>
+</html>

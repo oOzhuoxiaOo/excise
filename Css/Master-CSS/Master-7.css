@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+}
+
+.content {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../../image/Wp-0004.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.content .bg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+    color: #ffffff;
+}
+
+#maxbox {
+    width: 500px;
+    height: 350px;
+    padding: 40px 60px;
+   border-radius: 10%;
+   border: 1px #ffffff solid;
+   text-align: center;
+}
+
+#maxbox h1 {
+    padding: 0;
+    padding-top: 20px;
+}
+
+#maxbox .inputbox {
+    margin-top: 30px;
+}
+
+#maxbox .inputText {
+    margin-top: 20px;
+}
+
+#maxbox .inputText input{
+    border: 0;
+    padding: 6px;
+    border-bottom: 1px soild white;
+    background-color: #FFFFFF00;
+    color: rgb(255, 255, 255);
+}
+
+#maxbox .inputbox .inputButton {
+    margin: 0;
+    margin-top: 20px;
+    width: 150px;
+    height: 25px;
+    border-radius:20px
+}
+
+#sign_up {
+    padding-top: 50px;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+}
+
+#sign_up a {
+    color: rgb(172, 171, 198);
+}
+
+.icon-password {
+
+    color: #ffffff;
+}
+

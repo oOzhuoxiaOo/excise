@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <input type="checkbox" name="" id="">
+            </td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="" id="">
+            </td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="" id="">
+            </td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="" id="">
+            </td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+    </table>
+    <script>
+        // 需求 选择主btn则子btn全选 
+        // 再选择主btn则全不选 
+        // 子项目全选了则主btn也亮
+        // 子项目不全选则主btn不亮
+        let choice = document.querySelectorAll('input');
+        // console.log(choice[0].checked);
+        let index = 0;
+        choice[0].addEventListener('click',function(){
+            if(choice[0].checked == true) {
+                for(let i = 0; i < choice.length;i++){
+                    choice[i].checked =true;
+                }
+                index = choice.length - 1;
+            }
+            else {
+                for(let i = 0; i < choice.length;i++){
+                    choice[i].checked = false;
+                }
+                index = 0;
+            }
+        })
+        for(let i = 1;i<choice.length;i++){
+            choice[i].addEventListener('click',function(){
+                if(this.checked ==  true)  {
+                    index++;
+                } else {
+                    index--;
+                }
+
+                if(index == choice.length - 1) {
+                    choice[0].checked = true;
+                } else {
+                    choice[0].checked = false;
+                }
+            })
+        }
+        let body = document.querySelector('body');
+        body.addEventListener('click',function(){
+            console.log(index);
+        })
+    </script>
+</body>
+</html>

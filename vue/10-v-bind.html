@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;
+        }
+        .borClass {
+            border: 5px solid rgb(10, 117, 171);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-bind绑定属性或者类等 -->
+        <img v-bind:src="imgSrc" alt="">
+        <img v-bind:src="imgSrc" v-bind:title="imgTitle" alt="">
+        <!-- 可省略v-bind 直接:class等 -->
+        <img :src="imgSrc" :title="imgTitle" alt="">
+        <img v-bind:src="imgSrc" v-bind:title="imgTitle" v-bind:class="isActive ? borClass : ''" v-on:click="changeClass" alt="">
+        <img v-bind:src="imgSrc" v-bind:title="imgTitle" v-bind:class="{borClass:isActive}" v-on:click="changeClass" alt="">
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                imgSrc:'/Image/Pz-0013.png',
+                imgTitle:'夏娜吃菠萝包',
+                borClass:'borClass',
+                isActive:true
+
+            },
+            methods:{
+                changeClass:function(){
+                    this.isActive = !this.isActive;
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

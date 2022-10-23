@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .father {
+            position: relative;
+            transform: translateY(200px);
+            margin: 0 auto;
+            width: 400px;
+            height: 400px;
+            padding: 20px;
+            background-color: rgb(227, 96, 96);
+            border: solid 20px black;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(175, 208, 234);
+            border: solid 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="ceshi">
+            <div class="son"></div>
+        </div>
+    </div>
+    <script>
+        let father = document.querySelector('.father');
+        let son = document.querySelector('.son');
+        //offsetParent为有定位的父盒子(逐层向上找有定位的,都没有就是body),就近原则)
+        // 此处定位为position定位，不是flex等布局
+        console.log(son.offsetParent)
+        console.dir(father)
+        console.dir(son);
+        // offsetTop详解
+        // 新任的干爹offsetParent为father
+        // 就为offsetParent的上边框(上边边框的bottom) 到son上bottom的距离
+        /*  offsetTop：当前元素 上边框 外边缘 到 最近的已定位父级（offsetParent） 上边框 内边缘的 距离。如果父
+                 级都没有定位，则分别是到body 顶部 和左边的距离 */
+        console.log(`offsetTop:${son.offsetTop}`);
+        /* 📕clientTop为son的上边框(border)的宽度，
+                也就是border:solid 3px 中的3px ,如果没有设置border则为0*/
+        console.log(`clientTop:${son.clientTop}`);
+
+        /* 📕翻译:
+                client:客户端 */
+        
+    </script>
+</body>
+</html>

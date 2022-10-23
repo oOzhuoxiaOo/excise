@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用插值语法实现姓名案列</title>
+    <!-- 引入Vue -->
+    <script src="../../JS/vue.js"></script>
+    <script type="text/javascript">Vue.config.productionTip = false;//阻止Vue 在启动时产生生产提示 </script>
+    <style>
+        body {
+            font-size: 20px;
+        }
+        span {
+            border:solid;
+        }
+        .require {
+            background-color: rgb(156, 152, 152);
+            /* color: aliceblue; */
+        }
+    </style>
+</head>
+
+<body>
+        <!-- 
+        📕
+     -->
+
+     <!-- 准备好一个容器 -->
+    <div id="root">
+        <div class="require">
+            <h2>需求:</h2>
+            <h4>1.每次输入姓和名会同步到全名</h3>
+            <h4>2.全名中,姓最多显示三个字</h4>
+        </div>
+        <h2>1.使用插值语法实现姓名案列</h2>
+        <!-- 通过 v-model双向绑定value数据 -->
+        请输入姓 <input type="text" v-model="firstName"><br><br>
+        请输入名 <input type="text" v-model="lastName"><br><br>
+        <!-- 使用插值语法（为了以后需求多时，不建议插值语法） -->
+        全名:<span>{{firstName.slice(0,3)}}-{{lastName}}</span>
+    </div>
+
+    <script>
+        // 创建Vue实例
+        const vm = new Vue({
+            el:'#root',
+            data:{
+                firstName:'夏',
+                lastName:'娜',
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            background-color: rgb(150, 149, 149);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1--------------0</li>
+        <li>2--------------0</li>
+        <li>3--------------0</li>
+        <li>4--------------0</li>
+        <li>5--------------0</li>
+    </ul>
+    <script>
+
+// // mouseenter事件的情况：
+//    当鼠标从元素的边界之外移入元素的边界之内时，事件被触发。而鼠标本身在元素边界内时，要触发该事件，必须先将鼠标移出元素边界外，再次移入才能触发。
+// mouseover事件的情况：
+//    当鼠标从元素的边界之外移入元素的边界之内时，事件被触发。如果移到父元素里面的子元素，事件也会被触发
+// 所以我们在使用鼠标经过事件一般会使用
+// mouseenter  和 mouseleave    没有冒泡效果(推荐)
+// 而mouseover 和 mouseout     会有冒泡效果
+
+        let ul = document.querySelector('ul');
+        ul.addEventListener('mouseover',function(e){
+            console.log(e.target);
+            console.log(1);
+            e.target.style.backgroundColor = 'purple';
+        })
+        // 提示: onmouseleave 事件类似于 onmouseout 事件。 
+        // 唯一的区别是 onmouseleave 事件不支持冒泡 。
+        ul.addEventListener('mouseout',function(w){
+            console.log(w.target);
+            console.log(0);
+            w.target.style.backgroundColor = '';
+        })
+    </script>
+</body>
+</html>

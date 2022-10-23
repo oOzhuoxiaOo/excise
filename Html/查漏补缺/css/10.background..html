@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 600px;
+            height: 600px;
+            border: solid;
+
+        }
+        .box {
+            /* background-color: rgb(0, 0, 0); */
+            padding: 100px;
+            background: url(/Image/00001.jpg)  no-repeat left / 400px ,
+            url(/Image/00002.jpg)  no-repeat right / 400px;
+            /* background-origin 属性指定了背景图像的位置区域(不裁剪)。 */
+            /* background-origin: content-box; */
+            /* 图像裁剪 (类似overflow:hidden)*/
+            background-clip: content-box;
+        }
+        .box1 {
+            width: 400px;
+            height: 400px;
+            border: solid;
+        }
+        .box1 {
+            /* 线性渐变配合url */
+            background: linear-gradient(to right,rgb(0,0,0,.3),rgb(0,0,0,.3)),
+            url(/Image/00001.jpg) no-repeat center / cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+</body>
+</html>

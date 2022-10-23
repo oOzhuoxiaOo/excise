@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../IconFont/IconFont-0/iconfont.css">
+    <link rel="stylesheet" href="../css/iconFontBase.css">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id = "box1" class="aaa" index = '1'></div>
+    <script>
+
+        // 1.获取对象
+        var div = document.querySelector('div');
+        // ⭐获取属性 ->对象.属性
+        console.log('div.id:\t' +div.id); //box1
+        console.log('div.className:\t' + div.className); //box1
+        // 😓不能检测自定义属性
+        console.log('div.index:\t' +div.index); //box1
+        // ⭐⭐获取属性 -> 对象.getAttribute('属性')  🌙attribute:属性
+        console.log('div.getAttribute("id"):\t' +div.getAttribute('id'));
+        // 😓能检测到自定义属性
+        console.log('div.getAttribute("index"):\t' + div.getAttribute('index'));
+
+        // 👇设置元素属性值👇
+        // ⭐⭐⭐对象.属性 = '属性值';
+        div.id = 'box2'; //🐟 如果是类的话用 对象.className
+        // ⭐⭐⭐⭐对象.setAttribute('属性',属性值)
+        console.log(div.id);//成功修改
+        div.setAttribute('index',2);//🐟 主要针对自定义属性修改
+        console.log(div.getAttribute('index'));//成功修改
+        div.setAttribute('class','bbb');  //这里特殊 不用className 用class
+        console.log(div.className);//成功修改
+        // ⭐⭐⭐⭐⭐移除属性
+        div.removeAttribute('index'); //移除成功
+
+    </script>
+</body>
+
+</html>

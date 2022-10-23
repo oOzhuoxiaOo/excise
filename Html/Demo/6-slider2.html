@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Css/baseCss/base.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3314800_7wpee0xd35j.css">
+    <style>
+        
+        @keyframes move {
+            0% {
+                transform: scaleY(1);
+            }
+            20% {
+                transform: scaleY(0.5);
+            }
+            50%{
+                transform: scaleY(1.1);
+            }
+            60%{
+                transform: scaleY(0.8);
+            }
+            75%{
+                transform: scaleY(1.05);
+            }
+            85%{
+                transform: scaleY(0.95);
+            }
+            100%{
+                transform: scaleY(1);
+            }
+        }
+        .menu {
+            width: 100px;
+            height: 500px;
+            /* border: solid; */
+            background-color: rgb(205, 205, 205);
+            color: black;
+            border-radius: 10px;
+            
+        }
+        #app {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .menu {
+            position: relative;
+            display: flex;
+            
+        }
+        ul {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        ul  li {
+            flex: 1;
+            width: 100%;
+            /* border: solid; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .iconfont{
+            font-size: 60px;
+        }
+        .slider {
+            position: absolute;
+            left: 5px;
+            top: 5%;
+            height: 15%;
+            /* border: 5px solid rgb(37, 89, 210); */
+            width: 10px;
+            background-color: rgb(37, 89, 210);
+            transition: all 0.4s;
+        }
+
+        .animate {
+            animation: move 0.5s ease;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="menu">
+            <ul>
+                <li><i class="iconfont icon-insurance"></i></li>
+                <li><i class="iconfont icon-good"></i></li>
+                <li><i class="iconfont icon-sound-filling"></i></li>
+                <li><i class="iconfont icon-set"></i></li>
+              
+            
+            </ul>
+            <div class="slider"></div>
+        </div>
+    </div>
+
+    <script>
+        let lis = document.querySelectorAll('li');
+        let menu = document.querySelector('.menu');
+        let slider = document.querySelector('.slider');
+        for(let i = 0; i < lis.length; i++){
+            lis[i].index = i;
+            lis[i].addEventListener('click',function(){
+                slider.classList.remove('animate');
+                let lis_Henght = this.clientHeight;
+                let tslt = (lis_Henght * this.index) + 'px';
+                console.log(tslt);
+                // slider.style.
+                slider.style.marginTop =`${tslt}`;
+                slider.classList.add('animate');
+            })
+        }
+    </script>
+</body>
+</html>

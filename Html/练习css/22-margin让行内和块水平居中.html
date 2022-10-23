@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            /* 必须指定宽度 */
+            width: 200px;
+            height: 200px;
+            background-color:violet;
+            /* 行内或者行内块的话需要给父亲用text-a-center
+            不然不会居中 */
+            text-align: center;
+        }
+        img  {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span>行内块</span>  <br>
+        <!-- img也是行内块元素 -->
+        <img src="../../Image/Ha-0001-01.png" alt="">
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="changeShow">图片显示和消失</button><br>
+        <!-- v-if 和 v-show 类似  
+            <!-- 但v-if 是直接修改dom元素  v—show是丢该样式style:display:none--> -->
+            <!-- 如果频繁修改 建议用show 反之if -->
+        <img src="/Image/Gif-0001.gif" alt="v-if" v-if="isShow">
+        <img src="/Image/Gif-0001.gif" alt="v-show" v-show="isShow">
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                isShow:true,
+                age:18
+            },
+            methods:{
+                changeShow:function(){
+                    this.isShow = !this.isShow;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

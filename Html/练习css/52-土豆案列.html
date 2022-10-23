@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box1 {
+            position: relative;
+            height: 400px;
+            width: 400px;
+            margin: 100px auto;
+        }
+        .box1 img {
+            width: 400px;
+            height: 400px;
+        }
+        .cox1 {
+            /* 隐藏遮罩层 */
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 400px;
+            height: 400px;
+            background: rgb(0, 0, 0,.3) url(../../Image/00004.jpg) no-repeat center;
+            background-size: 40px 40px;
+        }
+        .box1:hover .cox1 {
+            /* 悬浮显示遮罩层 */
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <img src="../../Image/Ha-0002.jpg" alt="">
+        <div class="cox1"></div>
+    </div>
+</body>
+</html>

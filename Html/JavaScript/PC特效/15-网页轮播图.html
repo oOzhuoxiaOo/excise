@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        img {
+            width: 400px;
+            height: 300px;
+        }
+
+        .lunbotu li {
+            list-style: none;
+            float: left;
+        }
+
+        .lunbotu {
+            position: absolute;
+            width: 500%;
+            height: 100%;
+        }
+
+        .box {
+            position: relative;
+            /* overflow: hidden; */
+            width: 400px;
+            height: 300px;
+            border: 3px solid;
+        }
+
+        .btnleft,
+        .btnright {
+            display: none;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 0, 0, 0.4);
+        }
+
+        .btnleft {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .btnright {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        .lunbodian {
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            /* width: 150px; */
+            height: 30px;
+            background-color: rgb(232, 182, 182);
+        }
+
+        .lunbodian li {
+            float: left;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            /* background-color: #fff; */
+            border: 1px solid;
+            border-radius: 20px;
+            margin: 5px;
+            z-index: 999;
+        }
+
+        .current {
+            background-color: purple;
+        }
+    </style>
+    <script src="../js/animate.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="lunbotu">
+            <li><a href="">
+                    <img src="../../../Image/Wp-0001.jpg" alt="">
+                </a></li>
+            <li><a href="">
+                    <img src="../../../Image/Wp-0002.jpg" alt="">
+                </a></li>
+            <li><a href="">
+                    <img src="../../../Image/Wp-0003.jpg" alt="">
+                </a></li>
+            <li><a href="">
+                    <img src="../../../Image/Wp-0004.jpg" alt="">
+                </a></li>
+        </ul>
+        <ul class="lunbodian">
+        </ul>
+        <div class="btnleft">左</div>
+        <div class="btnright">右</div>
+    </div>
+    <script>
+        var btnleft = document.querySelector('.btnleft');
+        var btnright = document.querySelector('.btnright');
+        var box = document.querySelector('.box');
+        var lunbodian = document.querySelector('.lunbodian');
+        var lunbotu = document.querySelector('.lunbotu');
+        var imgLis = document.querySelector('.lunbotu').querySelectorAll('li');
+        console.log(imgLis);
+        box.addEventListener('mouseenter', function () {
+            btnleft.style.display = 'block';
+            btnright.style.display = 'block';
+            clearInterval(timer);
+            timer = null; //清除定时器变量
+        })
+        box.addEventListener('mouseleave', function () {
+            btnleft.style.display = 'none';
+            btnright.style.display = 'none';
+            timer = setInterval(function() { //从新复制过来 开启计时器
+            // 手动调用点击事件
+            btnright.click();
+        },2000);
+        })
+        // ⭐小圆圈个数 根据图片个数自动化
+        var countImg = document.querySelector('.lunbotu').querySelectorAll('li');
+        for (var i = 0; i < countImg.length; i++) {
+            var newLi = document.createElement('li'); //createElement前需要document
+            lunbodian.appendChild(newLi);
+        }
+        // ⭐把第一个小圆圈添加类红色current  当不起作用的原因可能是 current权级低于其他类
+        lunbodian.children[0].className = 'current';  //children后是中括号[]
+        //⭐ 点击小圆圈 被点击的变色 
+        var oLis = lunbodian.querySelectorAll('li');
+        console.log(oLis);
+        for (var i = 0; i < oLis.length; i++) {
+            // 🐍给轮播点添加自定义属性 索引
+            oLis[i].setAttribute('date-index', i);
+            oLis[i].addEventListener('click', function () {
+                for (var j = 0; j < oLis.length; j++) {
+                    oLis[j].className = '';
+                }
+                // console.log(i);//i一直为4 debug
+                // oLis[i].style.backgroundColor = 'purple';
+                this.className = 'current';
+                // 🐍点击小圆圈  获得移动位移 以及移动图片
+                var targetLeft = this.getAttribute('date-index') * 400;
+                // 修改k小圆圈k值 让点击小圆圈时 k值也发生改变
+                var index = this.getAttribute('date-index');
+                k = index;
+                // 修改k值 也要修改circle
+                circle = index;
+                console.log('k:' + k);
+                console.log(targetLeft);
+                animate(lunbotu, -targetLeft);
+            })
+        }
+        // ⭐克隆图第一个图放最后 cloneNode true为深克隆克隆全部 false则只克隆li
+        // 小圆圈没带上克隆的原因 小圆圈个数是在扫描图获得图个数 克隆在扫描后
+        var firstClone = lunbotu.children[0].cloneNode(true);
+        lunbotu.appendChild(firstClone);
+        //  ⭐动画效果
+        var circle = 0; //控制小圆圈的播放
+        var k = 0; //是索引 也是控制图位置的变量
+        // ⭐节流阀
+        var flag = true;
+        btnright.addEventListener('click', function () {
+            if(flag) {
+                // 节流阀false 执行此动画时 其他动画不会判定成功 动画执行完毕后设置为true
+                flag = false;
+                // 400为一张图宽度
+                // 如果我们走到了最后复制的一张图片 此时 我们ul快速复原 left=0
+                if (k == lunbotu.children.length - 1) { // 5 - 1
+                    lunbotu.style.left = 0;
+                    k = 0;
+                }
+                k++;
+                animate(lunbotu, - k * 400 ,function() {
+                    flag = true;//动画执行完毕 设置为true;
+                });
+                // ⭐点击右侧按钮 小圆圈跟着一起变化
+                circle++;
+                // 如果circle等于4 也就是在按下最后一个图（非克隆的）circle索引为4时 让⭕索引为0
+                // if (circle == lunbodian.children.length) {
+                //     circle = 0;
+                // }
+                circle = circle == lunbodian.children.length ? 0 : circle;//👆三元运算符简写
+                circleChange();
+            }
+        })
+        btnleft.addEventListener('click', function () {
+            if(flag) {
+                flag = false;//下个动画关闭 再执行完本动画后打开
+                // 400为一张图宽度
+                // k=0时按 左图标 此时进行判定 判定成功则瞬间跳转克隆图 之后再动画判定
+                if (k == 0) {
+                    k = lunbotu.children.length - 1;
+                    lunbotu.style.left = -k * 400 + 'px';
+                }
+                k--;
+                animate(lunbotu, - k * 400,function() {
+                    flag = true;//下个动画可开启
+                });
+                // ⭐点击右侧按钮 小圆圈跟着一起变化
+                circle--;
+                // 当圆圈索引为-1时 也就是从第一张图向左点到克隆图瞬间到无缝到倒数第二张
+                // if (circle == -1) {
+                //     circle = lunbodian.children.length - 1;
+                // }
+                circle = circle == -1 ? lunbodian.children.length - 1 : circle; //👆三元运算符简写
+                circleChange();
+            }
+        })
+        function circleChange() {
+            // ⭐先清除其余小圆圈current类名
+            for (var i = 0; i < lunbodian.children.length; i++) {
+                lunbodian.children[i].className = '';
+            }
+            // 留下当前小圆圈的current类名
+            lunbodian.children[circle].className = 'current';
+        }
+
+        // ⭐⭐定时器
+        var timer = setInterval(function() {
+            // 手动调用点击事件
+            btnright.click();
+        },2000);
+    </script>
+</body>
+
+</html>

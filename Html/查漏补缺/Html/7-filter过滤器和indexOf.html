@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7-filter过滤器和indexOf</title>
+</head>
+<body>
+    <script>
+        let a = [1,2,3,4,5];
+        let b = ['夏娜','伊卡洛斯','亚斯娜']
+        // 🔖查询数组
+        // indexOf 遍历数组返回指定参数的索引 如果没有则返回-1
+         a.indexOf(1);//0
+         a.indexOf('');//-1
+         a.indexOf(10);//-1
+         b.indexOf('啊啊啊');//-1
+        //  🔖查询字符串
+        //  注意，对字符串进行查询，如果传入的是空字符串，返回0 
+        // 如果没找到，返回-1
+         b[0].indexOf('');//0
+         b[0].indexOf('夏');//0
+         b[0].indexOf('啊');//-1
+        //  过滤器
+        // 遍历数组 按指定条件过滤
+        // 返回新的数组
+         let newA = a.filter((val,index)=>{
+            console.log(val,index);
+            return val < 4;
+         })
+
+    </script>
+</body>
+</html>

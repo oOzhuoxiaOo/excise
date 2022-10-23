@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .w {
+            width: 600px;
+            margin: 0 auto;
+            padding: 0;
+            border: solid red;
+        }
+        header {
+            height: 200px;
+            background-color: rgb(189, 189, 189);
+        }
+        nav {
+            width: 600px;
+            height: 100px;
+            background-color: rgb(206, 63, 63);
+        }
+        section {
+            height: 800px;
+            background-color: rgb(15, 15, 15);
+        }
+        footer {
+            height: 400px;
+            background-color: rgb(0, 52, 221);
+        }
+    </style>
+</head>
+<body>
+    <div class="w">
+        <header></header>
+        <nav></nav>
+        <section></section>
+        <footer></footer>
+    </div>
+    <script>
+        let nav = document.querySelector('nav');
+        let navTop = nav.offsetTop;
+        document.addEventListener('scroll',function(){
+            // pageXOffset 和 pageYOffset 属性相等于 scrollX 和 scrollY 属性。
+            console.log(window.pageYOffset);
+            // 被卷去高度大于原本距顶高度
+            if(window.pageYOffset >= navTop){
+                nav.style.position = 'fixed';
+                nav.style.top = '0';
+            } else {
+                nav.style.position = 'relative';
+            }
+        })
+    </script>
+</body>
+</html>

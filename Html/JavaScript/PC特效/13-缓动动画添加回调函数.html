@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn1">点击移动500</button>
+    <button class="btn2">点击移动800</button>
+    <div></div>
+    <script>
+        // 回调函数 函数当作参数 传到另外一个函数
+        var div = document.querySelector('div');
+        function animate(obj,targetLeft,callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+                // 避免误差 速度需要取整 因为offsetLeft是整数
+                // Math.ceil() 函数返回大于或等于一个给定数字的最小整数。
+                // Math.floor() 返回小于或等于一个给定数字的最大整数。
+                var step =  (targetLeft - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if(obj.offsetLeft == targetLeft) {
+                    clearInterval(obj.timer); 
+                    if(callback)  {
+                        // 调用函数
+                        callback();
+                    }
+                } else {
+                    // 修改此处的速度1 (targetLeft - obj.offsetLeft) / 10
+                    obj.style.left = obj.offsetLeft + step + 'px';
+                }
+            },20)
+        }
+        var btn1 = document.querySelector('.btn1');
+        var btn2 = document.querySelector('.btn2');
+        btn1.addEventListener('click',function() {
+            animate(div,500,function(){
+                // alert('你好吗');
+                div.style.backgroundColor = 'purple';
+            });
+        })
+        btn2.addEventListener('click',function() {
+            animate(div,800,function(){
+                // alert('你好吗');
+                div.style.backgroundColor = 'red';
+            });
+        })
+        // 匀速动画 盒子当前位置 + 固定值
+        // 缓动动画 盒子当前位置 + 变化的值(目标值 - 当前位置)/10
+    </script>
+</body>
+</html>

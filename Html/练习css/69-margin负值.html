@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            border: 4px solid;
+            width: 100px;
+            height: 50px;
+            float: left;
+            list-style: none;
+        }
+        .t1 {
+            /* 浮动脱标但本身具有影响力
+            左边距和边框一样大解决1+1 */
+            margin-left: -4px;
+        }
+
+        li:hover {
+            /* 重叠边框会压住变色边框，
+            添加相对定位解决 */
+            position: relative;
+            border: 4px red solid;
+        }
+    </style>
+</head>
+<body>
+    <!-- 解决盒子相邻边框相加 -->
+    <li>1</li>
+    <li class="t1">2</li>
+    <li class="t1">3</li>
+    <li class="t1">4</li>
+
+</body>
+</html>

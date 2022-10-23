@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../../IMAGES/01_Vue中data地址问题.png" alt="">
+    <script>
+        let data = {
+            name:'xiana',
+            age:16
+        }
+        let d = data;
+        const obs = new Observer(data);
+        let vm =  {};
+        // 为什么还要给data? 为了响应式 修改data的值要变全部
+        vm._data = data = obs;
+        function Observer(obj){
+           const keys =  Object.keys(obj);
+           keys.forEach((k)=>{
+               Object.defineProperty(this,k,{
+                   // 汇总对象里的所有属性形成一个数组
+                   get(){
+                       console.log(`有人读取了${k}`)
+                      return obj[k]
+                   },
+                   set(val){
+                       obj[k] = val;
+                       console.log(`有人修改了${k},我要去解析模板,生成虚拟Dom,开始忙了`)
+                   }
+               })
+           })
+        }
+        console.log(data);
+    </script>
+</body>
+</html>

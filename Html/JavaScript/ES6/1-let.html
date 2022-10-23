@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <script>
+        // 🌸.
+        // 💧可以重复声明同一个变量
+        var var1 =  1;
+        var var1 =  1;
+        // 🔥let 不能重复声明一个变量
+        // 👇❌Uncaught SyntaxError: Identifier 'let1' has already been declared (at 1-let.html:19:13)
+        // let let1 = 2;
+        // let let1 = 3;
+        // ---------------------------------------
+
+        // 🌸🌸
+        // 💧i是全局作用域 
+        for(var i = 0; i < 5; i++) {
+        }
+        console.log(i);//5
+        // 🔥let是块级作用域
+        // for(let j = 0; j < 5; j++) {
+        // }
+        // console.log(j);// ❌Uncaught ReferenceError: j is not defined
+        // ------------------------------------------
+
+        // 🌸🌸🌸
+        // var存在变量提升
+        console.log(num01);//undefined
+        var num01 = 1;
+
+        // let不存在变量提升
+        // console.log(num02);//❌Uncaught ReferenceError: Cannot access 'num02' before initialization
+        // let num02 = 2;
+
+    </script>
+</body>
+</html>

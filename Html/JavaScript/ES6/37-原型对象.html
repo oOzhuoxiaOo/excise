@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 方法和属性称为成员
+        function Star(uname,uage) {
+            this.uname = uname;
+            this.uage = uage;
+            this.sing = function(){
+                console.log('kkk');
+            }
+        }
+        Star.jingtai = '静态成员';
+        let xiana = new Star('夏娜',18);
+        let qiong = new Star('穹',16);
+
+        // 每次new新对象 函数都会开辟新的空间，浪费内存
+        console.log(xiana.sing === qiong.sing);//地址不同 输出false
+
+        // 每个构造函数都有一个原型对象
+        // 原型对象 本身就是一个对象 可以让实列化对象访问 原型对象的公共函数 和属性
+        // 给原型对象添加的不变的方法 实列化对象公共可用(不用再开辟多个内存空间)
+        Star.prototype.playgame = function(){
+            console.log('原神');
+        }
+        console.log(xiana);
+        xiana.playgame();
+        console.log(xiana.playgame === qiong.playgame);//true
+        // 公共方法一般放到原型对象上 实列化对象不仅能用 而且省内存
+        
+         
+        
+    </script>
+</body>
+</html>

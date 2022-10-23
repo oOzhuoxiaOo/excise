@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-列表过滤</title>
+    <!-- 引入Vue -->
+    <script src="../../JS/vue.js"></script>
+    <script type="text/javascript">Vue.config.productionTip = false;//阻止Vue 在启动时产生生产提示 </script>
+</head>
+
+<body>
+    <!-- 
+        📕
+     -->
+
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        <button @click="btn">点击追加数组元素</button>
+        <h2 v-for="(p,index) in hobby" :key="index">{{p}}</h2>
+        <button @click="addObj">点改变第一个数组对象</button>
+        <h2 v-for="(p,index) in studentArr">{{p}}</h2>
+        
+        
+    </div>
+
+    <script>
+        // 创建Vue实例
+        // 🔖通过计算属性实现
+        let arr = [];
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                sortType:0,
+                keyWord:'',
+                studentArr:[
+                    {name:'xiana',age:16},
+                    {name:'qiong',age:18},
+                    {name:'yikaluosi',age:20},
+                ],
+                    
+                
+                hobby:['game','study','note']
+            },
+            methods: {
+                btn(){
+                    console.log('给hobby数组通过push追加了一个元素')
+                    //直接修改数组值不是响应式(数组本身无get、set,只有再次解析模板时(其他数据发生变化从新解析模板)才知道了该数组发生变化)
+                    // 解决方案：通过Vue包装的push、splice等方法修改数组是响应式
+                    this.hobby[1] =  '看动漫';
+                //  this.hobby.push('打足球');
+                },
+                addObj(){
+                    // 此处的push\splice等都是被vue包装后的push不是Array.push
+                    // 此时改变数组从新解析模板，会发现this.hobby[1]发生了变化，从而才能让上一步的操有响应式
+                    this.studentArr.splice(0,1,{name:'露易丝',age:14})
+                   
+                }
+            },
+        })
+        // 🔖push被vm包装修改了，所以通过vm里push添加的数组等具有响应式
+        console.log(vm._data.studentArr.push === Array.prototype.push)//false
+        console.log(arr.push === Array.prototype.push)//true
+    </script>
+</body>
+
+</html>

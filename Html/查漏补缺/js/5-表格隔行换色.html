@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .change {
+            background-color: rgb(121, 121, 121);
+            color: aliceblue;
+        }
+        td {
+            height: 30px;
+            width: 50px;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        // 需求 鼠标移动到哪行 哪行背景色变化
+        let trs = document.querySelectorAll('tr');
+        for(let i = 0; i < trs.length; i++) {
+            trs[i].addEventListener('mouseover',function(){
+                for(let j = 0; j<trs.length; j++){
+                    trs[j].className  = '';
+                }
+                this.className = 'change';
+            })
+        }
+    </script>
+</body>
+</html>

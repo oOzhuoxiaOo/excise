@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #app {
+            display: flex;
+            width: 400px;
+            height: 400px;
+            border: solid;
+            flex-direction: column;
+            /* 主轴居中 */
+            /* justify-content: center; */
+            /* 侧轴居中 */
+            align-items: center;
+        }
+        .box {
+            width: 300px;
+             border: solid;
+        }
+        li {
+            position: relative;
+            list-style: none;
+            padding: 10px;
+            border-bottom: 1px solid;
+            transition: all 0.3s;
+        }
+        li:hover {
+            background-color: rgb(0,0,0,.2);
+        }
+        .search {
+            font-size: 25px;
+            height: 40px;
+            width: 300px;
+        }
+        .close {
+            position: absolute;
+            right: 0;
+            bottom:0;
+            width: 30px;
+            height: 30px;
+            background-color: rgb(215, 164, 164);
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .closeAll{
+            background-color: rgb(255, 255, 255);
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!--  给输入框添加指令v-model 利用双向绑定特性 和按键弹起add事件 用来获取用户输入的信息 -->
+        <input type="text" class="search" v-model="message" v-on:keyup.enter="add">
+        <div class="box">
+            <ul>
+                <!-- 给li添加指令v-for 根据输入数据生成的每次数组，生成列表结构 -->
+                <li v-for="(item,index) in msgArr">
+                    {{index + 1}}.  {{item}}
+                    <!-- 给列表结构li里的div关闭按钮 添加关闭选中li的close事件事件 核心是根据索引删除指定数组元素-->
+                    <div class="close" v-on:click="close(index)">x</div>
+                </li>
+                <!-- 给li添加指令v-show 当数组长度不为0时显示  -->
+                <!-- 给span添加指令点击事件 功能是删除数组内所有元素 -->
+                <li v-show="msgArr.length != 0">
+                    <span> {{msgArr.length}} message</span>
+                    <span class="closeAll" v-on:click="closeAll">清空所有</span> 
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                // 需要和输入框用v-model绑定的数据
+                message:'',
+                // 存入输入的数据BY按下enter时
+                msgArr:[],
+            },
+            methods:{
+                // 功能:获取输入元素
+                // 核心算法:获取输入元素 并且添加到数组
+                add:function(){
+                    this.msgArr.push(this.message);
+                },
+                // 功能:删除单个li
+                // 核心算法:删除传入索引的数组里的单个元素
+                close:function(p1){
+                    console.log(p1);
+                    // 注意 不能用delete 用delete不会改变数组长度
+                    // 删除数组从索引为p1开始 删除1项
+                    this.msgArr.splice(p1,1);
+                    console.log(this.msgArr);
+                },
+                // 功能:关闭全部li
+                // 核心算法:删除数组内全部元素
+                closeAll:function(){
+                    this.msgArr.splice(0,this.msgArr.length);
+                }
+                
+            }
+        })
+    </script>
+</body>
+
+</html>

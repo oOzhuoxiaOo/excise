@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box1 {
+            width: 200px;
+            height: 40px;
+            border: solid;
+            text-align: center;
+            margin: 100px auto;
+        }
+        .box1 .miaosha {
+            display: inline-block;
+            width: 100px;
+            height: 40px;
+            background-color: rgb(206, 55, 55);
+            line-height: 40px;   
+            font-weight: 700;
+            color: aliceblue;
+            position: relative;       
+        }
+        .box1 .miaosha {
+            float: left;
+        }
+        .box1 p {
+            background-color: rgb(172, 169, 233);
+            height: 40px;
+            line-height: 40px;
+            text-decoration: line-through;
+        }
+        .box1 span i {
+            position: absolute;
+            height: 0;
+            width: 0;
+            /* 边框大小下左为0 */
+            border-width: 40px 20px 0 0;
+            /* border: 40px solid; */
+            border-style: solid;
+            border-color: transparent rgb(172, 169, 233);
+            top: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <span class="miaosha">5555
+            <i></i>
+        </span>
+        <p>6666</p>
+    </div>
+</body>
+</html>

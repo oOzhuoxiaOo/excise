@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/css-/练习/基本.css">
+    <link rel="stylesheet" href="/css-/练习/表格.css">
+    <body>
+        <div class="content">
+            <!-- 表格 -->
+            <table>
+                <thead><!--表头-->
+                    <tr><!--table row-->
+                        <td>Name</td><!--table data-->
+                        <td>Sno</td>
+                        <td>Age</td>
+                    </tr>
+                </thead>
+                <tbody><!--表身-->
+                    <tr>
+                        <td>夏娜</td>
+                        <td>201530514</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>樱岛麻衣</td>
+                        <td>201530513</td>
+                        <td>18</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--th(表头)单元格-->
+            <!-- 与td区别是字体加粗+居中 -->
+            <table>
+                <thead>
+                    <tr><!--table row-->
+                        <th>Name</th><!--table head-->
+                        <th>Sno</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>夏娜</td>
+                        <td>201530514</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>樱岛麻衣</td>
+                        <td>201530513</td>
+                        <td>18</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 表格属性 -->
+            <!-- 参考链接 -->
+            <a href="https://blog.csdn.net/qq_40135955/article/details/89162444?spm=1001.2101.3001.6650.6&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-6.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-6.pc_relevant_default&utm_relevant_index=13">参考链接</a>
+            <table class="property"><!--property--属性-->
+                <thead>
+                    <tr><!--table row-->
+                        <th>Name</th><!--table head-->
+                        <th>Sno</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>夏娜</td>
+                        <td>201530514</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>樱岛麻衣</td>
+                        <td>201530513</td>
+                        <td>18</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 合并单元格 -->
+            <table class="example-4">
+                <thead>
+                    <tr>
+                        <th>1</th>
+                        <th colspan="2">2</th><!--跨列合并，删除同行多余的一个-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">1</td><!--跨行合并，然后删除下行多余的一个-->
+                        <td>2</td>
+                        <td>3</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</head>

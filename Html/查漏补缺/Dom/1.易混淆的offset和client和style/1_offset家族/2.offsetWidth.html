@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 400px;
+            height: 400px;
+            padding: 20px;
+            background-color: rgb(227, 96, 96);
+            border: solid 20px black;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+        <div class="son"></div>
+    </div>
+    <script>
+        let father = document.querySelector('.father');
+        console.log(father)
+        console.dir(father)
+        // offsetWidth为自身宽度(border + padding + width)
+        console.log(`offsetWidth为: ${father.offsetWidth}`)
+        console.log(`offsetheight为: ${father.offsetHeight}`)
+        console.log(`offsetheight为: ${father.offsetHeight}`)
+    </script>
+</body>
+</html>

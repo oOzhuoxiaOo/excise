@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--  📕 
+        let和var声明的是 变量，声明之后可以更改，声明时可以不赋值
+        const声明的是 常量，必须赋值
+            (1)一旦声明必须赋值,不能使用null占位。
+            (2)声明后不能再修改
+            (3)如果声明的是复合类型数据，可以修改其属性-->
+            <script>
+                // const c;//❌：没有赋值
+                const A = 1;//✔
+                // A = 2;// ❌控制台报错
+                /* Uncaught TypeError: Assignment to constant variable.
+                        ：未捕获的类型，赋值给了常量变量 */
+                console.log(A);
+            </script>
+</body>
+
+</html>

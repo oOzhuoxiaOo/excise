@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-text指令 -->
+        <!-- 去除标签内所有内容 添加v-text内容文本 但文本内标签不会被html识别 -->
+       <h2 v-text="message">穹</h2>
+       <h2 v-text="age">穹
+        <!-- p被替换掉了 -->
+        <p>233</p>
+       </h2>
+       <h2 v-text="like + '!'">穹</h2>
+       <!-- {{}}和v-text中都可以使用表达式 
+        <!-- 并且{{}}可添加部分内容而不会替换原标签内容 --> -->
+       <h2>{{message + '快乐'}} 穹 </h2>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message:'夏娜今天吃了什么',
+                age:'<h1>123</h1>',
+                like:'看动漫'
+            }
+        })
+    </script>
+</body>
+
+</html>

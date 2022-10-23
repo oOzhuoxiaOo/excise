@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <div class="box0">0</div>0000000000 000
+        <div class="box1">1</div>1665767667 www
+        <div class="box2">2</div>
+    </div>
+    <script>
+        let box1 = document.querySelector('.box1');
+        console.dir(box1);
+         //sibing:📕兄弟姐妹
+        //  nextSibling下一个节点（包括text）
+        console.log(box1.nextSibling);
+        // nextElementSibling 下一个元素节点(不包括text)
+        console.log(box1.nextElementSibling);
+
+        // 获得前一个兄弟节点(包括text)
+        console.log(box1.previousSibling);
+        // 获得前一个元素节点 如果没有则为null
+        console.log(box1.previousElementSibling);
+    </script>
+</body>
+</html>

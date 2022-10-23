@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 劫持另一个对象的方法，继承另一个对象的属性
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+            console.log('person的this');
+            console.log(this);
+            console.log(arguments);
+        }
+        function Student(name,age,grade) {
+            /* Function.apply(obj,args)方法能接收两个参数
+                    obj：这个对象将代替Function类里this对象(this.name里的this被stu替代了,也就是变成了stu.name)
+                    args:这个是数组，将作为参数传给function,apply做了一个事，将数组转化为了参数给了function */
+            Person.apply(this,arguments);
+            this.grade = grade;
+            console.log("student的this");
+            console.log(this);
+            // arguments为数组，也就是把传入的三个参数转化为数组
+            console.log(arguments);
+        }
+        let stu = new Student('xiana',16,'软工五班'); 
+        // Math..max默认能接收n个参数，不能接收一个数组
+        let m = Math.max(1,2,3)
+        let m1 = Math.max(...[1,2,3])
+        // 通过apply方法，把null替代Math.max里的this，[1,2,3]数组转化为参数(1,2,3)给Math.max
+        let m2 = Math.max.apply(null,[1,2,3]);
+        console.log(m)
+        console.log(m1)
+        console.log(m2)
+
+    </script>
+</body>
+</html>

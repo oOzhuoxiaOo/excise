@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"> <button>评论</button>
+    <ul>
+
+    </ul>
+    <script>
+        let btn = document.querySelector('button');
+        btn.addEventListener('click',function(){
+            let ipt = document.querySelector('input');
+            let new_li = document.createElement('li');
+            new_li.innerHTML = ipt.value;
+            let del_btn = document.createElement('button');
+            del_btn.innerHTML = 'del';
+            del_btn.addEventListener('click',function() {
+                new_li.remove();
+            });
+            let ul = document.querySelector('ul');
+            new_li.appendChild(del_btn);
+            ul.appendChild(new_li);
+            ipt.value = '';
+
+        })
+    </script>
+</body>
+</html>

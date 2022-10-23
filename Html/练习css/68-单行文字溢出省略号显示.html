@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 单行文字溢出省略 */
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(212, 96, 96);
+            /* 默认换行 */
+            /* white-space: normal; */
+            /*  设置不换行 */
+            white-space: nowrap;
+            /* 超出隐藏 */
+            overflow: hidden;
+            /* 隐藏的省略号 */
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        我有一个梦想,dream
+    </div>
+</body>
+</html>

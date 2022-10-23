@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <a href="17-list.html">点击我去列表页</a>
+    <button>前进</button>
+    <script>
+        console.log(location.search)//?%27uname=xiana
+        // ⭐先去掉？ substr(起始的位置，截取几个字符)
+        var params = location.search.substr(1);
+        console.log(params);
+        // 利用=号把字符串分割为数组split('=');
+        var arr = params.split('=');
+        console.log(arr);
+        var div = document.querySelector('div');
+        // 数据写入div中
+        div.innerHTML = '欢迎你' + arr[1] + '的到来';
+
+        var btn = document.querySelector('button');
+        btn.addEventListener('click',function() {
+            // 前进一步
+            // history.forward();
+            history.go(1);
+        })
+    </script>
+</body>
+</html>

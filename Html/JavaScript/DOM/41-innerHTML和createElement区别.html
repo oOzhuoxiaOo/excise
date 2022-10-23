@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            background-color: rgb(198, 88, 88);
+        }
+        .box2 {
+            background-color: rgb(68, 148, 194);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <script>
+        // 创建元素 innerHTML 和 createElement 区别
+        var box1 = document.querySelector('.box1');
+        var box2 = document.querySelector('.box2');
+        // innerHTML在拼接字符串时 时间长 效率低
+        // for(var i = 0; i<50;i++) {
+        //     box1.innerHTML +='<h2>一个段落</h2>' ;  //innerHTML会覆盖 所以用+=
+        // }
+        // ⭐innerHTML利用数组 高效率
+        var arr = [];
+        for( var i = 0; i<100; i++) {
+            arr.push('<h2>一个段落</h2>');
+        }
+        box1.innerHTML = arr.join('');//join 把字符转化为字符串
+        // 利用createElement 效率低一点 但结构清晰
+        var h2 = document.createElement('h2');
+        box2.appendChild(h2);
+    </script>
+</body>
+</html>

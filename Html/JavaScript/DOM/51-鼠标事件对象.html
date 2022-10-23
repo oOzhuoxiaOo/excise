@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: rgb(159, 67, 164);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box"></div>
+    <script>
+        document.addEventListener('click',function(e){
+            // // 可视化的x ,y坐标
+            // console.log(e.clientX);
+            // console.log(e.clientY);
+            // // pageX页面的x y坐标 ⭐最重要常用ie9支持⭐
+            // console.log(e.pageX);
+            // console.log(e.pageY);
+            // screen 电脑屏幕的x y 坐标
+            console.log(e.screenX);
+            console.log(e.screenY);
+        })
+    </script>
+</body>
+</html>

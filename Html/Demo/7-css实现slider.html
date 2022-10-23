@@ -1,0 +1,124 @@
+<!DOCTYPE html >
+<html lang="en" class="lightTheme">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css实现slider</title>
+    
+    <style>
+        :root.lightTheme{
+            --body-bg:rgb(143, 143, 143);
+            --menu-bg:rgb(255, 255, 255);
+            --content-text:rgb(75, 75, 75);
+            --slider-bg:rgba(119, 119, 119, 0.6);
+            --hover-cl:rgb(0, 0, 0);
+        }
+        :root.darkTheme{
+            --body-bg:rgb(83, 83, 83);
+            --menu-bg:rgb(17, 17, 17);
+            --content-text:rgb(206, 204, 204);
+            --slider-bg:rgba(125, 125, 125, 0.5);
+            --hover-cl:rgb(255, 255, 255);
+        }
+        :root.blackTheme{
+            --body-bg:rgb(0, 0, 0);
+            --menu-bg:rgb(36, 36, 36);
+            --content-text:rgb(206, 204, 204);
+            --slider-bg:rgba(125, 125, 125, 0.5);
+            --hover-cl:rgb(255, 255, 255);
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--content-text);
+            background-color: var(--body-bg);
+            transition: all 0.3s ease;
+        }
+        .menu {
+            width: 400px;
+            height: 100px;
+            background-color: var(--menu-bg);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        .nav {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+        input {
+            display: none;
+        }
+        label {
+            flex:1;
+            /* background-color: #fff; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            /* 不让slider遮住文字 */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        label:hover {
+            color: var(--hover-cl);
+            font-size: 20px;
+        }
+        .slider {
+            position: absolute;
+            width: calc(100% / 3);
+            bottom: 10px;
+            top: 10px;
+            border-radius: 10px;
+            background-color: var(--slider-bg);
+            z-index: 1;
+            transform: translateX(0);
+            transition: all 0.3s ease;
+        }
+        .menu .nav input:nth-of-type(1):checked ~ .slider {
+            transform: translateX(0);
+        }
+        .menu .nav input:nth-of-type(2):checked ~  .slider {
+            transform: translateX(100%);
+            /* border: solid; */
+        }
+        .menu .nav input:nth-of-type(3):checked ~ .slider {
+            transform: translateX(200%);
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <div class="nav">
+            <label for="light">light</label>
+            <input type="radio" name="theme" id="light">
+            <label for="dark">dark</label>
+            <input type="radio" name="theme" id="dark">
+            <label for="black">black</label>
+            <input type="radio" name="theme" id="black">
+            <div class="slider"></div>
+        </div>
+    </div>
+    <script>
+        let labels = document.querySelectorAll('.menu label');
+        let html = document.querySelector('html')
+        let themes = ['lightTheme','darkTheme','blackTheme'];
+        labels.forEach((p,index)=>{
+            p.addEventListener('click',function(){
+                html.className = '';
+                html.classList.add(themes[index]);
+            })
+        })
+    </script>
+</body>
+</html>

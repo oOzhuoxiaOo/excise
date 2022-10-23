@@ -1,0 +1,23 @@
+.view {
+    /* 表格边框去重 */
+    border-collapse: collapse;
+}
+td,
+th {
+    padding: 10px;
+    border: solid;
+    background-color: rgb(237, 186, 186);
+}
+button {
+    padding: 10px;
+    background-color: rgb(49, 34, 34);
+    color: aliceblue;
+    transition: all 0.5s;
+}
+button:hover {
+    background-color: rgb(85, 85, 85);
+}
+body {
+    display: flex;
+    flex-direction: column;
+}

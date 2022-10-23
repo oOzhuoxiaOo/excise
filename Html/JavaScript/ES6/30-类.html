@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 手机
+
+        function Phone(brand,price) {
+            this.brand = brand;
+            this.price = price;
+            
+        }
+
+        // 添加方法
+        // 关于prototype的一切:👇链接
+        // https://www.runoob.com/js/js-object-prototype.html
+        Phone.prototype.call = function(){
+            console.log('我可以打电话');
+        }
+
+        let Huawei = new Phone('华为',5999);
+        console.log(Huawei);
+        Huawei.call();
+
+
+        // class
+        class Shouji{
+            // 构造方法 名字不能修改
+            constructor(brand,price){
+                this.brand = brand;
+                this.pric = price;
+            }
+            // 方法必须使用该语法，不能用es5的冒号创建
+            call(){
+                console.log('我可以打电话');
+            }
+        }
+
+        let onePlus = new Shouji("苹果",5999);
+        console.log(onePlus);
+    </script>
+</body>
+</html>

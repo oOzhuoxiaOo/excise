@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ⭐页面加载事件 onLoad
+        // 📕window.onload等程序加载完毕 才执行这个代码
+        // 如果不用onload 需要把脚本放到body中所有元素后边
+        // 🏄‍
+        // window.onload 只能书写一次 和onclick类似
+        // window.onload = function() {
+        //     var btn = document.querySelector('button');
+        //     btn.addEventListener('click',function() {
+        //         alert('点击我');
+        //     })
+        // }
+        // 🏄‍
+        window.addEventListener('load',function() {
+            
+            var btn = document.querySelector('button');
+            btn.addEventListener('click',function() {
+                alert('11');
+            })
+        
+        })
+        //  🐍load等页面内容全部加载完毕 
+        // 🐍包含dom元素 图片 flash css等等 才执行这个
+        window.addEventListener('load',function() {
+            // 先弹出22 在弹出11
+                alert('22');
+        })
+        // DOMContentLoaded 执行完DOM 不包含图片 flash css等 直接加载这个 比load更快
+        document.addEventListener('DOMContentLoaded',function() {
+            alert('33');
+        })
+    </script>
+    <button>点击</button>
+</body>
+</html>

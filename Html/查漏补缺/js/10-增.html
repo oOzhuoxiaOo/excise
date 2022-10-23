@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            color: red;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(50, 50, 50);
+        }
+        .cox {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(91, 132, 201);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <li>1</li>
+    </div>
+    <div class="cox">
+        <li>1</li>
+    </div>
+    <script>
+        let box = document.querySelector('.box');
+        let c_li = document.createElement('li');
+        let cox = document.querySelector('.cox');
+        c_li.innerHTML =  '夏娜';
+        let kl = document.createElement('li');
+        kl.innerHTML = '穹';
+        box.appendChild(c_li); //放到了.box里元素的最后 （同个元素会被insert抵消？）
+        // box.insertBefore(c_li,box.children[0]);放到第一元素前这个位置 也就是第一个位置
+        box.insertBefore(c_li,box.children[0]);
+        box.insertBefore(kl,box.children[0]);
+    </script>
+</body>
+</html>

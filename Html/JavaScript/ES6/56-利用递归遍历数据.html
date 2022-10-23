@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let shangpin = [{
+            id:1,
+            name:'电器',
+            goods:[{
+                id:11,
+                name:'电视',
+            },{
+                id:12,
+                name:'冰箱',
+            }],
+        },{
+            id:2,
+            name:'手办',
+            goods:[{
+                id:21,
+                name:'夏娜'
+            },{
+                id:22,
+                name:'伊卡洛斯'
+            }]
+        }];
+        console.log(shangpin);
+        // 遍历数组
+        // 参数1：数组   // 参数2：id号
+        let o = {};
+        function getId(json,id){
+            // let o = {};//注意 由于forEach会遍历完才停止 索引写在里面的getId()会重新赋值let o = {} 所以要移到外边变为全局变量
+            json.forEach(function(item){
+                if(item.id == id) {
+                    // console.log(item);
+                    o = item;
+                } else if (item.goods && item.goods.length > 0) {
+                    o = getId(item.goods,id);
+                    //此处的为调用 id等实参传入了进来
+                }
+                // forEach自带终止循坏 只是浅遍历
+            })
+            return o;
+        }
+        console.log(getId(shangpin,2));
+       
+    </script>
+</body>
+</html>

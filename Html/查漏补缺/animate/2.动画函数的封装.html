@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: #1f1f1f;
+        }
+    </style>
+</head>
+<body>
+    <button>点击运动</button>
+    <div class="box"></div>
+    <script>
+        let box = document.querySelector('.box');
+        let btn = document.querySelector('button');
+        btn.addEventListener('click',function(){
+            console.log(1);
+            animate(box,200);
+        })
+        function animate(obj,target){
+            clearInterval(obj.timer);
+            // 给对象添加属性 
+            // 通过给对象添加属性的方式 把计时器存在属性中
+            // 那当不同对象使用此动画函数时 都是自身独特的属性 而不是全局一个等
+            obj.age = 18;
+            console.dir(obj);
+                obj.timer = setInterval(function(){
+                if(obj.offsetLeft >= target){
+                    clearInterval(obj.timer);
+                }
+                obj.style.left = `${obj.offsetLeft + 5}px`;
+            },20)
+        }
+    </script>
+</body>
+</html>

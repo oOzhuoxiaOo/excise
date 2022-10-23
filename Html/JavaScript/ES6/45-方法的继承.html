@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Father(uname,age) {
+            this.uname = uname;
+            this.age = age;
+            
+        }
+
+        function Son(uname,age,score) {
+            Father.call(this,uname,age);
+            this.score = score;
+        }
+        Father.prototype.sing = function() {
+            console.log('唱歌');
+        }
+        //🐍如果修改了子原型对象 父原型对象也会被修改 
+        // Son.prototype = Father.prototype;
+        Son.prototype = new Father();//实列对象 这样就可以i找到Father里的方法了
+        Son.prototype.playgame = function(){
+            console.log('游戏');
+        }
+        Son.prototype.constructor = Son;//指向改变 从新指向Son
+        
+        // Son.prototype
+        let son = new Son('夏娜',16,999);
+        console.log(son);
+        console.log(Son.prototype);
+        console.log(Father.prototype);
+        // son.sing();
+    </script>
+</body>
+</html>

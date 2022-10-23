@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        // 块级作用域 如for if里声明的外部不能调用 
+        // 但在es6之前在外部可以调用 不建议使用
+        for(var i = 0; i< 3; i++) {
+            var a = 5;
+        }
+        console.log(a);
+    </script>
+</head>
+
+<body></body>
+
+</html>

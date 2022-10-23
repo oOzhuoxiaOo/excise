@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            position:relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        box1中
+        <div class="box01">
+            box01中
+            <div class="box001">
+                box001中
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var box1 = document.querySelector('.box1');
+        console.dir(box1);
+        // 包含所有标签和text和换行
+        // innerHTML: "\n        box1中\n        <div class=\"box01\">\n            box01中\n            <div class=\"box001\">\n                box001中\n            </div>\n        </div>\n    "
+        console.log(box1.innerHTML);
+        // 包含所有text和换行
+        console.log(box1.innerText);
+    </script>
+</body>
+</html>

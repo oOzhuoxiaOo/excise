@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition和radio</title>
+    <style>
+        body {
+            line-height: 1.5rem;
+        }
+        .menu {
+            width: 500px;
+            background-color: rgb(0, 0, 0);
+            color: aliceblue;
+        }
+        .themes-switch {
+            display: flex;
+            position: relative;
+        }
+        .themes-switch input {
+            display: none;
+        }
+        .themes-switch label {
+            width: calc(100% /  3);
+            z-index: 2;
+        }
+        .slider {
+            position: absolute;
+            /* https://blog.csdn.net/weixin_47966295/article/details/117045675 */
+            /* 通过绝对定位设置高度 */
+            top: 3px;
+            bottom: 3px;
+            width: calc(100% / 3);
+            transform: translateX(0);
+            background-color: rgb(212, 104, 104);
+            z-index: 1;
+            transition: transform .3s;
+        }
+        .menu .menu-header .themes-switch input:nth-of-type(2):checked ~ .slider {
+            transform: translateX(100%);
+        }
+        .menu .menu-header .themes-switch input:nth-of-type(3):checked ~ .slider {
+            transform: translateX(200%);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="menu-header">
+            <div class="menu-header-title">
+                <h2>theme</h2>
+            </div>
+            <div class="themes-switch">
+                <!-- name相等才能多选一 -->
+                <!-- label：name属性和input:id一致 才能让label和input关联 -->
+                <!-- name控件的名称，与表单数据一起提交。 -->
+                <!-- radio 🥩：无线电 它们被称为单选按钮，因为它们的外观和操作方式与老式无线电上的按钮类似💧 //
+                     单选按钮，允许在多个拥有相同 name 值的选项中选中其中一个。 -->
+                <input type="radio" name="themes" id="light-theme">
+                <label for="light-theme">夏娜 </label>
+                <!-- checked如果该元素的 type 属性的值为 radio 或者 checkbox，
+                    则该布尔属性的存在与否表明了该控件是否是默认选择状态 -->
+                <input type="radio" name="themes" id="dark-theme">
+                <label for="dark-theme">伊卡洛斯 </label>
+                <input type="radio" name="themes" id="black-theme">
+                <label for="black-theme">穹 </label>
+                <!-- <div class="slider"></div> -->
+                <span class="slider"></span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

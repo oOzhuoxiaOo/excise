@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 50px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        // 
+        // document.onkeydown = function() {
+        //     console.log('down');
+        // }
+        // document.onkeypress = function() {
+        //     console.log('press');
+        // }
+        // document.onkeyup = function() {
+        //     console.log('up');
+        // }
+        // 按下触发
+        document.addEventListener('keydown',function() {
+            console.log('down');
+        })
+        // 按下触发 🐍但不识别功能性箭头 比如ctrl shift等
+        document.addEventListener('keypress',function() {
+            console.log('press');
+        })
+        // 谈起触发
+        document.addEventListener('keyup',function() {
+            console.log('up');
+        })
+        // 📕执行顺序 keydown keypress keyup
+        </script>
+</body>
+</html>

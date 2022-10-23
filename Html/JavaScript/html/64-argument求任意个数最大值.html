@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        // arguments求任意个数最大值
+        function getMax() {
+            var max = arguments[0];
+            for(var i = 1; i < arguments.length - 1; i++) {
+                if(max < arguments[i]) {
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        var max = getMax(1, 5, 10, 2, 9);
+        console.log(max);
+    </script>
+</head>
+
+<body></body>
+
+</html>

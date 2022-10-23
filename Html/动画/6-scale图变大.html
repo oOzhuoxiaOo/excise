@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .picture {
+            border: solid;
+            width: 300px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        img {
+            display: block;
+            width: 100%;
+            transition: transform .5s;
+            /* border-radius: 10px; */
+            /* 设置缩放中心点 */
+            /* transform-origin: left top; */
+            transform-origin: center center;
+            /* transform-origin: 90% 50%; */
+        }
+        img:hover {
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+    <div class="picture">
+        <img src="../../Image/Pz-0001.png" alt="">
+    </div>
+</body>
+</html>

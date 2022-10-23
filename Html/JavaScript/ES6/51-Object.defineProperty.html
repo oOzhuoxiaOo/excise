@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            id:1,
+            name:'夏娜',
+            price:999
+        }
+        // 修改对象
+        // Object.difineProperty(对象，对象的属性,对象的属性值)
+        // 如果没有该属性 则视为添加 有则为修改
+        Object.defineProperty(obj,'price',{
+            value:1000
+        })
+        Object.defineProperty(obj,'like',{
+            value:'黑暗',
+            // enumerable默认为false 禁止遍历 想要遍历键时 用此方法添加的对象可以设为enumeraable:true
+            enumerable:true,
+            // configurable:true 该属性可以被删除 
+            // 默认为false 不被允许删除 并且不能再修改第三个参数
+            configurable:true,
+        })
+        Object.defineProperty(obj,'id',{
+            // 不允许需改这个属性值
+            // writable:false,
+            // true则允许修改
+            writable:true,
+
+        })
+        obj.id = 2;
+        delete obj.like;
+        console.log(obj);
+        console.log(Object.keys(obj))//遍历键
+    </script>
+</body>
+</html>

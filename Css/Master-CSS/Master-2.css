@@ -1,0 +1,185 @@
+/* 设置所有元素的样式 */
+* {
+   
+    margin:0 auto; /* 上边和下边无外边框 */
+                   /* 水平方向居中 */                 
+    box-sizing:border-box; /*告诉浏览器：你想要设置的边框和内边距的值是包含在width内的 */                     
+}
+
+.home {
+ 
+   width: 100%;
+    padding-right: 15px;
+   padding-left: 15px;
+   margin-right: auto;
+   margin-left: auto; 
+    overflow: hidden;/* 内容会被修剪，并且其余内容不可见 */
+    border: brown solid;
+}
+
+.content {
+    perspective:340px;
+    width: 100%;
+    border: brown solid;
+
+}
+
+.header {
+    padding: 5px;
+    width: 100%;
+    height: 450px;
+    border: gainsboro solid;
+    position: relative;
+}
+
+.nav-1{
+    margin: 5px;
+    border:1px chartreuse  solid;
+    padding: 2px;
+    display: flex;
+    
+}
+.nav-1 a{
+    padding: 0 5px;
+    border-bottom: 2px solid transparent;
+    font-size: 20px;
+    font-family: Microsoft YaHei;/*微软雅黑*/
+    color: aliceblue;
+    text-decoration: none;/*取消下划线*/
+}
+
+.header-canopy {
+    margin-bottom: 5px;
+    border: peru solid;
+}
+
+.hender-canopy-cover {
+    height: 285px;
+    border: cornflowerblue solid;
+
+}
+
+.header-canopy-menu {
+    height: 60px;
+    border: cornflowerblue solid;
+}
+
+.header-canopy-menu-title {
+   
+    position: absolute;
+    color: white;
+    bottom: 120px;
+    padding: 15px;
+    left: 175px;
+    font-size:2em;
+    border: azure  solid;
+}
+
+.header-canopy-menu-description {
+    position:absolute;
+    font-family:STXingkai;
+    font-size: 1.5em;;
+    color: azure;
+    padding: 0 15px;
+    line-height: 50px;
+    left:175px;
+    overflow: hidden;
+    text-overflow: ellipsis;/*被裁减显示省略号*/
+    white-space: nowrap;/*和 normal 一样，连续的空白符会被合并。但文本内的换行无效。*/
+    text-transform: none;/*文本大小写字母设置*/
+    max-width: calc(100% - 230px);/*max-width 属性用来给元素设置最大宽度值. 定义了max-width的元素会在达到max-width值之后避免进一步按照width属性设置变大.*/
+    border:gold solid
+
+}
+
+.header-canopy-menu-avatar {
+position: absolute;
+height: 160px;
+width: 160px;
+border-radius: 50%;
+bottom: 50px;
+box-shadow: 0px 1px 10px rgba(0, 64, 128, .1);
+overflow: hidden;
+border: cyan solid;
+}
+
+/* body style */
+body {
+    background-image: url(../../image/Wp-0001.jpg);
+    background-repeat: no-repeat;/*图像不会被重复(*/
+    background-attachment: fixed;/*此关键属性值表示背景相对于视口固定。即使一个元素拥有滚动机制，背景也不会随着元素的内容滚动。*/
+    background-origin: border-box;/*背景图片的摆放以border区域为参考*/
+    background-size: cover;
+    padding:0px;
+    margin:0px;
+    text-align:center/*新设置的box居中*/
+}
+
+/* 外层父div style */
+.container {
+    margin:0 auto;
+    height: 100%; 
+    border: chartreuse solid;
+    
+}
+
+/* 上中下三层样式 */
+#top {
+    width:100%;
+    height: 100px;
+    padding: 10px;
+    background-color:#ffffcc;
+}
+#main {
+    width: 100%;
+    height: 380px;
+    padding: 10px;
+    /* background-color:cadetblue; */
+}
+#foot {
+    width: 100%;
+    height: auto;
+    padding:10px;
+    /* background-color: darkgoldenrod; */
+}
+
+/* 页眉左右分栏 */
+#logo {
+    width: 200px;
+    height:80px;
+    float: left;
+    /* background-color:dimgray; */
+    padding-top: 30px;
+}
+#search {
+    width:750px;
+    height: 80px;
+    float:right;
+    /* background-color:plum; */
+    padding-top: 30px;
+
+}
+
+/* 主题部分三分栏 */
+#left {
+    width:200px;
+    height: 360px;
+    /* background-color: darkseagreen; */
+    float:left;
+    padding-top: 30px;
+}
+#center {
+    width: 540px;
+    height: 360px;
+    float:left;
+    margin-left:10px;
+    padding-top: 30px;
+    /* background-color: darkmagenta; */
+}
+#right {
+    width:200px;
+    height: 360px;
+    float: right;
+    /* background-color: chartreuse; */
+    padding-top: 30px;
+}

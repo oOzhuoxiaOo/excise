@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 有一个对象 来判断是否有该属性 对象['属性名']
+        // var o = {
+        //     age: 18
+        // }
+        // if (o['age']) {
+        //     console.log('里面有该属性');
+        // } else {
+        //     console.log('没有该属性');
+        // }
+
+        // 判断一个字符串'abcoefoxyozzopp'中出现最多的字符 并统计次数
+        // o.a = 1
+        // o.b = 1
+        // o.c = 1
+        // o.o = 4
+        // 核心算法 利用gcharAt遍历这个字符串;
+        var str = 'abcoefoxyozzopp';
+        var o = {};
+         o.a = 0;
+         o.b = 0;
+         o.c = 0;
+         o.o = 0;
+        for(var i = 0; i < str.length; i++) {
+            var chars = str.charAt(i);
+            if(o[chars]) { //o[chars] 得到的是属性值
+                o[chars]++;
+            } else {
+                o[chars] = 1;
+            }
+        }
+        console.log(o);
+        // 2.遍历对象
+        var max = 0;
+        var ch = '';
+        for(var k in o) {
+            // k为属性名
+            if(o[k] > max) {
+                max = o[k];
+                ch = k;
+            }
+        }
+        console.log(max);
+        console.log('最多的字符是' + ch);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

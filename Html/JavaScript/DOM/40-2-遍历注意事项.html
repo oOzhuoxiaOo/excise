@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+   var arr = [11,22,33,44];
+var objArr = {
+    sname:'夏娜',
+    age:16,
+    score:90
+}
+var objArrs = [
+    {
+        sname:'夏娜',
+        age:16,
+        score:90
+    },
+    {
+        sname:'伊卡洛斯',
+        age:18,
+        score:0
+    }
+]
+for(var k in arr) {
+    console.log('一维数组中k为坐标号:' + k);
+}
+for(var k in objArr) {
+    console.log('⭐:' + k);
+    console.log('一维对象数组:' + objArr[k]);
+}
+for(var k in objArrs) {
+    console.log('⭐:' + k);
+    console.log('二维对象数组用一维模式出错:' + objArr[k]);
+}
+
+for(var k in objArrs[0]) {
+    console.log('⭐:' + k);
+    console.log('二维对象数组:' + objArrs[0][k]);
+}
+    </script>
+</body>
+</html>

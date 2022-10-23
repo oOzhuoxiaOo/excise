@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            body {
+    
+                /* 👇行高也能继承,此时表示为展示字体大小的1.5倍行高,必须加字体类型等:"宋体"" */
+                /* 优势,子元素根据文字大小自适应行高 */
+               font: 24px / 1.5 "宋体";
+            }
+         
+            .p2 {
+                /* 此时本文字行高为16*1.5=24px */
+                font-size: 16px;
+            }
+        </style>
+        <body>
+           <div>
+               <p>夏娜菠萝包1</p>
+               <p class="p2">夏娜菠萝包2</p>
+               <!-- ul没有指定文字和行高,则继承父亲body -->
+               <ul>
+                   <li>夏娜菠萝包3</li>
+               </ul>
+           </div>
+        </body>
+    </head>
+</html>

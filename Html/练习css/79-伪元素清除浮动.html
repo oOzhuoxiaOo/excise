@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            border: solid;
+        }
+        .cox1,
+        .cox2{
+            float: left;
+            width: 200px;
+            height: 200px;
+        }
+        .cox1 {
+            background-color: rgb(243, 86, 72);
+            margin-left: 40px;
+        }
+        .cox2 {
+            background-color: rgb(154, 150, 255);
+        }
+        /* 对自适应父元素用伪元素清除浮动 */
+        .box1::after {
+            content: '1';
+            display: block; 
+            /* table也可 */
+            /* display: table; */
+            /* width: 50px; */
+            /* height: 50px; */
+            background-color: rgb(26, 205, 20);
+            clear:both;
+            /* clear: left; */
+            /* clear: right; */
+           
+        }
+        .cox3 {
+            /* clear: left; */
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="cox1"></div>
+        <div class="cox2"></div>
+        <div class="cox3">123</div>
+    </div>
+</body>
+</html>
