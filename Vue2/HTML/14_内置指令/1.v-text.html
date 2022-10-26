@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../../JS/vue.js"></script>
+  </head>
+
+  <body>
+    <!-- 📕我们学过的指令:
+                v-bind  :   单向绑定解析表达式，可简写为 :xxx
+                v-model :   双向数据绑定
+                v-for   :   遍历数组/对象/字符串
+                v-on    :   绑定事件监听、可简写为@
+                v-if    :   条件渲染(动态控制节点是否存在)
+                v-else  :   条件渲染(动态控制节点是否存在)
+                v-show  :   条件渲染(动态控制节点是否展示) -->
+    <div id="app">
+      <h2>你好，夏娜，又要学新东西啦</h2>
+      <h2>v-text</h2>
+      <h2>我是,{{name}}</h2>
+
+      <h2>我是,{{str}}</h2>
+      <!-- v-text指令会覆盖替换所选标签内的文本内容，类似innerText
+        不能写内置标签，比如<h5> 我是h5标签 </h5>在页面显示就是字符串 -->
+      <h2 v-text="str">我是</h2>
+    </div>
+    <script>
+      let vm = new Vue({
+        el: "#app",
+        data: {
+          name: "夏娜",
+          str: "<h5> 我是h5标签 </h5>",
+        },
+      });
+    </script>
+  </body>
+</html>

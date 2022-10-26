@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义指令</title>
+    <script src="../../JS/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        
+        需求1:定义一个v-big指令，和v-text功能类似，但会把绑定的数据放大十倍
+        需求2:定义一个v-fbind指令，和v-bind功能类似，但可以让其所绑定的input元素默认获取焦点
+     -->
+    <div id="app">
+        <h2>你好，夏娜，又要学新东西啦</h2>
+        <h2>自定义指令</h2>
+        <h2>需求1:</h2>
+        <h2 v-big="n"></h2>
+        <h2>n:{{n}}</h2>
+        <button @click="n++">点击n++</button>
+        <hr>
+        <h2>需求2:</h2>
+        <input type="text" v-fbind>
+    </div>
+
+    <script>
+        let vm = new  Vue({
+            el:'#app',
+            data: {
+                name: 'xiana',//如果数据改变，但模板中并没有用到该数据，就不会从新解析模板
+                n: 1,
+
+            },
+            methods:{  
+            },
+            directives:{
+                /* element:指令所在的dom元素
+                    binding:指令所绑定的封装后的对象
+                    (name:指令函数名big,rawName:指令名v-big,
+                    expression:指令绑定的表达式n,value:表达式的值1) */
+                big(element,binding){
+                    console.log('执行了一次')//指令所在的模板被从新解析时执行(模板依赖的数据改变等引起解析模板)
+                    console.log(element);
+                    console.log(binding);
+                    // 通过操作DOM元素根据数据改变innerText等
+                    element.innerText = binding.value * 10
+                },
+                fbind(element,binding) {
+                    element.addEventListener('fo')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

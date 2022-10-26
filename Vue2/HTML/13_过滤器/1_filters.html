@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../JS/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <h2>hello xiana</h2>
+        <h2>{{cpName}}</h2>
+        <h2>{{mhName()}}</h2>
+        <!--过滤器: 
+            0.定义:对要显示的数据进行特定格式化后再显示（适用于一些简单逻辑的处理
+            1.管道(|),也是判断或里的||,
+            2.过滤器中，左边name会作为参数传给右边ftName
+            3.可以填多个过滤器，参数为左边过滤器返回的值 ,也可以添加格外参数
+            4.应用场景：插值语法(多),v-bind:绑定自定义属性中可用 
+                        (1).{{name | ftName}(多)}
+                        (2):x='name | ftName'（罕见）
+            5.不改变元数据，是产生新的数据-->
+            
+            
+        <h2>{{name | ftName}}</h2>
+        <h2>{{name | ftName | ftftName}}</h2>
+    </div>
+    <hr>
+    <div id="app2">
+        <h2>app2</h2>
+        <h2>{{name2}}</h2>
+        <h2>{{name2 | ftNameAll}}</h2>
+    </div>
+
+    <script>
+        //想在别的vm组件身上使用，需要定义全局过滤器
+        Vue.filter('ftNameAll',function(val){
+            return val + ' 全局filter';
+        })
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                name:'xiana',
+            },
+            computed:{
+                cpName(){
+                    return this.name + '天下第一';
+                }
+            },
+            methods: {
+                mhName(){
+                    return this.name + '天下第二'
+                }
+            },
+            filters:{
+                ftName(val,str = '天下第三'){//此处天下第三为es6新特性 可在最后哦位置自定义一个值参数
+                    return val + str;
+                },
+                ftftName(val,str='天下第四'){
+                    return val + str;
+                }
+            }
+        })
+
+        let vm2 = new Vue({
+            el:'#app2',
+            data:{
+                name2:'qiong'
+            }
+        })
+    </script>
+</body>
+</html>
